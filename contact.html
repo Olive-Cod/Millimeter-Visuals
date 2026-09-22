@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Contact | Millimeter Visuals</title>
+
+  <!-- CONTACT CSS -->
+  <link rel="stylesheet" href="css/contact.css">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- =====================================================
+        NAVIGATION — fijo siempre visible (igual que About)
+  ====================================================== -->
+
+  <header class="nav" id="siteNav">
+
+    <a href="index.html" class="logo">
+      MILLIMETER VISUALS<sup>™</sup>
+    </a>
+
+    <button class="menu-btn" id="menuBtn">
+      MENU
+      <span class="menu-plus">+</span>
+    </button>
+
+  </header>
+
+
+  <!-- =====================================================
+        FULLSCREEN MENU
+  ====================================================== -->
+
+  <div class="fullscreen-menu" id="fullscreenMenu">
+
+    <div class="menu-inner">
+
+      <nav class="fullscreen-nav">
+
+        <a href="Aboutme.html">ABOUT</a>
+
+        <a href="contact.html">CONTACT</a>
+
+      </nav>
+
+    </div>
+
+  </div>
+
+
+  <!-- =====================================================
+        MAIN CONTENT
+  ====================================================== -->
+
+  <main class="contact-page">
+
+    <!-- =================================================
+            CONTACT INTRO
+      ================================================== -->
+
+    <section class="contact-intro">
+
+      <!-- TOP — MAIN MESSAGE -->
+      <div class="contact-intro-header">
+        <span class="contact-eyebrow">FOR INQUIRIES & BOOKINGS</span>
+        <h1>GET IN TOUCH</h1>
+      </div>
+
+      <!-- BOTTOM — CONTACT INFORMATION -->
+      <div class="contact-details">
+
+        <!-- EMAIL -->
+        <div class="contact-detail">
+          <span class="contact-detail-label">SEND AN EMAIL</span>
+          <a href="mailto:millimetervisuals.studio@gmail.com" class="contact-detail-value">
+            millimetervisuals.studio@gmail.com
+          </a>
+        </div>
+
+        <!-- INSTAGRAM -->
+        <div class="contact-detail">
+          <span class="contact-detail-label">INSTAGRAM</span>
+          <a href="https://instagram.com/millimetervisuals" target="_blank" rel="noopener" class="contact-detail-value">
+            @millimetervisuals
+          </a>
+        </div>
+
+        <!-- LOCATION -->
+        <div class="contact-detail">
+          <span class="contact-detail-label">BASED IN</span>
+          <span class="contact-detail-value">
+            BOSTON, MA
+          </span>
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =================================================
+            BOOKING / FORM
+      ================================================== -->
+
+    <section class="booking-section">
+
+
+      <div class="booking-header">
+
+        <span class="booking-small">
+          READY WHEN YOU ARE
+        </span>
+
+        <h2>
+          START A CONVERSATION
+        </h2>
+
+        <p>
+          Tell me what you're planning and I'll get back to you soon.
+        </p>
+
+      </div>
+
+
+      <!-- FORM -->
+
+      <form class="contact-form" action="https://formspree.io/f/xjkpgbny" method="POST">
+
+
+        <!-- ROW 1 -->
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="name">
+              Full name *
+            </label>
+
+            <input type="text" id="name" name="name" placeholder="Your name" required>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="email">
+              Email *
+            </label>
+
+            <input type="email" id="email" name="email" placeholder="your@email.com" required>
+
+          </div>
+
+        </div>
+
+
+        <!-- ROW 2 -->
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="phone">
+              Phone number
+            </label>
+
+            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="date">
+              Preferred date *
+            </label>
+
+            <input type="date" id="date" name="date" required>
+
+          </div>
+
+        </div>
+
+
+        <!-- ROW 3 -->
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label for="service">
+              What are you looking for? *
+            </label>
+
+            <select id="service" name="service" required>
+
+              <option value="">
+                Select a service
+              </option>
+
+              <option value="Portraits">
+                Portraits
+              </option>
+
+              <option value="Weddings">
+                Weddings
+              </option>
+
+              <option value="Studio">
+                Studio
+              </option>
+
+              <option value="Events">
+                Events
+              </option>
+
+              <option value="Video">
+                Video
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label for="referral">
+              How did you hear about me?
+            </label>
+
+            <select id="referral" name="referral">
+
+              <option value="">
+                Select an option
+              </option>
+
+              <option value="Instagram">
+                Instagram
+              </option>
+
+              <option value="Friend">
+                Friend
+              </option>
+
+              <option value="Referral">
+                Referral
+              </option>
+
+              <option value="Other">
+                Other
+              </option>
+
+            </select>
+
+          </div>
+
+        </div>
+
+
+        <!-- MESSAGE -->
+
+        <div class="form-group message-group">
+
+          <label for="message">
+            Tell me about your project
+          </label>
+
+          <textarea id="message" name="message" placeholder="Tell me what you're planning..."></textarea>
+
+        </div>
+
+
+        <!-- EMAIL SUBJECT -->
+
+        <input type="hidden" name="_subject" value="New Inquiry — Millimeter Visuals">
+
+
+        <!-- SUBMIT -->
+
+        <div class="submit-area">
+
+          <button type="submit" class="submit-button">
+
+            SEND INQUIRY
+
+          </button>
+
+          <p class="form-success" id="formSuccess">
+
+            SENT — THANK YOU. I'LL BE IN TOUCH SOON.
+
+          </p>
+
+        </div>
+
+
+      </form>
+
+    </section>
+
+  </main>
+
+
+  <!-- =========================================================
+       FOOTER CINEMATOGRÁFICO CON REGLA MILIMÉTRICA (MM)
+  ========================================================= -->
+  <footer class="film-credits-footer">
+
+    <!-- TEXTO GIGANTE Y DETALLES -->
+    <div class="credits-brand-giant">
+      PHOTO & VIDEO
+      PRODUCTION
+    </div>
+
+    <!-- CINTA / REGLA DE MILÍMETROS (MM RULER) -->
+    <div class="mm-ruler-container">
+      <div class="mm-ruler">
+        <!-- Las líneas se generan limpiamente con CSS -->
+        <span class="mm-mark" data-mm="-30"></span>
+        <span class="mm-mark" data-mm="-25"></span>
+        <span class="mm-mark" data-mm="-20"></span>
+        <span class="mm-mark" data-mm="-15"></span>
+        <span class="mm-mark" data-mm="-10"></span>
+        <span class="mm-mark" data-mm="-5"></span>
+        <span class="mm-mark main-zero" data-mm="0"></span>
+        <span class="mm-mark" data-mm="5"></span>
+        <span class="mm-mark" data-mm="10"></span>
+        <span class="mm-mark" data-mm="15"></span>
+        <span class="mm-mark" data-mm="20"></span>
+        <span class="mm-mark" data-mm="25"></span>
+        <span class="mm-mark" data-mm="30"></span>
+      </div>
+    </div>
+
+  </footer>
+
+
+  <!-- =====================================================
+        JAVASCRIPT
+  ====================================================== -->
+
+  <script>
+
+    /* PAGE FADE IN */
+
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+
+    /* PAGE TRANSITIONS */
+
+    document.querySelectorAll("a").forEach(link => {
+
+      link.addEventListener("click", function (e) {
+
+        const href = this.getAttribute("href");
+
+        if (
+          href &&
+          !href.startsWith("#") &&
+          !href.startsWith("http") &&
+          !href.startsWith("mailto:") &&
+          !href.startsWith("tel:")
+        ) {
+
+          e.preventDefault();
+
+          document.body.classList.remove("loaded");
+
+          setTimeout(() => {
+            window.location = href;
+          }, 400);
+
+        }
+
+      });
+
+    });
+
+
+    /* NAV SCROLL — fijo siempre visible, solo suma un borde
+       sutil al hacer scroll (igual que About) */
+
+    const siteNav = document.getElementById("siteNav");
+
+    if (siteNav) {
+
+      const toggleNavShadow = () => {
+
+        siteNav.classList.toggle(
+          "is-scrolled",
+          window.scrollY > 8
+        );
+
+      };
+
+      toggleNavShadow();
+
+      window.addEventListener(
+        "scroll",
+        toggleNavShadow,
+        { passive: true }
+      );
+
+    }
+
+
+    /* FULLSCREEN MENU */
+
+    const menuBtn =
+      document.getElementById("menuBtn");
+
+    const fullscreenMenu =
+      document.getElementById("fullscreenMenu");
+
+
+    if (menuBtn && fullscreenMenu) {
+
+      menuBtn.addEventListener("click", () => {
+
+        fullscreenMenu.classList.toggle("active");
+
+        menuBtn.querySelector(".menu-plus").textContent =
+          fullscreenMenu.classList.contains("active")
+            ? "×"
+            : "+";
+
+      });
+
+    }
+
+
+    /* POLICY */
+
+    const policyButton =
+      document.getElementById("policyButton");
+
+    const policyOverlay =
+      document.getElementById("policyOverlay");
+
+    const policyClose =
+      document.getElementById("policyClose");
+
+
+    function openPolicy() {
+
+      if (policyOverlay) {
+
+        policyOverlay.classList.add("active");
+
+        policyOverlay.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+        document.body.classList.add("policy-open");
+
+      }
+
+    }
+
+
+    function closePolicy() {
+
+      if (policyOverlay) {
+
+        policyOverlay.classList.remove("active");
+
+        policyOverlay.setAttribute(
+          "aria-hidden",
+          "true"
+        );
+
+        document.body.classList.remove("policy-open");
+
+      }
+
+    }
+
+
+    if (policyButton) {
+      policyButton.addEventListener(
+        "click",
+        openPolicy
+      );
+    }
+
+
+    if (policyClose) {
+      policyClose.addEventListener(
+        "click",
+        closePolicy
+      );
+    }
+
+
+    if (policyOverlay) {
+
+      policyOverlay.addEventListener(
+        "click",
+        (event) => {
+
+          if (event.target === policyOverlay) {
+            closePolicy();
+          }
+
+        }
+      );
+
+    }
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          event.key === "Escape" &&
+          policyOverlay &&
+          policyOverlay.classList.contains("active")
+        ) {
+
+          closePolicy();
+
+        }
+
+      }
+    );
+
+
+    /* FORMSPREE */
+
+    const contactForm =
+      document.querySelector(".contact-form");
+
+    const formSuccess =
+      document.getElementById("formSuccess");
+
+
+    if (contactForm) {
+
+      contactForm.addEventListener(
+        "submit",
+        async function (e) {
+
+          e.preventDefault();
+
+          const submitButton =
+            contactForm.querySelector(
+              "button[type='submit']"
+            );
+
+          submitButton.disabled = true;
+
+          submitButton.textContent =
+            "SENDING...";
+
+
+          const formData =
+            new FormData(contactForm);
+
+
+          try {
+
+            const response =
+              await fetch(
+                contactForm.action,
+                {
+                  method: "POST",
+                  body: formData,
+                  headers: {
+                    "Accept": "application/json"
+                  }
+                }
+              );
+
+
+            if (response.ok) {
+
+              contactForm.reset();
+
+              submitButton.textContent =
+                "SENT";
+
+              if (formSuccess) {
+                formSuccess.classList.add("show");
+              }
+
+            } else {
+
+              submitButton.disabled = false;
+
+              submitButton.textContent =
+                "SEND INQUIRY";
+
+              if (formSuccess) {
+                formSuccess.classList.remove("show");
+              }
+
+            }
+
+
+          } catch (error) {
+
+            submitButton.disabled = false;
+
+            submitButton.textContent =
+              "SEND INQUIRY";
+
+            if (formSuccess) {
+              formSuccess.classList.remove("show");
+            }
+
+            console.error(
+              "Formspree error:",
+              error
+            );
+
+          }
+
+        }
+      );
+
+    }
+
+  </script>
+
+</body>
+
+</html>

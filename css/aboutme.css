@@ -1,0 +1,606 @@
+/* =========================================================
+   MILLIMETER VISUALS — ABOUT PAGE
+========================================================= */
+
+:root {
+  --black: #0a0a0a;
+  --white: #f8f8f1;
+  --grey: #9a9a93;
+  --accent: #ff3b00;
+  --line: rgba(248, 248, 241, 0.14);
+  --ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --nav-height: 78px;
+  --nav-height-mobile: 64px;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  width: 100%;
+  background: var(--black);
+}
+
+body {
+  width: 100%;
+  min-height: 100%;
+  overflow-x: hidden;
+  font-family: "Archivo", sans-serif;
+  background: var(--black);
+  color: var(--white);
+  opacity: 0;
+  transition: opacity 0.6s ease;
+  -webkit-font-smoothing: antialiased;
+}
+
+body.loaded {
+  opacity: 1;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: inherit;
+}
+
+::selection {
+  background: var(--white);
+  color: var(--black);
+}
+
+:focus-visible {
+  outline: 2px solid var(--white);
+  outline-offset: 3px;
+}
+
+/* =========================================================
+   NAV — fijo siempre visible (a diferencia del home, acá NO
+   se oculta ni aparece con el scroll)
+========================================================= */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: var(--nav-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 5%;
+  z-index: 1500;
+  background: var(--black);
+  transition: border-color 0.3s ease;
+}
+
+.nav {
+  background: transparent !important;
+}
+
+.nav.is-scrolled {
+  border-bottom: px solid var(--line);
+}
+
+.logo {
+  font-family: "Archivo", sans-serif;
+  font-weight: 900;
+  font-size: clamp(1.2rem, 2.4vw, 1.85rem);
+  line-height: 1;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.logo sup {
+  font-size: 0.45em;
+  /* Proporción visual limpia respecto al logo del nav */
+  vertical-align: top;
+  /* Se alinea con el tope superior de la S */
+  position: relative;
+  top: 0.08em;
+  /* Ajuste fino para la altura del nav */
+  margin-left: 1px;
+  /* Espaciado exacto tras la palabra VISUALS */
+  line-height: 1.2;
+  /* Previene que empuje o agrande la altura del header */
+  font-weight: 700;
+}
+
+.menu-btn {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: opacity 0.25s ease;
+}
+
+.menu-btn:hover {
+  opacity: 0.6;
+}
+
+.menu-plus {
+  display: inline-block;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1;
+  transition: transform 0.3s var(--ease);
+}
+
+.menu-btn:hover .menu-plus {
+  transform: rotate(90deg);
+}
+
+/* =========================================================
+   FULLSCREEN MENU — mismo fade-up escalonado que index
+========================================================= */
+.fullscreen-menu {
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100svh;
+  background: var(--black);
+  color: var(--white);
+  z-index: 1400;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.45s var(--ease), visibility 0.45s var(--ease);
+  overflow: hidden;
+}
+
+.fullscreen-menu.active {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.menu-inner {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.fullscreen-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.fullscreen-nav a {
+  display: inline-block;
+  font-weight: 900;
+  font-size: clamp(2.4rem, 6vw, 5.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), color 0.3s ease;
+}
+
+.fullscreen-menu.active .fullscreen-nav a {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fullscreen-menu.active .fullscreen-nav a:nth-child(1) {
+  transition-delay: 0.08s;
+}
+
+.fullscreen-menu.active .fullscreen-nav a:nth-child(2) {
+  transition-delay: 0.16s;
+}
+
+.fullscreen-nav a:hover {
+  color: var(--grey);
+}
+
+/* =========================================================
+   KICKER — mismo componente "01 — Colección" del home,
+   reutilizado acá como "MV — Studio" / "01 — Creative Director"
+========================================================= */
+.about-kicker {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.kicker-num {
+  font-family: "Archivo", sans-serif;
+  font-weight: 700;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.kicker-line {
+  width: 26px;
+  height: 1px;
+  background: var(--line);
+}
+
+.kicker-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0.75;
+}
+
+/* =========================================================
+   01 — HERO / MISSION (Centrado)
+========================================================= */
+
+.about-hero {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Centrado horizontal */
+  justify-content: center;
+  text-align: center;
+  /* Texto centrado */
+  gap: 28px;
+  padding: calc(var(--nav-height) + 40px) 5% 60px;
+  background: var(--black);
+}
+
+.about-headline {
+  width: min(950px, 100%);
+  font-weight: 900;
+  font-size: clamp(2.4rem, 6.2vw, 5.6rem);
+  line-height: 0.94;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* =========================================================
+   02 — FOUNDER / ABOUT (Centrado y Texto Vertical)
+========================================================= */
+
+.founder-section {
+  width: 100%;
+  min-height: 85vh;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  justify-items: center;
+  gap: 50px;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: calc(var(--nav-height) + 80px) 5% 100px;
+  /* antes: 60px 5% 100px */
+  background: var(--black);
+}
+
+@media (max-width: 900px) {
+  .founder-section {
+    padding-top: calc(var(--nav-height-mobile) + 60px);
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 40px;
+  }
+}
+
+/* CONTENEDOR CON TEXTO VERTICAL A LA IZQUIERDA */
+.founder-media-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+/* TEXTO GRANDE VERTICAL EN EL LADO IZQUIERDO */
+.media-badge-vertical {
+  font-family: "Archivo", sans-serif;
+  font-size: clamp(1rem, 2vw, 1.4rem);
+  font-weight: 900;
+  letter-spacing: 4px;
+  color: var(--white);
+  text-transform: uppercase;
+  writing-mode: vertical-rl;
+  /* Orientación vertical */
+  transform: rotate(180deg);
+  /* Orientación de lectura hacia arriba */
+  white-space: nowrap;
+  opacity: 0.9;
+}
+
+/* FOTO VERTICAL CONTROLADA */
+.founder-media {
+  width: 100%;
+  max-width: 320px;
+  /* Tamaño contenido y proporcionado */
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  border-radius: 2px;
+}
+
+.founder-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* INFORMACIÓN DEL FUNDADOR */
+.founder-info {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  gap: 18px;
+}
+
+.founder-name {
+  font-weight: 900;
+  font-size: clamp(2.8rem, 5vw, 4.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.02em;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .founder-section {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    gap: 40px;
+  }
+
+  .founder-info {
+    align-items: center;
+    text-align: center;
+  }
+
+  .founder-tags {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 500px) {
+  .founder-media-wrapper {
+    flex-direction: column-reverse;
+    gap: 15px;
+  }
+
+  .media-badge-vertical {
+    writing-mode: horizontal-tb;
+    transform: none;
+    font-size: 0.9rem;
+    letter-spacing: 3px;
+  }
+}
+
+/* =========================================================
+   FOOTER CON REGLA MILIMÉTRICA (MM)
+========================================================= */
+
+.film-credits-footer {
+  width: 100%;
+  background: #0a0a0a;
+  border-top: 0px solid var(--line);
+  padding: 80px 0 0;
+  /* Padding inferior en 0 para pegar la regla */
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+  font-family: "Archivo", sans-serif;
+  color: var(--white);
+  overflow: hidden;
+}
+
+.credits-header {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 0 5%;
+}
+
+.credits-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: var(--grey);
+  border: 1px solid var(--line);
+  padding: 4px 12px;
+  border-radius: 20px;
+  text-transform: uppercase;
+}
+
+.credits-title {
+  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
+  font-weight: 900;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+/* GRID DE CRÉDITOS */
+.credits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 40px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+  width: 100%;
+  text-align: center;
+  padding: 0 5%;
+}
+
+.credits-col {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.credits-role {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--grey);
+  text-transform: uppercase;
+  margin-top: 10px;
+}
+
+.credits-role:first-child {
+  margin-top: 0;
+}
+
+.credits-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.credits-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: var(--white);
+  transition: color 0.3s ease;
+}
+
+.credits-link:hover {
+  color: #ff3b00;
+}
+
+/* NOMBRE ENORME EN EL FOOTER (COMO EN TU CAPTURA) */
+.credits-brand-giant {
+  font-weight: 900;
+  font-size: clamp(2.5rem, 9vw, 8.5rem);
+  letter-spacing: -0.04em;
+  text-align: center;
+  line-height: 0.85;
+  color: var(--white);
+  text-transform: uppercase;
+  padding: 20px 2% 0;
+  user-select: none;
+}
+
+/* DETALLES DE CINE */
+.credits-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+  padding: 20px 5%;
+  border-top: 1px solid var(--line);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: var(--grey);
+  text-transform: uppercase;
+}
+
+.credits-specs {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* =========================================================
+   REGLA DE MILÍMETROS (MM RULER BAR)
+========================================================= */
+
+.mm-ruler-container {
+  width: 100%;
+  background: #0a0a0a;
+  border-top: 0px solid var(--line);
+  padding: 15px 0 10px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  /* Oculta scrollbar */
+}
+
+.mm-ruler-container::-webkit-scrollbar {
+  display: none;
+}
+
+.mm-ruler {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  min-width: 900px;
+  width: 100%;
+  padding: 0 40px;
+  height: 35px;
+  box-sizing: border-box;
+}
+
+.mm-mark {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
+
+/* Líneas de la regla */
+.mm-mark::before {
+  content: "";
+  width: 1px;
+  height: 12px;
+  background: var(--grey);
+  position: absolute;
+  bottom: 0;
+}
+
+/* Números sobre las marcas */
+.mm-mark::after {
+  content: attr(data-mm);
+  font-size: 0.65rem;
+  font-family: monospace;
+  font-weight: 600;
+  color: var(--grey);
+  position: absolute;
+  top: 0;
+}
+
+/* Marca del Cero (Destacada) */
+.mm-mark.main-zero::before {
+  height: 20px;
+  background: #ff3b00;
+  /* Punto rojo / accento */
+  width: 2px;
+}
+
+.mm-mark.main-zero::after {
+  color: #ff3b00;
+  font-weight: 800;
+}

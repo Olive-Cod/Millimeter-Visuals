@@ -1,0 +1,602 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Millimeter Visuals</title>
+
+    <!-- STYLES CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&family=Playfair+Display:ital,wght@1,400;1,600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAVIGATION (Aparece tras hacer scroll) -->
+    <header class="nav" id="siteNav">
+        <a href="index.html" class="logo">MILLIMETER VISUALS<sup>™</sup></a>
+        <button class="menu-btn" id="menuBtn">MENU <span class="menu-plus">+</span></button>
+    </header>
+
+    <!-- FULLSCREEN MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="menu-inner">
+            <nav class="fullscreen-nav">
+                <a href="Aboutme.html">ABOUT</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+    </div>
+
+    <!-- PORTADA / HERO (100% Pantalla) -->
+    <section class="hero" id="heroSection">
+        <h1 class="hero-headline">MILLIMETER <br>VISUALS<sup>™</sup></h1>
+
+    </section>
+
+    <!-- =========================================================
+   GALERÍA 01 — PORTRAITS
+   Portada (imagen + título grande) -> al hacer scroll se
+   desvanece el título y aparece el slider horizontal
+========================================================= -->
+    <section class="hgallery" id="portraitsGallery" data-gallery>
+
+        <!-- PORTADA -->
+        <div class="gallery-cover" data-cover>
+            <div class="cover-media">
+                <img src="img/IMG_9192.jpg" alt="Portraits">
+            </div>
+            <div class="cover-overlay">
+                <span class="gallery-kicker">
+                    <span class="kicker-num">01</span>
+                    <span class="kicker-line"></span>
+                    <span class="kicker-label">Collection</span>
+                </span>
+                <h2 class="cover-title">Portraits</h2>
+                <span class="cover-scroll-hint">Scroll to explore</span>
+            </div>
+        </div>
+
+        <!-- SLIDER HORIZONTAL -->
+        <div class="gallery-slider" data-slider>
+            <span class="slider-label" data-slider-label>Portraits</span>
+            <div class="slider-viewport">
+                <div class="slider-track" data-track></div>
+            </div>
+            <div class="slider-thumbs" data-thumbs></div>
+        </div>
+
+        <div class="gallery-count" data-count>
+            <span data-current>01</span>
+            <span class="count-divider"></span>
+            <span data-total>06</span>
+        </div>
+    </section>
+
+    <!-- =========================================================
+   GALERÍA 02 — WEDDINGS & ENGAGEMENTS
+========================================================= -->
+    <section class="hgallery" id="weddingGallery" data-gallery>
+
+        <div class="gallery-cover" data-cover>
+            <div class="cover-media">
+                <img src="img/4G6A8943.jpg" alt="Weddings & Engagements">
+            </div>
+            <div class="cover-overlay">
+                <span class="gallery-kicker">
+                    <span class="kicker-num">02</span>
+                    <span class="kicker-line"></span>
+                    <span class="kicker-label">Collection</span>
+                </span>
+                <h2 class="cover-title">Weddings &amp; <br>Engagements</h2>
+                <span class="cover-scroll-hint">Scroll to explore</span>
+            </div>
+        </div>
+
+        <div class="gallery-slider" data-slider>
+            <span class="slider-label" data-slider-label>Weddings &amp; Engagements</span>
+            <div class="slider-viewport">
+                <div class="slider-track" data-track></div>
+            </div>
+            <div class="slider-thumbs" data-thumbs></div>
+        </div>
+
+        <div class="gallery-count" data-count>
+            <span data-current>01</span>
+            <span class="count-divider"></span>
+            <span data-total>03</span>
+        </div>
+    </section>
+
+    <!-- =========================================================
+   GALERÍA 03 — STUDIO
+========================================================= -->
+    <section class="hgallery" id="studioGallery" data-gallery>
+
+        <div class="gallery-cover" data-cover>
+            <div class="cover-media">
+                <img src="img/445.jpg" alt="Studio">
+            </div>
+            <div class="cover-overlay">
+                <span class="gallery-kicker">
+                    <span class="kicker-num">03</span>
+                    <span class="kicker-line"></span>
+                    <span class="kicker-label">Collection</span>
+                </span>
+                <h2 class="cover-title">Studio</h2>
+                <span class="cover-scroll-hint">Scroll to explore</span>
+            </div>
+        </div>
+
+        <div class="gallery-slider" data-slider>
+            <span class="slider-label" data-slider-label>Studio</span>
+            <div class="slider-viewport">
+                <div class="slider-track" data-track></div>
+            </div>
+            <div class="slider-thumbs" data-thumbs></div>
+        </div>
+
+        <div class="gallery-count" data-count>
+            <span data-current>01</span>
+            <span class="count-divider"></span>
+            <span data-total>03</span>
+        </div>
+    </section>
+
+    <!-- FOOTER PRINCIPAL DE MARCA -->
+    <footer class="site-footer">
+
+        <!-- DECLARACIÓN DE MARCA / STATEMENT -->
+        <div class="footer-statement-content">
+
+            <h2 class="footer-headline">
+                BOSTON PORTRAIT, EVENT + VISUAL MEDIA
+            </h2>
+
+            <!-- FRASE DE ESTUDIO DE ALTO NIVEL -->
+            <p class="footer-subline">
+                MILLIMETER VISUALS IS A BOSTON-BASED STUDIO CRAFTING INTENTIONAL PHOTOGRAPHY &amp; FILM.
+            </p>
+
+            <p class="footer-tagline">
+                PHOTOGRAPHY + VIDEO PRODUCTION FOR ENTREPRENEURS, EVENTS &amp; BRANDS
+            </p>
+
+        </div>
+
+        <!-- SECCIÓN DE CRÉDITOS Y DATOS DEL ESTUDIO -->
+        <div class="credits-grid">
+
+            <div class="credits-col">
+                <span class="credits-role">EMAIL</span>
+                <a href="mailto:millimetervisuals.studio@gmail.com" class="credits-link">
+                    millimetervisuals<br>.studio@gmail.com
+                </a>
+            </div>
+
+            <div class="credits-col">
+                <span class="credits-role">SOCIAL</span>
+                <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
+                    class="credits-link">
+                    @millimetervisuals
+                </a>
+            </div>
+
+            <div class="credits-col">
+                <span class="credits-role">INQUIRIES</span>
+                <a href="contact.html" class="credits-link">
+                    BOOK A SESSION
+                </a>
+            </div>
+
+        </div>
+
+        <!-- TEXTO GIGANTE Y DETALLES -->
+        <div class="credits-brand-giant">
+            PHOTO &amp; VIDEO<br>PRODUCTION
+        </div>
+
+        <!-- CINTA / REGLA DE MILÍMETROS (MM RULER) -->
+        <div class="mm-ruler-container">
+            <div class="mm-ruler">
+                <span class="mm-mark" data-mm="-30"></span>
+                <span class="mm-mark" data-mm="-25"></span>
+                <span class="mm-mark" data-mm="-20"></span>
+                <span class="mm-mark" data-mm="-15"></span>
+                <span class="mm-mark" data-mm="-10"></span>
+                <span class="mm-mark" data-mm="-5"></span>
+                <span class="mm-mark main-zero" data-mm="0"></span>
+                <span class="mm-mark" data-mm="5"></span>
+                <span class="mm-mark" data-mm="10"></span>
+                <span class="mm-mark" data-mm="15"></span>
+                <span class="mm-mark" data-mm="20"></span>
+                <span class="mm-mark" data-mm="25"></span>
+                <span class="mm-mark" data-mm="30"></span>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- LIGHTBOX (FUERA DEL FOOTER) -->
+    <div class="lightbox" id="lightbox">
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
+        <img src="" alt="Enlarged photo view" id="lightbox-img">
+    </div>
+
+    <!-- JAVASCRIPT -->
+    <script>
+        window.addEventListener("load", () => {
+            document.body.classList.add("loaded");
+        });
+
+        // Transición de enlaces
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function (e) {
+                const href = this.getAttribute("href");
+                if (href && !href.startsWith("#") && !href.startsWith("http") && !href.startsWith("mailto:") && !href.startsWith("tel:")) {
+                    e.preventDefault();
+                    document.body.classList.remove("loaded");
+                    setTimeout(() => { window.location = href; }, 400);
+                }
+            });
+        });
+
+        // Control del NAV (aparece tras pasar el Hero)
+        const siteNav = document.getElementById("siteNav");
+        const heroSection = document.getElementById("heroSection");
+
+        const toggleNavVisibility = () => {
+            if (!siteNav || !heroSection) return;
+            const heroHeight = heroSection.offsetHeight;
+            if (window.scrollY > heroHeight - 80) {
+                siteNav.classList.add("is-visible");
+            } else {
+                siteNav.classList.remove("is-visible");
+            }
+        };
+
+        window.addEventListener("scroll", toggleNavVisibility, { passive: true });
+        toggleNavVisibility();
+
+        // Menu Pantalla Completa
+        const menuBtn = document.getElementById("menuBtn");
+        const fullscreenMenu = document.getElementById("fullscreenMenu");
+        if (menuBtn && fullscreenMenu) {
+            menuBtn.addEventListener("click", () => {
+                fullscreenMenu.classList.toggle("active");
+                menuBtn.querySelector(".menu-plus").textContent = fullscreenMenu.classList.contains("active") ? "×" : "+";
+            });
+        }
+
+        // =====================================================
+        // GALLERY SYSTEM — PORTADA + SLIDER HORIZONTAL
+        // Cada galería arranca en modo "cover" (imagen + título
+        // grande). Al hacer scroll hacia abajo, el título se
+        // desvanece y aparece un slider horizontal con todas
+        // las fotos de esa colección. Scroll hacia arriba en la
+        // primera foto regresa a la portada.
+        // =====================================================
+
+        const galleryData = [
+            {
+                sectionId: "portraitsGallery",
+                items: [
+                    { src: "img/IMG_9191.jpg", alt: "Portrait photography" },
+                    { src: "img/IMG_9190.jpg", alt: "Portrait photography" },
+                    { src: "img/IMG_9192.jpg", alt: "Portrait photography" },
+
+                    { src: "img/4G6A0077.jpg", alt: "Portrait photography" },
+                    { src: "img/4G6A0088.jpg", alt: "Portrait photography" },
+                    { src: "img/4G6A0123.jpg", alt: "Portrait photography" },
+
+                    { src: "img/IMG_0331.jpg", alt: "Portrait photography" },
+                    { src: "img/IMG_0340.jpg", alt: "Portrait photography" },
+                    { src: "img/IMG_0315.jpg", alt: "Portrait photography" },
+
+                    { src: "img/IMG_1057.jpg", alt: "Portrait photography" },
+                    { src: "img/IMG_1016.jpg", alt: "Portrait photography" }, 
+
+                    { src: "img/IMG_1663.jpg", alt: "Portrait photography" },
+                    {src: "img/IMG_1671.jpg", alt: "Portrait photography" },
+                    { src: "img/4G6A004.jpg", alt: "Portrait photography" }
+                ]
+            },
+            {
+                sectionId: "weddingGallery",
+                items: [
+                    { src: "img/4G6A8943.jpg", alt: "Wedding and engagement photography" },
+                    { src: "img/4G6A8892.jpg", alt: "Wedding and engagement photography" },
+                    { src: "img/IMG_3661.jpg", alt: "Wedding and engagement photography" },
+                    { src: "img/4G6A8942.jpg", alt: "Wedding and engagement photography" },
+                    { src: "img/IMG_3655.jpg", alt: "Wedding and engagement photography" },
+                    { src: "img/IMG_3681.jpg", alt: "Wedding and engagement photography" },
+
+                    { src: "img/IMG_1216.jpg", alt: "Wedding and engagement photography" },
+                    { src: "img/IMG_1255.jpg", alt: "Wedding and engagement photography" },
+                    { src: "img/IMG_1207.jpg", alt: "Wedding and engagement photography" },
+                ]
+            },
+            {
+                sectionId: "studioGallery",
+                items: [
+                    { src: "img/445.jpg", alt: "Studio photography" },
+                    { src: "img/IMG_4477.jpg", alt: "Studio photography" },
+                    { src: "img/IMG_4464.jpg", alt: "Studio photography" },
+                    { src: "img/IMG_4454.jpg", alt: "Studio photography" },
+                    { src: "img/img_4466.jpg", alt: "Studio photography" },
+
+
+                    { src: "img/IMG_3535.jpg", alt: "Studio photography" },
+
+                    { src: "img/IMG_8333.jpg", alt: "Studio photography" },
+                    { src: "img/IMG_8343.jpg", alt: "Studio photography" },
+                    { src: "img/IMG_8356.jpg", alt: "Studio photography" },
+                ]
+            }
+        ];
+
+        function pad(n) {
+            return String(n).padStart(2, "0");
+        }
+
+        function buildController(config) {
+            const section = document.getElementById(config.sectionId);
+            if (!section) return null;
+
+            const coverEl = section.querySelector("[data-cover]");
+            const sliderEl = section.querySelector("[data-slider]");
+            const trackEl = section.querySelector("[data-track]");
+            const thumbsEl = section.querySelector("[data-thumbs]");
+            const currentEl = section.querySelector("[data-current]");
+            const totalEl = section.querySelector("[data-total]");
+
+            const controller = {
+                section, coverEl, sliderEl, trackEl, thumbsEl, currentEl, totalEl,
+                items: config.items,
+                phase: "cover",
+                index: 0
+            };
+
+            if (totalEl) totalEl.textContent = pad(config.items.length);
+            if (currentEl) currentEl.textContent = pad(1);
+
+            config.items.forEach((item, index) => {
+                const card = document.createElement("div");
+                card.className = "slider-card";
+                card.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy">`;
+                card.addEventListener("click", () => openLightbox(item.src));
+                trackEl.appendChild(card);
+
+                const thumb = document.createElement("div");
+                thumb.className = `strip-item ${index === 0 ? "active" : ""}`;
+                thumb.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy">`;
+                thumb.addEventListener("click", () => goTo(controller, index));
+                thumbsEl.appendChild(thumb);
+            });
+
+            if (coverEl) {
+                coverEl.addEventListener("click", () => enterSlider(controller));
+            }
+
+            return controller;
+        }
+
+        function getOffsetForIndex(trackEl, index) {
+            const gap = parseFloat(getComputedStyle(trackEl).gap) || 0;
+            let offset = 0;
+            for (let i = 0; i < index; i++) {
+                const child = trackEl.children[i];
+                if (child) offset += child.getBoundingClientRect().width + gap;
+            }
+            return offset;
+        }
+
+        function updateTrackPosition(controller) {
+            const offset = getOffsetForIndex(controller.trackEl, controller.index);
+            controller.trackEl.style.transform = `translateX(-${offset}px)`;
+        }
+
+        function updateThumbs(controller) {
+            const thumbs = controller.thumbsEl.querySelectorAll(".strip-item");
+            thumbs.forEach((thumb, i) => {
+                if (i === controller.index) {
+                    thumb.classList.add("active");
+                    thumb.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+                } else {
+                    thumb.classList.remove("active");
+                }
+            });
+        }
+
+        function updateCount(controller) {
+            if (controller.currentEl) controller.currentEl.textContent = pad(controller.index + 1);
+        }
+
+        function enterSlider(controller) {
+            controller.phase = "slider";
+            controller.index = 0;
+            controller.coverEl.classList.add("is-hidden");
+            controller.sliderEl.classList.add("is-active");
+            updateTrackPosition(controller);
+            updateThumbs(controller);
+            updateCount(controller);
+        }
+
+        function exitToCover(controller) {
+            controller.phase = "cover";
+            controller.sliderEl.classList.remove("is-active");
+            controller.coverEl.classList.remove("is-hidden");
+        }
+
+        function nextImage(controller) {
+            if (controller.index < controller.items.length - 1) {
+                controller.index++;
+                updateTrackPosition(controller);
+                updateThumbs(controller);
+                updateCount(controller);
+                return true;
+            }
+            return false;
+        }
+
+        function prevImage(controller) {
+            if (controller.index > 0) {
+                controller.index--;
+                updateTrackPosition(controller);
+                updateThumbs(controller);
+                updateCount(controller);
+                return true;
+            }
+            return false;
+        }
+
+        function goTo(controller, index) {
+            if (controller.phase !== "slider") enterSlider(controller);
+            controller.index = index;
+            updateTrackPosition(controller);
+            updateThumbs(controller);
+            updateCount(controller);
+        }
+
+        const galleryControllers = galleryData.map(buildController).filter(Boolean);
+
+        function getCenteredController() {
+            return galleryControllers.find((controller) => {
+                const rect = controller.section.getBoundingClientRect();
+                return rect.top >= -50 && rect.bottom <= window.innerHeight + 50;
+            });
+        }
+
+        let isCoolingDown = false;
+        function triggerCooldown(ms = 320) {
+            isCoolingDown = true;
+            setTimeout(() => { isCoolingDown = false; }, ms);
+        }
+
+        // Traduce una "intención" de scroll (rueda, touch o teclado)
+        // en portada -> slider -> siguiente foto -> siguiente sección
+        function handleIntent(controller, deltaY, event) {
+            const goingDown = deltaY > 0;
+
+            if (controller.phase === "cover") {
+                if (goingDown) {
+                    event.preventDefault();
+                    if (!isCoolingDown) {
+                        controller.section.scrollIntoView({ behavior: "smooth" });
+                        enterSlider(controller);
+                        triggerCooldown(650);
+                    }
+                }
+                // scroll hacia arriba en portada: se deja el scroll natural (sección anterior)
+                return;
+            }
+
+            // phase === "slider"
+            if (goingDown) {
+                if (controller.index < controller.items.length - 1) {
+                    event.preventDefault();
+                    if (!isCoolingDown) {
+                        controller.section.scrollIntoView({ behavior: "smooth" });
+                        nextImage(controller);
+                        triggerCooldown();
+                    }
+                }
+                // última foto: se deja pasar el scroll a la siguiente galería
+            } else {
+                if (controller.index > 0) {
+                    event.preventDefault();
+                    if (!isCoolingDown) {
+                        controller.section.scrollIntoView({ behavior: "smooth" });
+                        prevImage(controller);
+                        triggerCooldown();
+                    }
+                } else {
+                    event.preventDefault();
+                    if (!isCoolingDown) {
+                        controller.section.scrollIntoView({ behavior: "smooth" });
+                        exitToCover(controller);
+                        triggerCooldown(650);
+                    }
+                }
+            }
+        }
+
+        // RUEDA (desktop / trackpad)
+        window.addEventListener("wheel", (e) => {
+            const controller = getCenteredController();
+            if (!controller) return;
+            handleIntent(controller, e.deltaY, e);
+        }, { passive: false });
+
+        // TOUCH (móvil): un swipe vertical se traduce en el mismo gesto
+        let touchStartY = null;
+        window.addEventListener("touchstart", (e) => {
+            touchStartY = e.touches[0].clientY;
+        }, { passive: true });
+
+        window.addEventListener("touchmove", (e) => {
+            if (touchStartY === null) return;
+            const controller = getCenteredController();
+            if (!controller) return;
+            const currentY = e.touches[0].clientY;
+            const delta = touchStartY - currentY;
+            if (Math.abs(delta) < 35) return;
+            handleIntent(controller, delta, e);
+            touchStartY = currentY;
+        }, { passive: false });
+
+        window.addEventListener("touchend", () => {
+            touchStartY = null;
+        });
+
+        // TECLADO
+        window.addEventListener("keydown", (e) => {
+            const controller = getCenteredController();
+            if (!controller) return;
+            if (e.key === "ArrowDown" || e.key === "ArrowRight") {
+                handleIntent(controller, 1, e);
+            } else if (e.key === "ArrowUp" || e.key === "ArrowLeft") {
+                handleIntent(controller, -1, e);
+            }
+        });
+
+        // Recalcula la posición del slider activo si cambia el tamaño de ventana
+        window.addEventListener("resize", () => {
+            galleryControllers.forEach((controller) => {
+                if (controller.phase === "slider") updateTrackPosition(controller);
+            });
+        });
+
+        // Lightbox
+        const lightbox = document.getElementById("lightbox");
+        const lbImg = document.getElementById("lightbox-img");
+        const lbClose = document.getElementById("lightboxClose");
+
+        function openLightbox(src) {
+            lbImg.src = src;
+            lightbox.classList.add("active");
+            document.body.style.overflow = "hidden";
+        }
+
+        function closeLightbox() {
+            lightbox.classList.remove("active");
+            document.body.style.overflow = "";
+        }
+
+        if (lbClose) lbClose.addEventListener("click", closeLightbox);
+        if (lightbox) lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
+        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Millimeter Visuals</title>
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="css/aboutme.css">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="siteNav">
+    <a href="index.html" class="logo">MILLIMETER VISUALS<sup>™</sup></a>
+    <button class="menu-btn" id="menuBtn">MENU <span class="menu-plus">+</span></button>
+  </header>
+
+  <!-- FULLSCREEN MENU -->
+  <div class="fullscreen-menu" id="fullscreenMenu">
+    <div class="menu-inner">
+      <nav class="fullscreen-nav">
+        <a href="aboutme.html">ABOUT</a>
+        <a href="contact.html">CONTACT</a>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- MAIN CONTENT -->
+  <main class="about-page">
+
+    <!-- 02 — FOUNDER / ABOUT -->
+    <section class="founder-section" id="bioScreen">
+
+      <!-- CONTENEDOR DE LA FOTO CON TEXTO VERTICAL A LA IZQUIERDA -->
+      <div class="founder-media-wrapper">
+        <span class="media-badge-vertical">BEHIND THE CAMERA</span>
+        <div class="founder-media">
+          <img src="img/IMG_2888.jpg" alt="Oliver — Founder & Creative Director, Millimeter Visuals">
+        </div>
+      </div>
+
+      <div class="founder-info">
+        <span class="about-kicker">
+          <span class="kicker-num">01</span>
+          <span class="kicker-line"></span>
+          <span class="kicker-label">Founder &amp; Creative Director</span>
+        </span>
+
+        <h2 class="founder-name">Oliver</h2>
+        <span class="founder-role">Photographer &amp; Media Arts</span>
+
+        <p class="founder-bio">
+          Oliver is a photographer and Media Arts graduate based in Boston, MA. He has documented solemn events and
+          non-profit initiatives, with his work featured across local publications and digital platforms.
+          <br><br>
+
+          As the Founder and Creative Director of Millimeter Visuals, Oliver specializes in portraits, weddings, events,
+          and visual media tailored for growing brands and individuals.
+          <br><br>
+
+          When he’s not behind the camera or in the editing room, Oliver focuses on expanding his creative repertoire
+          and mastering new visual technologies.
+        </p>
+
+      </div>
+
+    </section>
+  </main>
+
+  <!-- FOOTER CINEMATOGRÁFICO CON REGLA MILIMÉTRICA -->
+  <footer class="film-credits-footer">
+
+    <!-- SECCIÓN DE CRÉDITOS Y DATOS DEL ESTUDIO -->
+    <div class="credits-grid">
+
+      <div class="credits-col">
+        <span class="credits-role">EMAIL</span>
+        <a href="mailto:millimetervisuals.studio@gmail.com" class="credits-link">
+          millimetervisuals<br>.studio@gmail.com
+        </a>
+      </div>
+
+      <div class="credits-col">
+        <span class="credits-role">SOCIAL</span>
+        <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener" class="credits-link">
+          @millimetervisuals
+        </a>
+      </div>
+
+      <div class="credits-col">
+        <span class="credits-role">INQUIRIES</span>
+        <a href="contact.html" class="credits-link">
+          BOOK A SESSION
+        </a>
+      </div>
+
+    </div>
+
+    <!-- TEXTO GIGANTE EDITORIAL -->
+    <div class="credits-brand-giant">
+      PHOTO &amp; VIDEO<br>PRODUCTION
+    </div>
+
+    <!-- REGLA MILIMÉTRICA (MM RULER) -->
+    <div class="mm-ruler-container">
+      <div class="mm-ruler">
+        <span class="mm-mark" data-mm="-30"></span>
+        <span class="mm-mark" data-mm="-25"></span>
+        <span class="mm-mark" data-mm="-20"></span>
+        <span class="mm-mark" data-mm="-15"></span>
+        <span class="mm-mark" data-mm="-10"></span>
+        <span class="mm-mark" data-mm="-5"></span>
+        <span class="mm-mark main-zero" data-mm="0"></span>
+        <span class="mm-mark" data-mm="5"></span>
+        <span class="mm-mark" data-mm="10"></span>
+        <span class="mm-mark" data-mm="15"></span>
+        <span class="mm-mark" data-mm="20"></span>
+        <span class="mm-mark" data-mm="25"></span>
+        <span class="mm-mark" data-mm="30"></span>
+      </div>
+    </div>
+
+  </footer>
+
+  <!-- JS SCRIPTS -->
+  <script>
+    window.addEventListener("load", () => {
+      document.body.classList.add("loaded");
+    });
+
+    document.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", function (e) {
+        const href = this.getAttribute("href");
+        if (href && !href.startsWith("#") && !href.startsWith("http") && !href.startsWith("mailto:") && !href.startsWith("tel:")) {
+          e.preventDefault();
+          document.body.classList.remove("loaded");
+          setTimeout(() => { window.location = href; }, 400);
+        }
+      });
+    });
+
+    const siteNav = document.getElementById("siteNav");
+    if (siteNav) {
+      const toggleNavShadow = () => {
+        siteNav.classList.toggle("is-scrolled", window.scrollY > 8);
+      };
+      toggleNavShadow();
+      window.addEventListener("scroll", toggleNavShadow, { passive: true });
+    }
+
+    const menuBtn = document.getElementById("menuBtn");
+    const fullscreenMenu = document.getElementById("fullscreenMenu");
+    if (menuBtn && fullscreenMenu) {
+      menuBtn.addEventListener("click", () => {
+        fullscreenMenu.classList.toggle("active");
+        menuBtn.querySelector(".menu-plus").textContent = fullscreenMenu.classList.contains("active") ? "×" : "+";
+      });
+    }
+  </script>
+</body>
+
+</html>
