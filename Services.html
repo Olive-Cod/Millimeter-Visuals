@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services | Millimeter Visuals</title>
+
+    <!-- FAVICON -->
+    <link rel="icon" type="image/png" href="/img/IMG_11.png">
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="css/Services.css">
+
+    <!-- FONT AWESOME -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <header class="nav" id="siteNav">
+        <a href="/" class="logo">MILLIMETER VISUALS<sup>™</sup></a>
+        <button class="menu-btn" id="menuBtn">MENU <span class="menu-plus">+</span></button>
+    </header>
+
+    <!-- FULLSCREEN MENU -->
+    <div class="fullscreen-menu" id="fullscreenMenu">
+        <div class="menu-inner">
+            <nav class="fullscreen-nav">
+                <a href="Aboutme.html">ABOUT</a>
+                <a href="Services.html">SERVICES</a>
+                <a href="contact.html">CONTACT</a>
+            </nav>
+        </div>
+    </div>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="services-hero">
+            <h1></h1>
+        </section>
+
+        <!-- SERVICIOS -->
+        <section class="service-category">
+
+            <div class="service-grid">
+
+                <div class="service-card">
+                    <div class="service-thumb"><img src="/img/445.jpg" alt="Studio portrait session"></div>
+                    <h3>Studio Portraits</h3>
+                    <p>Professional portraits in a private studio with clean, timeless imagery — perfect for personal
+                        branding, milestones, or just photos you'll love.</p>
+                    <span class="service-price">Starting at $200</span>
+                    <a href="#quote" class="service-cta">Book a Session</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-thumb"><img src="/img/IMG_9192.jpg" alt="Outdoor portrait session"></div>
+                    <h3>Outdoor Portraits</h3>
+                    <p>On-location portrait sessions with natural light and a scenic backdrop of your choice.</p>
+                    <span class="service-price">Starting at $180</span>
+                    <a href="#quote" class="service-cta">Book a Session</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-thumb"><img src="/img/IMG_3535.jpg" alt="Professional headshot"></div>
+                    <h3>Headshots</h3>
+                    <p>Polished individual headshots for LinkedIn, resumes, and personal branding.</p>
+                    <span class="service-price">Starting at $75</span>
+                    <a href="#quote" class="service-cta">Book a Session</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-thumb"><img src="/img/4G6A8943.jpg" alt="Wedding and engagement photography">
+                    </div>
+                    <h3>Weddings &amp; Engagements</h3>
+                    <p>Full-day or half-day coverage that captures the real moments of your day — candid and posed, with
+                        a timeless editing style.</p>
+                    <span class="service-price">Custom Pricing Based on Coverage</span>
+                    <a href="#quote" class="service-cta">Request a Quote</a>
+                </div>
+
+                <div class="service-card">
+                    <div class="service-thumb"><img src="/img/IMG_2068.jpg" alt="Documentary event coverage"></div>
+                    <h3>Events</h3>
+                    <p>Documentary-style coverage for baby showers, birthdays, and any celebration worth remembering —
+                        candid moments, captured as they happen.</p>
+                    <span class="service-price">Custom Pricing Based on Coverage</span>
+                    <a href="#quote" class="service-cta">Request a Quote</a>
+                </div>
+
+                <div class="service-card">
+                    
+                    <h3>Video Production</h3>
+                    <p>Custom video production for interviews, brand campaigns, social content and cinematic short-form
+                        stories.</p>
+                    <span class="service-price">Submit an Inquiry</span>
+                    <a href="#quote" class="service-cta">Submit an Inquiry</a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- QUOTE FORM -->
+        <section class="quote-section" id="quote">
+            <div class="quote-header">
+                <span>Ready When You Are</span>
+                <h2>Request a Quote</h2>
+            </div>
+
+            <form class="quote-form" action="https://formspree.io/f/xjkpgbny" method="POST">
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Full name *</label>
+                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email *</label>
+                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="service">Service *</label>
+                        <select id="service" name="service" required>
+                            <option value="">Select a service</option>
+                            <option value="Studio Portraits">Studio Portraits</option>
+                            <option value="Outdoor Portraits">Outdoor Portraits</option>
+                            <option value="Headshots">Headshots</option>
+                            <option value="Weddings & Engagements">Weddings &amp; Engagements</option>
+                            <option value="Events">Events</option>
+                            <option value="Video Production">Video Production</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="date">Event / session date</label>
+                        <input type="date" id="date" name="date">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="message">Tell us about your project</label>
+                    <textarea id="message" name="message" placeholder="Scope, location, timeline..."></textarea>
+                </div>
+
+                <input type="hidden" name="_subject" value="New Service Quote Request — Millimeter Visuals">
+
+                <div class="submit-area">
+                    <button type="submit" class="submit-button">Send Request</button>
+                    <p class="form-success" id="formSuccess">SENT — THANK YOU. WE'LL BE IN TOUCH SOON.</p>
+                </div>
+
+            </form>
+        </section>
+
+    </main>
+
+    <!-- FOOTER CINEMATOGRÁFICO CON REGLA MILIMÉTRICA -->
+    <footer class="film-credits-footer">
+
+        <!-- SECCIÓN DE CRÉDITOS Y DATOS DEL ESTUDIO -->
+        <div class="credits-grid">
+
+            <div class="credits-col">
+                <span class="credits-role">EMAIL</span>
+                <a href="mailto:millimetervisuals.studio@gmail.com" class="credits-link">
+                    millimetervisuals<br>.studio@gmail.com
+                </a>
+            </div>
+
+            <div class="credits-col">
+                <span class="credits-role">SOCIAL</span>
+                <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
+                    class="credits-link">
+                    @millimetervisuals
+                </a>
+            </div>
+
+            <div class="credits-col">
+                <span class="credits-role">INQUIRIES</span>
+                <a href="contact.html" class="credits-link">
+                    GET IN TOUCH
+                </a>
+            </div>
+
+        </div>
+
+        <!-- TEXTO GIGANTE EDITORIAL -->
+        <div class="credits-brand-giant">
+            PHOTO &amp; VIDEO<br>PRODUCTION
+        </div>
+
+        <!-- REGLA MILIMÉTRICA (MM RULER) -->
+        <div class="mm-ruler-container">
+            <div class="mm-ruler">
+                <span class="mm-mark" data-mm="-30"></span>
+                <span class="mm-mark" data-mm="-25"></span>
+                <span class="mm-mark" data-mm="-20"></span>
+                <span class="mm-mark" data-mm="-15"></span>
+                <span class="mm-mark" data-mm="-10"></span>
+                <span class="mm-mark" data-mm="-5"></span>
+                <span class="mm-mark main-zero" data-mm="0"></span>
+                <span class="mm-mark" data-mm="5"></span>
+                <span class="mm-mark" data-mm="10"></span>
+                <span class="mm-mark" data-mm="15"></span>
+                <span class="mm-mark" data-mm="20"></span>
+                <span class="mm-mark" data-mm="25"></span>
+                <span class="mm-mark" data-mm="30"></span>
+            </div>
+        </div>
+
+    </footer>
+
+    <!-- JS -->
+    <script>
+        window.addEventListener("load", () => document.body.classList.add("loaded"));
+
+        document.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", function (e) {
+                const href = this.getAttribute("href");
+                if (href && href.startsWith("/Services/#")) return; // anclas internas, sin transición
+                if (href && !href.startsWith("#") && !href.startsWith("http") && !href.startsWith("mailto:") && !href.startsWith("tel:")) {
+                    e.preventDefault();
+                    document.body.classList.remove("loaded");
+                    setTimeout(() => { window.location = href; }, 400);
+                }
+            });
+        });
+
+        const siteNav = document.getElementById("siteNav");
+        if (siteNav) {
+            const toggleNavShadow = () => siteNav.classList.toggle("is-scrolled", window.scrollY > 8);
+            toggleNavShadow();
+            window.addEventListener("scroll", toggleNavShadow, { passive: true });
+        }
+
+        const menuBtn = document.getElementById("menuBtn");
+        const fullscreenMenu = document.getElementById("fullscreenMenu");
+        if (menuBtn && fullscreenMenu) {
+            menuBtn.addEventListener("click", () => {
+                fullscreenMenu.classList.toggle("active");
+                menuBtn.querySelector(".menu-plus").textContent = fullscreenMenu.classList.contains("active") ? "×" : "+";
+            });
+        }
+
+        const quoteForm = document.querySelector(".quote-form");
+        const formSuccess = document.getElementById("formSuccess");
+        if (quoteForm) {
+            quoteForm.addEventListener("submit", async function (e) {
+                e.preventDefault();
+                const btn = quoteForm.querySelector("button[type='submit']");
+                btn.disabled = true;
+                btn.textContent = "SENDING...";
+                try {
+                    const res = await fetch(quoteForm.action, {
+                        method: "POST",
+                        body: new FormData(quoteForm),
+                        headers: { "Accept": "application/json" }
+                    });
+                    if (res.ok) {
+                        quoteForm.reset();
+                        btn.textContent = "SENT";
+                        if (formSuccess) formSuccess.classList.add("show");
+                    } else {
+                        btn.disabled = false;
+                        btn.textContent = "Send Request";
+                    }
+                } catch (err) {
+                    btn.disabled = false;
+                    btn.textContent = "Send Request";
+                    console.error("Formspree error:", err);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
