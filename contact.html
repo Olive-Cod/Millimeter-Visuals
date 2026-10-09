@@ -7,22 +7,33 @@
 
   <title>Contact | Millimeter Visuals</title>
 
- <!-- Datos estructurados para el nombre oficial en Google -->
+  <!-- Datos estructurados para el nombre oficial en Google -->
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Millimeter Visuals",
-    "alternateName": ["MillimeterVisuals"],
-    "url": "https://millimetervisuals.com/"
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Millimeter Visuals",
+  "alternateName": ["MillimeterVisuals"],
+  "url": "https://millimetervisuals.com/",
+  "logo": "https://millimetervisuals.com/img/IMG_11.png",
+  "email": "millimetervisuals.studio@gmail.com",
+  "sameAs": [
+    "https://www.instagram.com/millimetervisuals"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Boston",
+    "addressRegion": "MA",
+    "addressCountry": "US"
   }
-  </script>
-  
+}
+</script>
+
   <!-- FAVICON -->
   <link rel="icon" type="image/png" href="/img/IMG_11.png" sizes="32x32">
   <link rel="icon" type="image/png" href="/img/IMG_11.png" sizes="192x192">
   <link rel="apple-touch-icon" href="/img/IMG_11.png">
-  
+
   <!-- CONTACT CSS -->
   <link rel="stylesheet" href="css/contact.css">
 
@@ -39,7 +50,7 @@
 <body>
 
   <!-- =====================================================
-        NAVIGATION — fijo siempre visible (igual que About)
+        NAVIGATION — fijo siempre visible
   ====================================================== -->
 
   <header class="nav" id="siteNav">
@@ -48,7 +59,7 @@
       MILLIMETER VISUALS<sup>™</sup>
     </a>
 
-    <button class="menu-btn" id="menuBtn">
+    <button class="menu-btn" id="menuBtn" aria-expanded="false">
       MENU
       <span class="menu-plus">+</span>
     </button>
@@ -66,13 +77,25 @@
 
       <nav class="fullscreen-nav">
 
-        <a href="Aboutme.html">ABOUT</a>
-        <a href="Services.html">SERVICES</a>
-        <a href="contact.html">CONTACT</a>
+        <a href="Aboutme.html"><span class="menu-num">01</span>ABOUT</a>
+        <a href="Services.html"><span class="menu-num">02</span>SERVICES</a>
+        <a href="contact.html"><span class="menu-num">03</span>CONTACT</a>
 
       </nav>
 
     </div>
+
+    <!-- Fila de contacto -->
+    <div class="menu-foot">
+      <span class="menu-foot-item">Boston, MA</span>
+      <a href="mailto:millimetervisuals.studio@gmail.com"
+        class="menu-foot-item menu-foot-link">millimetervisuals.studio@gmail.com</a>
+      <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
+        class="menu-foot-item menu-foot-link">@millimetervisuals</a>
+    </div>
+
+    <!-- Regla 0–135 mm -->
+    <div class="mm-scale mm-scale--menu" data-mm-scale aria-hidden="true"></div>
 
   </div>
 
@@ -337,35 +360,51 @@
 
 
   <!-- =========================================================
-       FOOTER CINEMATOGRÁFICO CON REGLA MILIMÉTRICA (MM)
+       FOOTER PRINCIPAL (igual que home y About, sin el bloque
+       "Book a session" porque esta ya es la página de contacto)
   ========================================================= -->
-  <footer class="film-credits-footer">
+  <footer class="site-footer" id="siteFooter">
 
-    <!-- TEXTO GIGANTE Y DETALLES -->
-    <div class="credits-brand-giant">
-      PHOTO & VIDEO
-      PRODUCTION
-    </div>
+    <!-- COLUMNAS -->
+    <div class="footer-grid">
 
-    <!-- CINTA / REGLA DE MILÍMETROS (MM RULER) -->
-    <div class="mm-ruler-container">
-      <div class="mm-ruler">
-        <!-- Las líneas se generan limpiamente con CSS -->
-        <span class="mm-mark" data-mm="-30"></span>
-        <span class="mm-mark" data-mm="-25"></span>
-        <span class="mm-mark" data-mm="-20"></span>
-        <span class="mm-mark" data-mm="-15"></span>
-        <span class="mm-mark" data-mm="-10"></span>
-        <span class="mm-mark" data-mm="-5"></span>
-        <span class="mm-mark main-zero" data-mm="0"></span>
-        <span class="mm-mark" data-mm="5"></span>
-        <span class="mm-mark" data-mm="10"></span>
-        <span class="mm-mark" data-mm="15"></span>
-        <span class="mm-mark" data-mm="20"></span>
-        <span class="mm-mark" data-mm="25"></span>
-        <span class="mm-mark" data-mm="30"></span>
+      <div class="footer-col">
+        <span class="footer-col-title">Studio</span>
+        <span class="footer-text">Boston, MA</span>
+        <span class="footer-text">Photo &amp; Video Production</span>
       </div>
+
+      <div class="footer-col">
+        <span class="footer-col-title">Collections</span>
+        <a href="index.html#portraitsGallery" class="footer-link">Portraits</a>
+        <a href="index.html#weddingGallery" class="footer-link">Weddings &amp; Engagements</a>
+        <a href="index.html#studioGallery" class="footer-link">Studio</a>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-title">Navigate</span>
+        <a href="Aboutme.html" class="footer-link">About</a>
+        <a href="Services.html" class="footer-link">Services</a>
+        <a href="contact.html" class="footer-link">Contact</a>
+      </div>
+
+      <div class="footer-col">
+        <span class="footer-col-title">Connect</span>
+        <a href="mailto:millimetervisuals.studio@gmail.com" class="footer-link">millimetervisuals.studio@gmail.com</a>
+        <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
+          class="footer-link">@millimetervisuals</a>
+      </div>
+
     </div>
+
+    <!-- FILA LEGAL -->
+    <div class="footer-bottom">
+      <span>© 2026 — All rights reserved</span>
+      <a href="#" class="footer-top-link">Back to top <span aria-hidden="true">↑</span></a>
+    </div>
+
+    <!-- Regla 0–135 mm (la misma del home) -->
+    <div class="mm-scale" data-mm-scale aria-hidden="true"></div>
 
   </footer>
 
@@ -414,68 +453,76 @@
     });
 
 
-    /* NAV SCROLL — fijo siempre visible, solo suma un borde
-       sutil al hacer scroll (igual que About) */
+    /* REGLA 0–135 mm (menú + footer) */
+
+    document.querySelectorAll("[data-mm-scale]").forEach((el) => {
+      const MAX = 135;
+      const track = document.createElement("div");
+      track.className = "mm-scale-track";
+      for (let i = 0; i <= MAX; i++) {
+        const tick = document.createElement("span");
+        tick.className = "mm-tick";
+        tick.style.left = (i / MAX * 100) + "%";
+        if (i === 0) tick.classList.add("is-zero");
+        else if (i % 15 === 0) tick.classList.add("is-major");
+        else if (i % 5 === 0) tick.classList.add("is-mid");
+        if (i % 15 === 0) {
+          const num = document.createElement("span");
+          num.className = "mm-num";
+          num.textContent = i === MAX ? i + "mm" : i;
+          tick.appendChild(num);
+        }
+        track.appendChild(tick);
+      }
+      el.appendChild(track);
+    });
+
+
+    /* NAV — transparente arriba; se oscurece al hacer scroll */
 
     const siteNav = document.getElementById("siteNav");
 
     if (siteNav) {
 
-      const toggleNavShadow = () => {
-
-        siteNav.classList.toggle(
-          "is-scrolled",
-          window.scrollY > 8
-        );
-
+      const updateNavState = () => {
+        siteNav.classList.toggle("is-scrolled", window.scrollY > 40);
       };
 
-      toggleNavShadow();
+      updateNavState();
 
-      window.addEventListener(
-        "scroll",
-        toggleNavShadow,
-        { passive: true }
-      );
+      window.addEventListener("scroll", updateNavState, { passive: true });
 
     }
 
 
     /* FULLSCREEN MENU */
 
-    const menuBtn =
-      document.getElementById("menuBtn");
+    const menuBtn = document.getElementById("menuBtn");
+    const fullscreenMenu = document.getElementById("fullscreenMenu");
 
-    const fullscreenMenu =
-      document.getElementById("fullscreenMenu");
+    function isMenuOpen() {
+      return !!fullscreenMenu && fullscreenMenu.classList.contains("active");
+    }
 
+    // Abre/cierra el menú y bloquea el scroll de la página mientras está abierto
+    function setMenu(open) {
+      if (!menuBtn || !fullscreenMenu) return;
+      fullscreenMenu.classList.toggle("active", open);
+      menuBtn.querySelector(".menu-plus").textContent = open ? "×" : "+";
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.style.overflow = open ? "hidden" : "";
+    }
 
     if (menuBtn && fullscreenMenu) {
-
-      menuBtn.addEventListener("click", () => {
-
-        fullscreenMenu.classList.toggle("active");
-
-        menuBtn.querySelector(".menu-plus").textContent =
-          fullscreenMenu.classList.contains("active")
-            ? "×"
-            : "+";
-
-      });
-
+      menuBtn.addEventListener("click", () => setMenu(!isMenuOpen()));
     }
 
 
     /* POLICY */
 
-    const policyButton =
-      document.getElementById("policyButton");
-
-    const policyOverlay =
-      document.getElementById("policyOverlay");
-
-    const policyClose =
-      document.getElementById("policyClose");
+    const policyButton = document.getElementById("policyButton");
+    const policyOverlay = document.getElementById("policyOverlay");
+    const policyClose = document.getElementById("policyClose");
 
 
     function openPolicy() {
@@ -484,10 +531,7 @@
 
         policyOverlay.classList.add("active");
 
-        policyOverlay.setAttribute(
-          "aria-hidden",
-          "false"
-        );
+        policyOverlay.setAttribute("aria-hidden", "false");
 
         document.body.classList.add("policy-open");
 
@@ -502,10 +546,7 @@
 
         policyOverlay.classList.remove("active");
 
-        policyOverlay.setAttribute(
-          "aria-hidden",
-          "true"
-        );
+        policyOverlay.setAttribute("aria-hidden", "true");
 
         document.body.classList.remove("policy-open");
 
@@ -515,147 +556,115 @@
 
 
     if (policyButton) {
-      policyButton.addEventListener(
-        "click",
-        openPolicy
-      );
+      policyButton.addEventListener("click", openPolicy);
     }
 
 
     if (policyClose) {
-      policyClose.addEventListener(
-        "click",
-        closePolicy
-      );
+      policyClose.addEventListener("click", closePolicy);
     }
 
 
     if (policyOverlay) {
 
-      policyOverlay.addEventListener(
-        "click",
-        (event) => {
+      policyOverlay.addEventListener("click", (event) => {
 
-          if (event.target === policyOverlay) {
-            closePolicy();
-          }
-
+        if (event.target === policyOverlay) {
+          closePolicy();
         }
-      );
+
+      });
 
     }
 
 
-    document.addEventListener(
-      "keydown",
-      (event) => {
+    /* ESC — cierra el menú y la política */
 
-        if (
-          event.key === "Escape" &&
-          policyOverlay &&
-          policyOverlay.classList.contains("active")
-        ) {
+    document.addEventListener("keydown", (event) => {
 
-          closePolicy();
+      if (event.key !== "Escape") return;
 
-        }
+      if (isMenuOpen()) setMenu(false);
 
+      if (policyOverlay && policyOverlay.classList.contains("active")) {
+        closePolicy();
       }
-    );
+
+    });
 
 
     /* FORMSPREE */
 
-    const contactForm =
-      document.querySelector(".contact-form");
+    const contactForm = document.querySelector(".contact-form");
 
-    const formSuccess =
-      document.getElementById("formSuccess");
+    const formSuccess = document.getElementById("formSuccess");
 
 
     if (contactForm) {
 
-      contactForm.addEventListener(
-        "submit",
-        async function (e) {
+      contactForm.addEventListener("submit", async function (e) {
 
-          e.preventDefault();
+        e.preventDefault();
 
-          const submitButton =
-            contactForm.querySelector(
-              "button[type='submit']"
-            );
+        const submitButton = contactForm.querySelector("button[type='submit']");
 
-          submitButton.disabled = true;
+        submitButton.disabled = true;
 
-          submitButton.textContent =
-            "SENDING...";
+        submitButton.textContent = "SENDING...";
 
 
-          const formData =
-            new FormData(contactForm);
+        const formData = new FormData(contactForm);
 
 
-          try {
+        try {
 
-            const response =
-              await fetch(
-                contactForm.action,
-                {
-                  method: "POST",
-                  body: formData,
-                  headers: {
-                    "Accept": "application/json"
-                  }
-                }
-              );
+          const response = await fetch(contactForm.action, {
+            method: "POST",
+            body: formData,
+            headers: {
+              "Accept": "application/json"
+            }
+          });
 
 
-            if (response.ok) {
+          if (response.ok) {
 
-              contactForm.reset();
+            contactForm.reset();
 
-              submitButton.textContent =
-                "SENT";
+            submitButton.textContent = "SENT";
 
-              if (formSuccess) {
-                formSuccess.classList.add("show");
-              }
-
-            } else {
-
-              submitButton.disabled = false;
-
-              submitButton.textContent =
-                "SEND INQUIRY";
-
-              if (formSuccess) {
-                formSuccess.classList.remove("show");
-              }
-
+            if (formSuccess) {
+              formSuccess.classList.add("show");
             }
 
-
-          } catch (error) {
+          } else {
 
             submitButton.disabled = false;
 
-            submitButton.textContent =
-              "SEND INQUIRY";
+            submitButton.textContent = "SEND INQUIRY";
 
             if (formSuccess) {
               formSuccess.classList.remove("show");
             }
 
-            console.error(
-              "Formspree error:",
-              error
-            );
-
           }
 
+
+        } catch (error) {
+
+          submitButton.disabled = false;
+
+          submitButton.textContent = "SEND INQUIRY";
+
+          if (formSuccess) {
+            formSuccess.classList.remove("show");
+          }
+
+          console.error("Formspree error:", error);
+
         }
-      );
+
+      });
 
     }
 
