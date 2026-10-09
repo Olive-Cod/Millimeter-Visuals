@@ -8,7 +8,9 @@
   --grey: #9a9a93;
   --accent: #ff3b00;
   --line: rgba(248, 248, 241, 0.14);
+  --line-strong: rgba(248, 248, 241, 0.22);
   --ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --nav-height: 78px;
   --nav-height-mobile: 64px;
 }
@@ -67,8 +69,8 @@ button {
 }
 
 /* =========================================================
-   NAV — fijo siempre visible (a diferencia del home, acá NO
-   se oculta ni aparece con el scroll)
+   NAV — fijo y siempre visible; se oscurece al hacer scroll
+   (igual que el home)
 ========================================================= */
 .nav {
   position: fixed;
@@ -81,16 +83,16 @@ button {
   justify-content: space-between;
   padding: 0 5%;
   z-index: 1500;
-  background: var(--black);
-  transition: border-color 0.3s ease;
-}
-
-.nav {
-  background: transparent !important;
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
 }
 
 .nav.is-scrolled {
-  border-bottom: px solid var(--line);
+  background: rgba(10, 10, 10, 0.72);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
+  border-bottom-color: var(--line);
 }
 
 .logo {
@@ -105,16 +107,11 @@ button {
 
 .logo sup {
   font-size: 0.45em;
-  /* Proporción visual limpia respecto al logo del nav */
   vertical-align: top;
-  /* Se alinea con el tope superior de la S */
   position: relative;
   top: 0.08em;
-  /* Ajuste fino para la altura del nav */
   margin-left: 1px;
-  /* Espaciado exacto tras la palabra VISUALS */
   line-height: 1.2;
-  /* Previene que empuje o agrande la altura del header */
   font-weight: 700;
 }
 
@@ -148,7 +145,71 @@ button {
 }
 
 /* =========================================================
-   FULLSCREEN MENU — mismo fade-up escalonado que index
+   REGLA 0–135 mm (compartida: menú + footer)
+   Se genera con JS en cualquier [data-mm-scale]
+========================================================= */
+.mm-scale {
+  position: relative;
+  width: 100%;
+  height: 46px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.mm-scale-track {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 0;
+  bottom: 0;
+}
+
+.mm-tick {
+  position: absolute;
+  bottom: 0;
+  width: 1px;
+  height: 8px;
+  background: rgba(248, 248, 241, 0.45);
+  transform: translateX(-0.5px);
+}
+
+.mm-tick.is-mid {
+  height: 13px;
+  background: rgba(248, 248, 241, 0.75);
+}
+
+.mm-tick.is-major {
+  height: 20px;
+  background: var(--white);
+}
+
+.mm-tick.is-zero {
+  width: 2px;
+  height: 26px;
+  background: var(--accent);
+  transform: translateX(-1px);
+}
+
+.mm-num {
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.mm-tick.is-zero .mm-num {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+/* =========================================================
+   FULLSCREEN MENU
 ========================================================= */
 .fullscreen-menu {
   position: fixed;
@@ -190,6 +251,7 @@ button {
 }
 
 .fullscreen-nav a {
+  position: relative;
   display: inline-block;
   font-weight: 900;
   font-size: clamp(2.4rem, 6vw, 5.5rem);
@@ -214,13 +276,86 @@ button {
   transition-delay: 0.16s;
 }
 
-.fullscreen-nav a:hover {
-  color: var(--grey);
+.fullscreen-menu.active .fullscreen-nav a:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+/* Número naranja colgando a la izquierda de cada opción */
+.menu-num {
+  position: absolute;
+  right: 100%;
+  top: 0.45rem;
+  margin-right: 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: var(--accent);
+}
+
+/* Al pasar el mouse, las demás opciones se atenúan */
+.fullscreen-menu.active .fullscreen-nav:hover a {
+  opacity: 0.25;
+  transition-delay: 0s;
+}
+
+.fullscreen-menu.active .fullscreen-nav a:hover {
+  opacity: 1;
+  color: var(--white);
+  transition-delay: 0s;
+}
+
+/* Fila de contacto + regla dentro del menú */
+.menu-foot {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.fullscreen-menu.active .menu-foot {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.35s;
+}
+
+.menu-foot-link {
+  transition: color 0.3s ease;
+}
+
+.menu-foot-link:hover {
+  color: var(--accent);
+}
+
+.fullscreen-menu .mm-scale--menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+
+.fullscreen-menu.active .mm-scale--menu {
+  opacity: 1;
+  transition-delay: 0.45s;
 }
 
 /* =========================================================
-   KICKER — mismo componente "01 — Colección" del home,
-   reutilizado acá como "MV — Studio" / "01 — Creative Director"
+   KICKER — mismo componente "01 — Colección" del home
 ========================================================= */
 .about-kicker {
   display: flex;
@@ -263,10 +398,8 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* Centrado horizontal */
   justify-content: center;
   text-align: center;
-  /* Texto centrado */
   gap: 28px;
   padding: calc(var(--nav-height) + 40px) 5% 60px;
   background: var(--black);
@@ -297,7 +430,6 @@ button {
   max-width: 1100px;
   margin: 0 auto;
   padding: calc(var(--nav-height) + 80px) 5% 100px;
-  /* antes: 60px 5% 100px */
   background: var(--black);
 }
 
@@ -326,9 +458,7 @@ button {
   color: var(--white);
   text-transform: uppercase;
   writing-mode: vertical-rl;
-  /* Orientación vertical */
   transform: rotate(180deg);
-  /* Orientación de lectura hacia arriba */
   white-space: nowrap;
   opacity: 0.9;
 }
@@ -337,7 +467,6 @@ button {
 .founder-media {
   width: 100%;
   max-width: 320px;
-  /* Tamaño contenido y proporcionado */
   aspect-ratio: 3 / 4;
   overflow: hidden;
   border-radius: 2px;
@@ -384,6 +513,10 @@ button {
   .founder-tags {
     justify-content: center;
   }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
 @media (max-width: 500px) {
@@ -401,206 +534,246 @@ button {
 }
 
 /* =========================================================
-   FOOTER CON REGLA MILIMÉTRICA (MM)
+   SITE FOOTER (igual que el home)
 ========================================================= */
 
-.film-credits-footer {
+.site-footer {
+  position: relative;
+  z-index: 1;
   width: 100%;
-  background: #0a0a0a;
-  border-top: 0px solid var(--line);
-  padding: 80px 0 0;
-  /* Padding inferior en 0 para pegar la regla */
+  background: var(--black);
+  color: var(--white);
+  padding: 110px 0 0;
   display: flex;
   flex-direction: column;
-  gap: 50px;
-  font-family: "Archivo", sans-serif;
-  color: var(--white);
+  gap: 70px;
+  padding-bottom: 14px;
   overflow: hidden;
+  border-top: 1px solid var(--line);
+  font-family: "Archivo", sans-serif;
 }
 
-.credits-header {
-  text-align: center;
+/* ---- CTA GRANDE ---- */
+.footer-cta {
+  padding: 0 5%;
   display: flex;
   flex-direction: column;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.footer-eyebrow {
+  display: flex;
   align-items: center;
   gap: 12px;
-  padding: 0 5%;
-}
-
-.credits-tag {
-  font-size: 0.65rem;
+  font-size: 0.72rem;
   font-weight: 700;
   letter-spacing: 3px;
-  color: var(--grey);
-  border: 1px solid var(--line);
-  padding: 4px 12px;
-  border-radius: 20px;
-  text-transform: uppercase;
-}
-
-.credits-title {
-  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-  font-weight: 900;
-  letter-spacing: 2px;
   text-transform: uppercase;
   color: var(--white);
 }
 
-/* GRID DE CRÉDITOS */
-.credits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 40px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
-  padding: 0 5%;
+.footer-eyebrow .dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
-.credits-col {
+.footer-cta-link {
+  position: relative;
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.18em;
+  font-weight: 900;
+  font-size: clamp(2.6rem, 9vw, 8rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+  color: var(--white);
+  padding-bottom: 0.12em;
+}
+
+.footer-cta-link::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.6s var(--ease-out);
+}
+
+.footer-cta-link:hover::after {
+  transform: scaleX(1);
+}
+
+.footer-arrow {
+  display: inline-block;
+  font-size: 0.6em;
+  line-height: 1;
+  color: var(--accent);
+  transition: transform 0.4s var(--ease-out);
+}
+
+.footer-cta-link:hover .footer-arrow {
+  transform: translate(6px, -6px);
+}
+
+.footer-note {
+  max-width: 480px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  line-height: 1.55;
+  color: var(--grey);
+}
+
+/* ---- COLUMNAS ---- */
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 30px;
+  margin: 0 5%;
+  padding-top: 50px;
+  border-top: 1px solid var(--line);
+}
+
+.footer-col {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  align-items: center;
+  gap: 14px;
+  align-items: flex-start;
 }
 
-.credits-role {
+.footer-col-title {
   font-size: 0.65rem;
   font-weight: 700;
   letter-spacing: 2px;
+  text-transform: uppercase;
   color: var(--grey);
-  text-transform: uppercase;
-  margin-top: 10px;
+  margin-bottom: 4px;
 }
 
-.credits-role:first-child {
-  margin-top: 0;
-}
-
-.credits-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--white);
-}
-
-.credits-link {
+.footer-text,
+.footer-link {
   font-size: 0.85rem;
   font-weight: 700;
   letter-spacing: 1px;
+  line-height: 1.4;
   text-transform: uppercase;
+  color: var(--white);
+  overflow-wrap: anywhere;
+}
+
+.footer-link {
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: var(--accent);
+}
+
+/* ---- FILA LEGAL ---- */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 5%;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.footer-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
   color: var(--white);
   transition: color 0.3s ease;
 }
 
-.credits-link:hover {
-  color: #ff3b00;
-}
-
-/* NOMBRE ENORME EN EL FOOTER (COMO EN TU CAPTURA) */
-.credits-brand-giant {
-  font-weight: 900;
-  font-size: clamp(2.5rem, 9vw, 8.5rem);
-  letter-spacing: -0.04em;
-  text-align: center;
-  line-height: 0.85;
-  color: var(--white);
-  text-transform: uppercase;
-  padding: 20px 2% 0;
-  user-select: none;
-}
-
-/* DETALLES DE CINE */
-.credits-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  padding: 20px 5%;
-  border-top: 1px solid var(--line);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: var(--grey);
-  text-transform: uppercase;
-}
-
-.credits-specs {
-  display: flex;
-  gap: 10px;
-  align-items: center;
+.footer-top-link:hover {
+  color: var(--accent);
 }
 
 /* =========================================================
-   REGLA DE MILÍMETROS (MM RULER BAR)
+   RESPONSIVE MOBILE
 ========================================================= */
+@media (max-width: 600px) {
+  .nav {
+    height: var(--nav-height-mobile);
+    padding: 0 5%;
+  }
 
-.mm-ruler-container {
-  width: 100%;
-  background: #0a0a0a;
-  border-top: 0px solid var(--line);
-  padding: 15px 0 10px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  /* Oculta scrollbar */
+  .logo {
+    font-size: 1.05rem;
+  }
+
+  .menu-btn {
+    font-size: 0.95rem;
+    gap: 4px;
+  }
+
+  .menu-plus {
+    font-size: 0.9rem;
+  }
+
+  .mm-scale-track {
+    left: 6%;
+    right: 6%;
+  }
+
+  .menu-foot {
+    left: 6%;
+    right: 6%;
+    bottom: 66px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.66rem;
+  }
+
+  .menu-num {
+    top: 0.3rem;
+    margin-right: 10px;
+    font-size: 0.7rem;
+  }
+
+  .site-footer {
+    padding: 70px 0 0;
+    gap: 50px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 6%;
+  }
+
+  .footer-cta,
+  .footer-bottom {
+    padding-left: 6%;
+    padding-right: 6%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
 
-.mm-ruler-container::-webkit-scrollbar {
-  display: none;
-}
+@media (prefers-reduced-motion: reduce) {
 
-.mm-ruler {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  min-width: 900px;
-  width: 100%;
-  padding: 0 40px;
-  height: 35px;
-  box-sizing: border-box;
-}
-
-.mm-mark {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-
-/* Líneas de la regla */
-.mm-mark::before {
-  content: "";
-  width: 1px;
-  height: 12px;
-  background: var(--grey);
-  position: absolute;
-  bottom: 0;
-}
-
-/* Números sobre las marcas */
-.mm-mark::after {
-  content: attr(data-mm);
-  font-size: 0.65rem;
-  font-family: monospace;
-  font-weight: 600;
-  color: var(--grey);
-  position: absolute;
-  top: 0;
-}
-
-/* Marca del Cero (Destacada) */
-.mm-mark.main-zero::before {
-  height: 20px;
-  background: #ff3b00;
-  /* Punto rojo / accento */
-  width: 2px;
-}
-
-.mm-mark.main-zero::after {
-  color: #ff3b00;
-  font-weight: 800;
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
+  }
 }
