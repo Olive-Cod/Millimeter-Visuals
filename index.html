@@ -7,24 +7,36 @@
     <title>Millimeter Visuals</title>
 
     <!-- Datos estructurados para el nombre oficial en Google -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Millimeter Visuals",
-    "alternateName": ["MillimeterVisuals"],
-    "url": "https://millimetervisuals.com/"
+    <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Millimeter Visuals",
+  "alternateName": ["MillimeterVisuals"],
+  "url": "https://millimetervisuals.com/",
+  "logo": "https://millimetervisuals.com/img/IMG_11.png",
+  "email": "millimetervisuals.studio@gmail.com",
+  "sameAs": [
+    "https://www.instagram.com/millimetervisuals"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Boston",
+    "addressRegion": "MA",
+    "addressCountry": "US"
   }
-  </script>
+}
+</script>
 
     <!-- META DESCRIPCIÓN PARA BUSCADORES -->
-  <meta name="description" content="Millimeter Visuals is a Boston-based photography and video production, specializing in portraits, brand visuals, corporate headshots, and event production.">
+    <meta name="description"
+        content="Millimeter Visuals is a Boston-based photography and video production, specializing in portraits, brand visuals, corporate headshots, and event production.">
 
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="/img/IMG_11.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/img/IMG_11.png" sizes="192x192">
     <link rel="apple-touch-icon" href="/img/IMG_11.png">
-    
+
     <!-- STYLES CSS -->
     <link rel="stylesheet" href="css/styles.css">
 
@@ -41,7 +53,7 @@
 
 <body>
 
-    <!-- NAVIGATION (Aparece tras hacer scroll) -->
+    <!-- NAVIGATION (visible desde el inicio) -->
     <header class="nav" id="siteNav">
         <a href="/" class="logo">MILLIMETER VISUALS<sup>™</sup></a>
         <button class="menu-btn" id="menuBtn">MENU <span class="menu-plus">+</span></button>
@@ -51,23 +63,78 @@
     <div class="fullscreen-menu" id="fullscreenMenu">
         <div class="menu-inner">
             <nav class="fullscreen-nav">
-                <a href="Aboutme.html">ABOUT</a>
-                <a href="Services.html">SERVICES</a>
-                <a href="contact.html">CONTACT</a>
+                <a href="Aboutme.html"><span class="menu-num">01</span>ABOUT</a>
+                <a href="Services.html"><span class="menu-num">02</span>SERVICES</a>
+                <a href="contact.html"><span class="menu-num">03</span>CONTACT</a>
             </nav>
         </div>
+
+        <!-- Fila de contacto -->
+        <div class="menu-foot">
+            <span class="menu-foot-item">Boston, MA</span>
+            <a href="mailto:millimetervisuals.studio@gmail.com"
+                class="menu-foot-item menu-foot-link">millimetervisuals.studio@gmail.com</a>
+            <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
+                class="menu-foot-item menu-foot-link">@millimetervisuals</a>
+        </div>
+
+        <!-- Regla 0–135 mm -->
+        <div class="mm-scale mm-scale--menu" data-mm-scale aria-hidden="true"></div>
     </div>
 
-    <!-- PORTADA / HERO (100% Pantalla) -->
+    <!-- =========================================================
+   HERO — fotos a pantalla completa + nombre + regla de milímetros
+========================================================= -->
     <section class="hero" id="heroSection">
-        <h1 class="hero-headline">MILLIMETER <br>VISUALS<sup>™</sup></h1>
 
+        <!-- Fotos que se funden entre sí -->
+        <div class="hero-slides" id="heroSlides">
+            <div class="hero-slide is-active" data-label="Portraits">
+                <img src="img/IMG_9192.jpg" alt="Portrait photography by Millimeter Visuals">
+            </div>
+            <div class="hero-slide" data-label="Weddings &amp; Engagements">
+                <img src="img/4G6A8943.jpg" alt="Wedding photography by Millimeter Visuals" loading="lazy">
+            </div>
+            <div class="hero-slide" data-label="Studio">
+                <img src="img/445.jpg" alt="Studio photography by Millimeter Visuals" loading="lazy">
+            </div>
+        </div>
+
+        <div class="hero-content">
+            <p class="hero-kicker"><span class="dot"></span>Boston — Portrait, Event + Visual Media</p>
+
+            <h1 class="hero-headline">
+                <span class="line"><span>Photo &amp; Video</span></span>
+                <span class="line"><span>Production</span></span>
+            </h1>
+
+            <p class="hero-breakdown">
+                <span>Portraits</span><span class="sep">/</span>
+                <span>Weddings &amp; Engagements</span><span class="sep">/</span>
+                <span>Events</span><span class="sep">/</span>
+                <span>Brand Visuals</span>
+            </p>
+        </div>
+
+        <div class="hero-foot">
+            <div class="hero-count">
+                <span class="hero-current" id="heroCurrent">01</span>
+                <span class="count-divider"></span>
+                <span id="heroTotal">03</span>
+                <span class="hero-label" id="heroLabel">Portraits</span>
+            </div>
+            <div class="hero-scroll">
+                <span>Scroll</span>
+                <span class="hero-scroll-line"></span>
+            </div>
+        </div>
+
+        <!-- Regla 0–135 mm -->
+        <div class="mm-scale mm-scale--hero" data-mm-scale aria-hidden="true"></div>
     </section>
 
     <!-- =========================================================
    GALERÍA 01 — PORTRAITS
-   Portada (imagen + título grande) -> al hacer scroll se
-   desvanece el título y aparece el slider horizontal
 ========================================================= -->
     <section class="hgallery" id="portraitsGallery" data-gallery>
 
@@ -174,76 +241,60 @@
     </section>
 
     <!-- FOOTER PRINCIPAL DE MARCA -->
-    <footer class="site-footer">
+    <footer class="site-footer" id="siteFooter">
 
-        <!-- DECLARACIÓN DE MARCA / STATEMENT -->
-        <div class="footer-statement-content">
-
-            <h2 class="footer-headline">
-                BOSTON PORTRAIT, EVENT + VISUAL MEDIA
-            </h2>
-
-            <!-- FRASE DE ESTUDIO DE ALTO NIVEL -->
-            <p class="footer-subline">
-                MILLIMETER VISUALS IS A BOSTON-BASED STUDIO CRAFTING INTENTIONAL PHOTOGRAPHY &amp; FILM.
-            </p>
-
-            <p class="footer-tagline">
-                PHOTOGRAPHY + VIDEO PRODUCTION FOR ENTREPRENEURS, EVENTS &amp; BRANDS
-            </p>
-
+        <!-- LLAMADA A LA ACCIÓN -->
+        <div class="footer-cta">
+            <p class="footer-eyebrow"><span class="dot"></span>Let's work together</p>
+            <a href="contact.html" class="footer-cta-link">
+                <span>Book a session</span>
+                <span class="footer-arrow" aria-hidden="true">↗</span>
+            </a>
+            <p class="footer-note">Photography + video production for entrepreneurs, events &amp; brands — based in
+                Boston.</p>
         </div>
 
-        <!-- SECCIÓN DE CRÉDITOS Y DATOS DEL ESTUDIO -->
-        <div class="credits-grid">
+        <!-- COLUMNAS -->
+        <div class="footer-grid">
 
-            <div class="credits-col">
-                <span class="credits-role">EMAIL</span>
-                <a href="mailto:millimetervisuals.studio@gmail.com" class="credits-link">
-                    millimetervisuals<br>.studio@gmail.com
-                </a>
+            <div class="footer-col">
+                <span class="footer-col-title">Studio</span>
+                <span class="footer-text">Boston, MA</span>
+                <span class="footer-text">Photo &amp; Video Production</span>
             </div>
 
-            <div class="credits-col">
-                <span class="credits-role">SOCIAL</span>
+            <div class="footer-col">
+                <span class="footer-col-title">Collections</span>
+                <a href="#portraitsGallery" class="footer-link">Portraits</a>
+                <a href="#weddingGallery" class="footer-link">Weddings &amp; Engagements</a>
+                <a href="#studioGallery" class="footer-link">Studio</a>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-col-title">Navigate</span>
+                <a href="Aboutme.html" class="footer-link">About</a>
+                <a href="Services.html" class="footer-link">Services</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-col-title">Connect</span>
+                <a href="mailto:millimetervisuals.studio@gmail.com"
+                    class="footer-link">millimetervisuals.studio@gmail.com</a>
                 <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
-                    class="credits-link">
-                    @millimetervisuals
-                </a>
-            </div>
-
-            <div class="credits-col">
-                <span class="credits-role">INQUIRIES</span>
-                <a href="contact.html" class="credits-link">
-                    BOOK A SESSION
-                </a>
+                    class="footer-link">@millimetervisuals</a>
             </div>
 
         </div>
 
-        <!-- TEXTO GIGANTE Y DETALLES -->
-        <div class="credits-brand-giant">
-            PHOTO &amp; VIDEO<br>PRODUCTION
+        <!-- FILA LEGAL -->
+        <div class="footer-bottom">
+            <span>© 2026 — All rights reserved</span>
+            <a href="#" class="footer-top-link">Back to top <span aria-hidden="true">↑</span></a>
         </div>
 
-        <!-- CINTA / REGLA DE MILÍMETROS (MM RULER) -->
-        <div class="mm-ruler-container">
-            <div class="mm-ruler">
-                <span class="mm-mark" data-mm="-30"></span>
-                <span class="mm-mark" data-mm="-25"></span>
-                <span class="mm-mark" data-mm="-20"></span>
-                <span class="mm-mark" data-mm="-15"></span>
-                <span class="mm-mark" data-mm="-10"></span>
-                <span class="mm-mark" data-mm="-5"></span>
-                <span class="mm-mark main-zero" data-mm="0"></span>
-                <span class="mm-mark" data-mm="5"></span>
-                <span class="mm-mark" data-mm="10"></span>
-                <span class="mm-mark" data-mm="15"></span>
-                <span class="mm-mark" data-mm="20"></span>
-                <span class="mm-mark" data-mm="25"></span>
-                <span class="mm-mark" data-mm="30"></span>
-            </div>
-        </div>
+        <!-- Regla 0–135 mm (la misma del hero) -->
+        <div class="mm-scale" data-mm-scale aria-hidden="true"></div>
 
     </footer>
 
@@ -271,40 +322,89 @@
             });
         });
 
-        // Control del NAV (aparece tras pasar el Hero)
-        const siteNav = document.getElementById("siteNav");
-        const heroSection = document.getElementById("heroSection");
-
-        const toggleNavVisibility = () => {
-            if (!siteNav || !heroSection) return;
-            const heroHeight = heroSection.offsetHeight;
-            if (window.scrollY > heroHeight - 80) {
-                siteNav.classList.add("is-visible");
-            } else {
-                siteNav.classList.remove("is-visible");
+        // REGLA 0–135 mm (hero + footer)
+        document.querySelectorAll("[data-mm-scale]").forEach((el) => {
+            const MAX = 135;
+            const track = document.createElement("div");
+            track.className = "mm-scale-track";
+            for (let i = 0; i <= MAX; i++) {
+                const tick = document.createElement("span");
+                tick.className = "mm-tick";
+                tick.style.left = (i / MAX * 100) + "%";
+                if (i === 0) tick.classList.add("is-zero");
+                else if (i % 15 === 0) tick.classList.add("is-major");
+                else if (i % 5 === 0) tick.classList.add("is-mid");
+                if (i % 15 === 0) {
+                    const num = document.createElement("span");
+                    num.className = "mm-num";
+                    num.textContent = i === MAX ? i + "mm" : i;
+                    tick.appendChild(num);
+                }
+                track.appendChild(tick);
             }
+            el.appendChild(track);
+        });
+
+        // NAV: visible desde el inicio; se oscurece suavemente al hacer scroll
+        const siteNav = document.getElementById("siteNav");
+
+        const updateNavState = () => {
+            if (!siteNav) return;
+            siteNav.classList.toggle("is-scrolled", window.scrollY > 40);
         };
 
-        window.addEventListener("scroll", toggleNavVisibility, { passive: true });
-        toggleNavVisibility();
+        window.addEventListener("scroll", updateNavState, { passive: true });
+        updateNavState();
 
         // Menu Pantalla Completa
         const menuBtn = document.getElementById("menuBtn");
         const fullscreenMenu = document.getElementById("fullscreenMenu");
+        function isMenuOpen() {
+            return !!fullscreenMenu && fullscreenMenu.classList.contains("active");
+        }
+
+        // Abre/cierra el menú y bloquea el scroll de la página mientras está abierto
+        function setMenu(open) {
+            if (!menuBtn || !fullscreenMenu) return;
+            fullscreenMenu.classList.toggle("active", open);
+            menuBtn.querySelector(".menu-plus").textContent = open ? "×" : "+";
+            menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+            document.body.style.overflow = open ? "hidden" : "";
+        }
+
         if (menuBtn && fullscreenMenu) {
-            menuBtn.addEventListener("click", () => {
-                fullscreenMenu.classList.toggle("active");
-                menuBtn.querySelector(".menu-plus").textContent = fullscreenMenu.classList.contains("active") ? "×" : "+";
-            });
+            menuBtn.addEventListener("click", () => setMenu(!isMenuOpen()));
         }
 
         // =====================================================
+        // HERO — fotos que se funden cada pocos segundos
+        // =====================================================
+        (function initHeroSlides() {
+            const slides = document.querySelectorAll("#heroSlides .hero-slide");
+            const currentEl = document.getElementById("heroCurrent");
+            const totalEl = document.getElementById("heroTotal");
+            const labelEl = document.getElementById("heroLabel");
+            if (!slides.length) return;
+
+            let active = 0;
+            if (totalEl) totalEl.textContent = String(slides.length).padStart(2, "0");
+
+            function show(i) {
+                slides[active].classList.remove("is-active");
+                active = i;
+                slides[active].classList.add("is-active");
+                if (currentEl) currentEl.textContent = String(active + 1).padStart(2, "0");
+                if (labelEl) labelEl.innerHTML = slides[active].dataset.label;
+            }
+
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            if (reduceMotion || slides.length < 2) return;
+
+            setInterval(() => show((active + 1) % slides.length), 5500);
+        })();
+
+        // =====================================================
         // GALLERY SYSTEM — PORTADA + SLIDER HORIZONTAL
-        // Cada galería arranca en modo "cover" (imagen + título
-        // grande). Al hacer scroll hacia abajo, el título se
-        // desvanece y aparece un slider horizontal con todas
-        // las fotos de esa colección. Scroll hacia arriba en la
-        // primera foto regresa a la portada.
         // =====================================================
 
         const galleryData = [
@@ -324,10 +424,10 @@
                     { src: "img/IMG_0315.jpg", alt: "Portrait photography" },
 
                     { src: "img/IMG_1057.jpg", alt: "Portrait photography" },
-                    { src: "img/IMG_1016.jpg", alt: "Portrait photography" }, 
+                    { src: "img/IMG_1016.jpg", alt: "Portrait photography" },
 
                     { src: "img/IMG_1663.jpg", alt: "Portrait photography" },
-                    {src: "img/IMG_1671.jpg", alt: "Portrait photography" },
+                    { src: "img/IMG_1671.jpg", alt: "Portrait photography" },
                     { src: "img/4G6A004.jpg", alt: "Portrait photography" }
                 ]
             },
@@ -354,7 +454,6 @@
                     { src: "img/IMG_4464.jpg", alt: "Studio photography" },
                     { src: "img/IMG_4454.jpg", alt: "Studio photography" },
                     { src: "img/IMG_4466.jpg", alt: "Studio photography" },
-
 
                     { src: "img/IMG_3535.jpg", alt: "Studio photography" },
 
@@ -393,8 +492,19 @@
             config.items.forEach((item, index) => {
                 const card = document.createElement("div");
                 card.className = "slider-card";
-                card.innerHTML = `<img src="${item.src}" alt="${item.alt}" loading="lazy">`;
-                card.addEventListener("click", () => openLightbox(item.src));
+                card.innerHTML = `<img src="${item.src}" alt="${item.alt}" decoding="async">`;
+                // Foto central -> abre el lightbox. Foto lateral -> pasa al centro.
+                card.addEventListener("click", () => {
+                    if (controller.phase === "slider" && controller.index !== index) {
+                        goTo(controller, index);
+                    } else {
+                        openLightbox(item.src);
+                    }
+                });
+                // Al cargar cada foto cambia su ancho: se vuelve a centrar
+                card.querySelector("img").addEventListener("load", () => {
+                    if (controller.phase === "slider") updateTrackPosition(controller);
+                });
                 trackEl.appendChild(card);
 
                 const thumb = document.createElement("div");
@@ -411,19 +521,20 @@
             return controller;
         }
 
-        function getOffsetForIndex(trackEl, index) {
-            const gap = parseFloat(getComputedStyle(trackEl).gap) || 0;
-            let offset = 0;
-            for (let i = 0; i < index; i++) {
-                const child = trackEl.children[i];
-                if (child) offset += child.getBoundingClientRect().width + gap;
-            }
-            return offset;
+        // Centra la foto activa en el medio de la pantalla
+        function getOffsetForIndex(controller) {
+            const card = controller.trackEl.children[controller.index];
+            const viewport = controller.trackEl.parentElement;
+            if (!card || !viewport) return 0;
+            return card.offsetLeft + card.offsetWidth / 2 - viewport.clientWidth / 2;
         }
 
         function updateTrackPosition(controller) {
-            const offset = getOffsetForIndex(controller.trackEl, controller.index);
-            controller.trackEl.style.transform = `translateX(-${offset}px)`;
+            const offset = getOffsetForIndex(controller);
+            controller.trackEl.style.transform = `translateX(${-offset}px)`;
+            Array.from(controller.trackEl.children).forEach((card, i) => {
+                card.classList.toggle("is-current", i === controller.index);
+            });
         }
 
         function updateThumbs(controller) {
@@ -431,7 +542,7 @@
             thumbs.forEach((thumb, i) => {
                 if (i === controller.index) {
                     thumb.classList.add("active");
-                    thumb.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "nearest" });
+                    thumb.scrollIntoView({ behavior: "smooth", block: "nearest", inline: "center" });
                 } else {
                     thumb.classList.remove("active");
                 }
@@ -491,6 +602,7 @@
         const galleryControllers = galleryData.map(buildController).filter(Boolean);
 
         function getCenteredController() {
+            if (isMenuOpen()) return undefined; // menú abierto: las galerías no reaccionan
             return galleryControllers.find((controller) => {
                 const rect = controller.section.getBoundingClientRect();
                 return rect.top >= -50 && rect.bottom <= window.innerHeight + 50;
@@ -503,8 +615,7 @@
             setTimeout(() => { isCoolingDown = false; }, ms);
         }
 
-        // Traduce una "intención" de scroll (rueda, touch o teclado)
-        // en portada -> slider -> siguiente foto -> siguiente sección
+        // Traduce una "intención" de scroll en portada -> slider -> siguiente foto -> siguiente sección
         function handleIntent(controller, deltaY, event) {
             const goingDown = deltaY > 0;
 
@@ -517,7 +628,6 @@
                         triggerCooldown(650);
                     }
                 }
-                // scroll hacia arriba en portada: se deja el scroll natural (sección anterior)
                 return;
             }
 
@@ -531,7 +641,6 @@
                         triggerCooldown();
                     }
                 }
-                // última foto: se deja pasar el scroll a la siguiente galería
             } else {
                 if (controller.index > 0) {
                     event.preventDefault();
@@ -558,7 +667,7 @@
             handleIntent(controller, e.deltaY, e);
         }, { passive: false });
 
-        // TOUCH (móvil): un swipe vertical se traduce en el mismo gesto
+        // TOUCH (móvil)
         let touchStartY = null;
         window.addEventListener("touchstart", (e) => {
             touchStartY = e.touches[0].clientY;
@@ -615,7 +724,11 @@
 
         if (lbClose) lbClose.addEventListener("click", closeLightbox);
         if (lightbox) lightbox.addEventListener("click", (e) => { if (e.target === lightbox) closeLightbox(); });
-        document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeLightbox(); });
+        document.addEventListener("keydown", (e) => {
+            if (e.key !== "Escape") return;
+            if (isMenuOpen()) setMenu(false);
+            closeLightbox();
+        });
     </script>
 </body>
 
