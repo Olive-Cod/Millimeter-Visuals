@@ -11,12 +11,13 @@
   --black: #0a0a0a;
   --white: #f8f8f1;
   --grey: #9a9a93;
-  
+  --accent: #ff3b00;
 
   --line: rgba(248, 248, 241, 0.14);
   --line-strong: rgba(248, 248, 241, 0.22);
 
   --ease: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
   --radius: 22px;
 
   --nav-height: 78px;
@@ -42,14 +43,10 @@ html {
 body {
   width: 100%;
   overflow-x: hidden;
-
   font-family: "Archivo", sans-serif;
-
   background: var(--black);
   color: var(--white);
-
   opacity: 0;
-
   transition: opacity 0.6s ease;
 }
 
@@ -73,104 +70,71 @@ a {
 button {
   border: 0;
   background: none;
-
   cursor: pointer;
-
   font-family: inherit;
 }
 
 
 /* =========================================================
-   02 — NAVIGATION — fijo siempre visible (igual que About;
-   a diferencia del home, acá NO se oculta ni aparece con el scroll)
+   02 — NAVIGATION — fijo y siempre visible; se oscurece al
+   hacer scroll (igual que el home y About)
 ========================================================= */
 
 .nav {
   position: fixed;
-
   top: 0;
   left: 0;
-
   width: 100%;
   height: var(--nav-height);
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
   padding: 0 5%;
-
   z-index: 1500;
-
-  background: var(--black);
-
-  border-bottom: px solid transparent;
-
-  transition:
-    border-color 0.3s var(--ease),
-    box-shadow 0.3s var(--ease);
+  background: transparent;
+  border-bottom: 1px solid transparent;
+  transition: background 0.4s ease, border-color 0.4s ease, backdrop-filter 0.4s ease;
 }
-
-.nav {
-  background: transparent !important;
-}
-
 
 .nav.is-scrolled {
+  background: rgba(10, 10, 10, 0.72);
+  -webkit-backdrop-filter: blur(14px);
+  backdrop-filter: blur(14px);
   border-bottom-color: var(--line);
-
-  box-shadow:
-    0 1px 0 rgba(0, 0, 0, 0.02);
 }
 
 
 .logo {
   font-family: "Archivo", sans-serif;
-
   font-weight: 900;
-
-  font-size: clamp(1.2rem,
-      2.4vw,
-      1.85rem);
-
+  font-size: clamp(1.2rem, 2.4vw, 1.85rem);
   line-height: 1;
-
   letter-spacing: -0.01em;
-
   text-transform: uppercase;
-
   color: var(--white);
 }
 
 
 .logo sup {
-  font-size: 0.45em;       /* Proporción visual limpia respecto al logo del nav */
-  vertical-align: top;     /* Se alinea con el tope superior de la S */
+  font-size: 0.45em;
+  vertical-align: top;
   position: relative;
-  top: 0.08em;             /* Ajuste fino para la altura del nav */
-  margin-left: 1px;        /* Espaciado exacto tras la palabra VISUALS */
-  line-height: 1.2;          /* Previene que empuje o agrande la altura del header */
+  top: 0.08em;
+  margin-left: 1px;
+  line-height: 1.2;
   font-weight: 700;
 }
 
 .menu-btn {
   display: flex;
   align-items: center;
-
   gap: 7px;
-
   color: var(--white);
-
   font-weight: 700;
-
   font-size: 1.2rem;
-
   line-height: 1;
-
   letter-spacing: 1px;
-
   text-transform: uppercase;
-
   transition: opacity 0.25s ease;
 }
 
@@ -182,15 +146,10 @@ button {
 
 .menu-plus {
   display: inline-block;
-
   font-size: 1.15rem;
-
   font-weight: 500;
-
   line-height: 1;
-
-  transition:
-    transform 0.3s var(--ease);
+  transition: transform 0.3s var(--ease);
 }
 
 
@@ -200,52 +159,104 @@ button {
 
 
 /* =========================================================
+   REGLA 0–135 mm (compartida: menú + footer)
+   Se genera con JS en cualquier [data-mm-scale]
+========================================================= */
+
+.mm-scale {
+  position: relative;
+  width: 100%;
+  height: 46px;
+  flex-shrink: 0;
+  pointer-events: none;
+}
+
+.mm-scale-track {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  top: 0;
+  bottom: 0;
+}
+
+.mm-tick {
+  position: absolute;
+  bottom: 0;
+  width: 1px;
+  height: 8px;
+  background: rgba(248, 248, 241, 0.45);
+  transform: translateX(-0.5px);
+}
+
+.mm-tick.is-mid {
+  height: 13px;
+  background: rgba(248, 248, 241, 0.75);
+}
+
+.mm-tick.is-major {
+  height: 20px;
+  background: var(--white);
+}
+
+.mm-tick.is-zero {
+  width: 2px;
+  height: 26px;
+  background: var(--accent);
+  transform: translateX(-1px);
+}
+
+.mm-num {
+  position: absolute;
+  bottom: calc(100% + 5px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: monospace;
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  color: var(--white);
+  white-space: nowrap;
+}
+
+.mm-tick.is-zero .mm-num {
+  color: var(--accent);
+  font-weight: 800;
+}
+
+
+/* =========================================================
    03 — FULLSCREEN MENU
 ========================================================= */
 
 .fullscreen-menu {
   position: fixed;
-
   inset: 0;
-
   width: 100%;
   height: 100vh;
   height: 100svh;
-
   display: flex;
   align-items: center;
   justify-content: center;
-
   background: var(--black);
   color: var(--white);
-
   z-index: 1400;
-
   opacity: 0;
   visibility: hidden;
-
   pointer-events: none;
-
-  transition:
-    opacity 0.45s var(--ease),
-    visibility 0.45s var(--ease);
-
+  transition: opacity 0.45s var(--ease), visibility 0.45s var(--ease);
   overflow: hidden;
 }
 
 
 .fullscreen-menu.active {
   opacity: 1;
-
   visibility: visible;
-
   pointer-events: auto;
 }
 
 
 .menu-inner {
   width: 100%;
-
   display: flex;
   justify-content: center;
 }
@@ -253,46 +264,29 @@ button {
 
 .fullscreen-nav {
   display: flex;
-
   flex-direction: column;
-
   align-items: center;
-
   gap: 14px;
-
   text-align: center;
 }
 
 
 .fullscreen-nav a {
+  position: relative;
   display: inline-block;
-
   font-weight: 900;
-
-  font-size: clamp(2.4rem,
-      6vw,
-      5.5rem);
-
+  font-size: clamp(2.4rem, 6vw, 5.5rem);
   line-height: 0.9;
-
   letter-spacing: -0.03em;
-
   text-transform: uppercase;
-
   opacity: 0;
-
   transform: translateY(20px);
-
-  transition:
-    opacity 0.5s var(--ease),
-    transform 0.5s var(--ease),
-    color 0.3s ease;
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease), color 0.3s ease;
 }
 
 
 .fullscreen-menu.active .fullscreen-nav a {
   opacity: 1;
-
   transform: translateY(0);
 }
 
@@ -307,8 +301,83 @@ button {
 }
 
 
-.fullscreen-nav a:hover {
-  color: var(--grey);
+.fullscreen-menu.active .fullscreen-nav a:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+
+/* Número naranja colgando a la izquierda de cada opción */
+.menu-num {
+  position: absolute;
+  right: 100%;
+  top: 0.45rem;
+  margin-right: 14px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1;
+  color: var(--accent);
+}
+
+/* Al pasar el mouse, las demás opciones se atenúan */
+.fullscreen-menu.active .fullscreen-nav:hover a {
+  opacity: 0.25;
+  transition-delay: 0s;
+}
+
+.fullscreen-menu.active .fullscreen-nav a:hover {
+  opacity: 1;
+  color: var(--white);
+  transition-delay: 0s;
+}
+
+/* Fila de contacto + regla dentro del menú */
+.menu-foot {
+  position: absolute;
+  left: 5%;
+  right: 5%;
+  bottom: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px 24px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--white);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.6s var(--ease), transform 0.6s var(--ease);
+}
+
+.fullscreen-menu.active .menu-foot {
+  opacity: 1;
+  transform: translateY(0);
+  transition-delay: 0.35s;
+}
+
+.menu-foot-link {
+  transition: color 0.3s ease;
+}
+
+.menu-foot-link:hover {
+  color: var(--accent);
+}
+
+.fullscreen-menu .mm-scale--menu {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  transition: opacity 0.6s var(--ease);
+}
+
+.fullscreen-menu.active .mm-scale--menu {
+  opacity: 1;
+  transition-delay: 0.45s;
 }
 
 
@@ -328,15 +397,12 @@ button {
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
   gap: 50px;
-
   padding: 100px 5% 60px;
 }
 
@@ -377,11 +443,9 @@ button {
 .contact-details {
   width: 100%;
   max-width: 700px;
-
   display: flex;
   flex-direction: column;
   align-items: center;
-
   gap: 40px;
 }
 
@@ -425,12 +489,10 @@ a.contact-detail-value:hover {
   width: 100%;
   min-height: 100vh;
   min-height: 100svh;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   padding: 78px 5% 40px;
 }
 
@@ -438,52 +500,35 @@ a.contact-detail-value:hover {
 .booking-header {
   max-width: 800px;
   width: 100%;
-
   text-align: center;
-
   margin-bottom: 40px;
 }
 
 
 .booking-small {
   display: block;
-
   margin-bottom: 16px;
-
   color: var(--grey);
-
   font-size: 0.75rem;
-
   font-weight: 700;
-
   letter-spacing: 2px;
-
   text-transform: uppercase;
 }
 
 
 .booking-header h2 {
   margin: 0;
-
   font-weight: 900;
-
-  font-size: clamp(2.5rem,
-      5vw,
-      5rem);
-
+  font-size: clamp(2.5rem, 5vw, 5rem);
   line-height: 0.9;
-
   letter-spacing: -0.04em;
-
   text-transform: uppercase;
 }
 
 
 .booking-header p {
   margin-top: 20px;
-
   color: var(--grey);
-
   font-size: 0.95rem;
 }
 
@@ -495,46 +540,33 @@ a.contact-detail-value:hover {
 .contact-form {
   width: 100%;
   max-width: 650px;
-
   margin: 0 auto;
-
   display: flex;
-
   flex-direction: column;
-
   gap: 22px;
-
   text-align: left;
 }
 
 
 .form-row {
   display: flex;
-
   gap: 22px;
 }
 
 
 .form-group {
   flex: 1;
-
   display: flex;
-
   flex-direction: column;
-
   gap: 8px;
 }
 
 
 .form-group label {
   color: var(--white);
-
   font-size: 0.75rem;
-
   font-weight: 700;
-
   letter-spacing: 1px;
-
   text-transform: uppercase;
 }
 
@@ -543,28 +575,15 @@ a.contact-detail-value:hover {
 .form-group select,
 .form-group textarea {
   width: 100%;
-
   padding: 15px;
-
   border: 1px solid var(--line-strong);
-
   border-radius: 8px;
-
   outline: none;
-
-  background: rgba(248,
-      248,
-      241,
-      0.04);
-
+  background: rgba(248, 248, 241, 0.04);
   color: var(--white);
-
   font-family: inherit;
-
   font-size: 0.95rem;
-
-  transition:
-    border-color 0.3s ease;
+  transition: border-color 0.3s ease;
 }
 
 
@@ -583,14 +602,12 @@ a.contact-detail-value:hover {
 
 .form-group select option {
   background: var(--black);
-
   color: var(--white);
 }
 
 
 .form-group textarea {
   min-height: 120px;
-
   resize: vertical;
 }
 
@@ -601,68 +618,47 @@ a.contact-detail-value:hover {
 
 .submit-area {
   width: 100%;
-
   margin-top: 10px;
-
   text-align: center;
 }
 
 
 .submit-button {
   width: 100%;
-
   display: inline-flex;
-
   align-items: center;
-
   justify-content: center;
-
   padding: 18px 32px;
-
   border-radius: 999px;
-
   background: var(--white);
-
   color: var(--black);
-
   font-size: 0.85rem;
-
   font-weight: 800;
-
   letter-spacing: 1.5px;
-
   text-transform: uppercase;
-
   transition: opacity 0.3s ease;
 }
 
 
 .submit-button:hover {
   opacity: 0.8;
-  color:  #ff3b00;
+  color: #ff3b00;
 }
 
 
 .submit-button:disabled {
   cursor: wait;
-
   opacity: 0.6;
 }
 
 
 .form-success {
   display: none;
-
   margin-top: 15px;
-
-  color:  #ff3b00;
-
+  color: #ff3b00;
   font-size: 0.8rem;
-
   font-weight: 700;
-
   letter-spacing: 1px;
-
   text-transform: uppercase;
 }
 
@@ -673,37 +669,26 @@ a.contact-detail-value:hover {
 
 
 /* =========================================================
-   10 — CONTACT FOOTER
+   10 — CONTACT FOOTER (bloque heredado)
 ========================================================= */
 
 .contact-footer-info {
   display: flex;
-
   flex-wrap: wrap;
-
   align-items: center;
-
   gap: 30px;
-
   margin-top: 70px;
-
   padding-top: 25px;
 }
 
 
 .footer-contact-block a {
   display: flex;
-
   align-items: center;
-
   gap: 8px;
-
   color: var(--white);
-
   font-size: 0.8rem;
-
   font-weight: 700;
-
   letter-spacing: 1px;
 }
 
@@ -715,46 +700,136 @@ a.contact-detail-value:hover {
 
 .policy-launch-wrap {
   width: auto;
-
   margin-left: auto;
-
   display: flex;
-
   align-items: center;
-
   gap: 15px;
 }
 
 
 .policy-launch-note {
   color: var(--grey);
-
   font-size: 0.7rem;
-
   font-weight: 700;
-
   letter-spacing: 1.5px;
-
   text-transform: uppercase;
 }
 
 
 .policy-launch {
   display: flex;
-
   align-items: center;
-
   gap: 6px;
-
   color: var(--white);
-
   font-size: 0.85rem;
-
   font-weight: 700;
-
   letter-spacing: 0.5px;
-
   border-bottom: 1px solid var(--white);
+}
+
+
+/* =========================================================
+   SITE FOOTER (igual que el home y About; aquí sin el bloque
+   "Book a session", porque ya estás en la página de contacto)
+========================================================= */
+
+.site-footer {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: var(--black);
+  color: var(--white);
+  padding: 90px 0 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  overflow: hidden;
+  border-top: 1px solid var(--line);
+  font-family: "Archivo", sans-serif;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 40px 30px;
+  margin: 0 5%;
+}
+
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.footer-col-title {
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--grey);
+  margin-bottom: 4px;
+}
+
+.footer-text,
+.footer-link {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  line-height: 1.4;
+  text-transform: uppercase;
+  color: var(--white);
+  overflow-wrap: anywhere;
+}
+
+.footer-link {
+  transition: color 0.3s ease;
+}
+
+.footer-link:hover,
+.footer-link:active {
+  color: var(--accent);
+}
+
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 0 5%;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--grey);
+}
+
+.footer-top-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--white);
+  transition: color 0.3s ease;
+}
+
+.footer-top-link:hover {
+  color: var(--accent);
+}
+
+
+/* =========================================================
+   CAMBIAR COLOR DEL ICONO DE CALENDARIO A BLANCO
+========================================================= */
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+  filter: invert(1);
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
 }
 
 
@@ -766,44 +841,35 @@ a.contact-detail-value:hover {
 
   .contact-intro {
     grid-template-columns: 1fr;
-
     gap: 80px;
-
     min-height: auto;
-
     padding-top: 90px;
-
     padding-bottom: 90px;
   }
 
-
   .contact-intro-main h1 {
-    font-size: clamp(4rem,
-        12vw,
-        7rem);
+    font-size: clamp(4rem, 12vw, 7rem);
   }
-
 
   .contact-details {
     gap: 45px;
   }
 
-
   .contact-detail-value {
-    font-size: clamp(1.8rem,
-        6vw,
-        3.5rem);
+    font-size: clamp(1.8rem, 6vw, 3.5rem);
   }
-
 
   .booking-section {
     min-height: auto;
     padding: 80px 5%;
   }
 
-
   .form-row {
     flex-direction: column;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
   }
 
 }
@@ -837,13 +903,11 @@ a.contact-detail-value:hover {
   .contact-intro {
     gap: 35px;
     padding: 100px 5% 40px;
-    /* Suficiente espacio superior para no chocar con el nav */
     min-height: auto;
   }
 
   .contact-intro-header h1 {
     font-size: clamp(2.5rem, 11vw, 4.2rem);
-    /* Tamaño adaptativo para que no sobresalga */
     line-height: 0.9;
   }
 
@@ -865,11 +929,9 @@ a.contact-detail-value:hover {
 
   .contact-detail-value {
     font-size: clamp(1.1rem, 5.5vw, 1.8rem);
-    /* Escala suavemente según el ancho */
     line-height: 1.1;
     white-space: normal;
     word-break: break-word;
-    /* Rompe el email largo si la pantalla es muy estrecha */
     overflow-wrap: anywhere;
   }
 
@@ -894,6 +956,45 @@ a.contact-detail-value:hover {
   .submit-button {
     padding: 16px 24px;
   }
+
+  /* MENÚ + REGLA + FOOTER */
+  .mm-scale-track {
+    left: 6%;
+    right: 6%;
+  }
+
+  .menu-foot {
+    left: 6%;
+    right: 6%;
+    bottom: 66px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    font-size: 0.66rem;
+  }
+
+  .menu-num {
+    top: 0.3rem;
+    margin-right: 10px;
+    font-size: 0.7rem;
+  }
+
+  .site-footer {
+    padding: 70px 0 14px;
+    gap: 50px;
+  }
+
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 6%;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 6%;
+    padding-right: 6%;
+  }
 }
 
 
@@ -907,16 +1008,13 @@ a.contact-detail-value:hover {
     font-size: 0.9rem;
   }
 
-
   .menu-btn {
     font-size: 0.85rem;
   }
 
-
   .contact-intro-main h1 {
     font-size: 3rem;
   }
-
 
   .contact-detail-value {
     font-size: 1.45rem;
@@ -924,233 +1022,12 @@ a.contact-detail-value:hover {
 
 }
 
+@media (prefers-reduced-motion: reduce) {
 
-
-/* =========================================================
-   FOOTER CON REGLA MILIMÉTRICA (MM)
-========================================================= */
-
-.film-credits-footer {
-  width: 100%;
-  background: #0a0a0a;
-  border-top: 0px solid var(--line);
-  padding: 80px 0 0;
-  display: flex;
-  flex-direction: column;
-  gap: 50px;
-  font-family: "Archivo", sans-serif;
-  color: var(--white);
-  overflow: hidden;
-}
-
-.credits-header {
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px;
-  padding: 0 5%;
-}
-
-.credits-tag {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 3px;
-  color: var(--grey);
-  border: 1px solid var(--line);
-  padding: 4px 12px;
-  border-radius: 20px;
-  text-transform: uppercase;
-}
-
-.credits-title {
-  font-size: clamp(1.4rem, 3.5vw, 2.2rem);
-  font-weight: 900;
-  letter-spacing: 2px;
-  text-transform: uppercase;
-  color: var(--white);
-}
-
-/* GRID DE CRÉDITOS */
-.credits-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 40px 20px;
-  max-width: 1100px;
-  margin: 0 auto;
-  width: 100%;
-  text-align: center;
-  padding: 0 5%;
-}
-
-.credits-col {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  align-items: center;
-}
-
-.credits-role {
-  font-size: 0.65rem;
-  font-weight: 700;
-  letter-spacing: 2px;
-  color: var(--grey);
-  text-transform: uppercase;
-  margin-top: 10px;
-}
-
-.credits-role:first-child {
-  margin-top: 0;
-}
-
-.credits-name {
-  font-size: 0.85rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--white);
-}
-
-.credits-link {
-  font-size: 0.85rem;
-  font-weight: 700;
-  letter-spacing: 1px;
-  text-transform: uppercase;
-  color: var(--white);
-  transition: color 0.3s ease;
-}
-
-.credits-link:hover {
-  color: #ff3b00;
-}
-
-/* NOMBRE ENORME EN EL FOOTER */
-.credits-brand-giant {
-  font-weight: 900;
-  font-size: clamp(2.5rem, 9vw, 8.5rem);
-  letter-spacing: -0.04em;
-  text-align: center;
-  line-height: 0.85;
-  color: var(--white);
-  text-transform: uppercase;
-  padding: 20px 2% 0;
-  user-select: none;
-}
-
-/* DETALLES DE CINE */
-.credits-bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  padding: 20px 5%;
-  border-top: 1px solid var(--line);
-  font-size: 0.7rem;
-  font-weight: 600;
-  letter-spacing: 1.5px;
-  color: var(--grey);
-  text-transform: uppercase;
-}
-
-.credits-specs {
-  display: flex;
-  gap: 10px;
-  align-items: center;
-}
-
-/* =========================================================
-   REGLA DE MILÍMETROS (MM RULER BAR)
-========================================================= */
-
-.mm-ruler-container {
-  width: 100%;
-  background: #0a0a0a;
-  padding: 15px 0 10px;
-  overflow-x: auto;
-  scrollbar-width: none;
-}
-
-.mm-ruler-container::-webkit-scrollbar {
-  display: none;
-}
-
-.mm-ruler {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  min-width: 900px;
-  width: 100%;
-  padding: 0 40px;
-  height: 35px;
-  box-sizing: border-box;
-}
-
-.mm-mark {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
-}
-
-/* Líneas de la regla */
-.mm-mark::before {
-  content: "";
-  width: 1px;
-  height: 12px;
-  background: var(--grey);
-  position: absolute;
-  bottom: 0;
-}
-
-/* Números sobre las marcas */
-.mm-mark::after {
-  content: attr(data-mm);
-  font-size: 0.65rem;
-  font-family: monospace;
-  font-weight: 600;
-  color: var(--grey);
-  position: absolute;
-  top: 0;
-}
-
-/* Marca del Cero (Destacada) */
-.mm-mark.main-zero::before {
-  height: 20px;
-  background: #ff3b00;
-  width: 2px;
-}
-
-.mm-mark.main-zero::after {
-  color: #ff3b00;
-  font-weight: 800;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  .credits-grid {
-    grid-template-columns: repeat(2, 1fr);
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    transition-duration: 0.001ms !important;
   }
-
-  .credits-bottom {
-    flex-direction: column;
-    text-align: center;
-  }
-}
-
-/* =========================================================
-   CAMBIAR COLOR DEL ICONO DE CALENDARIO A BLANCO
-========================================================= */
-
-/* Para navegadores basados en WebKit (Chrome, Safari, Edge, Opera) */
-input[type="date"]::-webkit-calendar-picker-indicator {
-  filter: invert(1);
-  cursor: pointer;
-  opacity: 0.8;
-  transition: opacity 0.2s ease;
-}
-
-input[type="date"]::-webkit-calendar-picker-indicator:hover {
-  opacity: 1;
 }
