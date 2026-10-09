@@ -6,21 +6,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Services | Millimeter Visuals</title>
 
- <!-- Datos estructurados para el nombre oficial en Google -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "WebSite",
-    "name": "Millimeter Visuals",
-   "alternateName": ["MillimeterVisuals"],
-    "url": "https://millimetervisuals.com/"
+    <!-- Datos estructurados para el nombre oficial en Google -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Millimeter Visuals",
+  "alternateName": ["MillimeterVisuals"],
+  "url": "https://millimetervisuals.com/",
+  "logo": "https://millimetervisuals.com/img/IMG_11.png",
+  "email": "millimetervisuals.studio@gmail.com",
+  "sameAs": [
+    "https://www.instagram.com/millimetervisuals"
+  ],
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Boston",
+    "addressRegion": "MA",
+    "addressCountry": "US"
   }
-  </script>
-    
+}
+</script>
+
     <!-- FAVICON -->
-   <link rel="icon" type="image/png" href="/img/IMG_11.png" sizes="32x32">
-   <link rel="icon" type="image/png" href="/img/IMG_11.png" sizes="192x192">
-   <link rel="apple-touch-icon" href="/img/IMG_11.png">
+    <link rel="icon" type="image/png" href="/img/IMG_11.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/img/IMG_11.png" sizes="192x192">
+    <link rel="apple-touch-icon" href="/img/IMG_11.png">
 
     <!-- STYLES -->
     <link rel="stylesheet" href="css/Services.css">
@@ -39,199 +50,309 @@
 
     <!-- NAV -->
     <header class="nav" id="siteNav">
-        <a href="/" class="logo">MILLIMETER VISUALS<sup>™</sup></a>
-        <button class="menu-btn" id="menuBtn">MENU <span class="menu-plus">+</span></button>
+        <a href="index.html" class="logo">MILLIMETER VISUALS<sup>™</sup></a>
+        <button class="menu-btn" id="menuBtn" aria-expanded="false">MENU <span class="menu-plus">+</span></button>
     </header>
 
     <!-- FULLSCREEN MENU -->
     <div class="fullscreen-menu" id="fullscreenMenu">
         <div class="menu-inner">
             <nav class="fullscreen-nav">
-                <a href="Aboutme.html">ABOUT</a>
-                <a href="Services.html">SERVICES</a>
-                <a href="contact.html">CONTACT</a>
+                <a href="Aboutme.html"><span class="menu-num">01</span>ABOUT</a>
+                <a href="Services.html"><span class="menu-num">02</span>SERVICES</a>
+                <a href="contact.html"><span class="menu-num">03</span>CONTACT</a>
             </nav>
         </div>
+
+        <!-- Fila de contacto -->
+        <div class="menu-foot">
+            <span class="menu-foot-item">Boston, MA</span>
+            <a href="mailto:millimetervisuals.studio@gmail.com"
+                class="menu-foot-item menu-foot-link">millimetervisuals.studio@gmail.com</a>
+            <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
+                class="menu-foot-item menu-foot-link">@millimetervisuals</a>
+        </div>
+
+        <!-- Regla 0–135 mm -->
+        <div class="mm-scale mm-scale--menu" data-mm-scale aria-hidden="true"></div>
     </div>
+
+    <!-- ÍNDICE LATERAL (se genera con JS) -->
+    <nav class="slide-index" id="slideIndex" aria-label="Services"></nav>
 
     <main>
 
-        <!-- HERO -->
-        <section class="services-hero">
-            <h1></h1>
-        </section>
+        <h1 class="sr-only">Services &amp; Pricing</h1>
 
-        <!-- SERVICIOS -->
-        <section class="service-category">
+        <!-- =====================================================
+             SERVICIOS — pantallas apiladas
+             Cada <article> es una pantalla completa. Al hacer scroll
+             la siguiente sube y se coloca encima de la anterior.
+        ====================================================== -->
+        <div class="services-stack" id="servicesStack">
 
-            <div class="service-grid">
-
-                <div class="service-card">
-                    <div class="service-thumb"><img src="/img/445.jpg" alt="Studio portrait session"></div>
-                    <h3>Studio Portraits</h3>
-                    <p>Professional portraits in a private studio with clean, timeless imagery — perfect for personal
-                        branding, milestones, or just photos you'll love.</p>
-                    <span class="service-price">Starting at $200</span>
-                    <a href="#quote" class="service-cta">Book a Session</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-thumb"><img src="/img/IMG_9192.jpg" alt="Outdoor portrait session"></div>
-                    <h3>Outdoor Portraits</h3>
-                    <p>On-location portrait sessions with natural light and a scenic backdrop of your choice.</p>
-                    <span class="service-price">Starting at $180</span>
-                    <a href="#quote" class="service-cta">Book a Session</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-thumb"><img src="/img/IMG_3535.jpg" alt="Professional headshot"></div>
-                    <h3>Headshots</h3>
-                    <p>Polished individual headshots for LinkedIn, resumes, and personal branding.</p>
-                    <span class="service-price">Starting at $75</span>
-                    <a href="#quote" class="service-cta">Book a Session</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-thumb"><img src="/img/4G6A8943.jpg" alt="Wedding and engagement photography">
-                    </div>
-                    <h3>Weddings &amp; Engagements</h3>
-                    <p>Full-day or half-day coverage that captures the real moments of your day — candid and posed, with
-                        a timeless editing style.</p>
-                    <span class="service-price">Custom Pricing Based on Coverage</span>
-                    <a href="#quote" class="service-cta">Request a Quote</a>
-                </div>
-
-                <div class="service-card">
-                    <div class="service-thumb"><img src="/img/IMG_2068.jpg" alt="Documentary event coverage"></div>
-                    <h3>Events</h3>
-                    <p>Documentary-style coverage for baby showers, birthdays, and any celebration worth remembering —
-                        candid moments, captured as they happen.</p>
-                    <span class="service-price">Custom Pricing Based on Coverage</span>
-                    <a href="#quote" class="service-cta">Request a Quote</a>
-                </div>
-
-                <div class="service-card">
-                    
-                    <h3>Video Production</h3>
-                    <p>Custom video production for interviews, brand campaigns, social content and cinematic short-form
-                        stories.</p>
-                    <span class="service-price">Submit an Inquiry</span>
-                    <a href="#quote" class="service-cta">Submit an Inquiry</a>
-                </div>
-
-            </div>
-        </section>
-
-        <!-- QUOTE FORM -->
-        <section class="quote-section" id="quote">
-            <div class="quote-header">
-                <span>Ready When You Are</span>
-                <h2>Request a Quote</h2>
-            </div>
-
-            <form class="quote-form" action="https://formspree.io/f/xjkpgbny" method="POST">
-
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Full name *</label>
-                        <input type="text" id="name" name="name" placeholder="Your name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="email">Email *</label>
-                        <input type="email" id="email" name="email" placeholder="your@email.com" required>
+            <!-- 01 — STUDIO PORTRAITS -->
+            <article class="service-slide" data-title="Studio Portraits">
+                <div class="slide-inner">
+                    <div class="slide-media"><img src="img/445.jpg" alt="Studio portrait session"></div>
+                    <div class="slide-info">
+                        <span class="about-kicker">
+                            <span class="kicker-num">01</span>
+                            <span class="kicker-line"></span>
+                            <span class="kicker-label">Service</span>
+                        </span>
+                        <h2 class="slide-title">Studio Portraits</h2>
+                        <p class="slide-desc">Professional portraits in a private studio with clean, timeless imagery —
+                            perfect for personal branding, milestones, or just photos you'll love.</p>
+                        <div class="slide-price-block">
+                            <span class="slide-price-label">Starting at</span>
+                            <span class="slide-price">$200</span>
+                        </div>
+                        <a href="#quote" class="service-cta" data-service="Studio Portraits">Book a Session</a>
+                        <span class="slide-hint">Scroll ↓</span>
+                        <span class="slide-num-bg" aria-hidden="true">01</span>
                     </div>
                 </div>
+            </article>
 
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="service">Service *</label>
-                        <select id="service" name="service" required>
-                            <option value="">Select a service</option>
-                            <option value="Studio Portraits">Studio Portraits</option>
-                            <option value="Outdoor Portraits">Outdoor Portraits</option>
-                            <option value="Headshots">Headshots</option>
-                            <option value="Weddings & Engagements">Weddings &amp; Engagements</option>
-                            <option value="Events">Events</option>
-                            <option value="Video Production">Video Production</option>
-                            <option value="Other">Other</option>
-                        </select>
+            <!-- 02 — OUTDOOR PORTRAITS -->
+            <article class="service-slide" data-title="Outdoor Portraits">
+                <div class="slide-inner">
+                    <div class="slide-media"><img src="img/IMG_9192.jpg" alt="Outdoor portrait session" loading="lazy">
                     </div>
-                    <div class="form-group">
-                        <label for="date">Event / session date</label>
-                        <input type="date" id="date" name="date">
+                    <div class="slide-info">
+                        <span class="about-kicker">
+                            <span class="kicker-num">02</span>
+                            <span class="kicker-line"></span>
+                            <span class="kicker-label">Service</span>
+                        </span>
+                        <h2 class="slide-title">Outdoor Portraits</h2>
+                        <p class="slide-desc">On-location portrait sessions with natural light and a scenic backdrop of
+                            your choice.</p>
+                        <div class="slide-price-block">
+                            <span class="slide-price-label">Starting at</span>
+                            <span class="slide-price">$180</span>
+                        </div>
+                        <a href="#quote" class="service-cta" data-service="Outdoor Portraits">Book a Session</a>
+                        <span class="slide-num-bg" aria-hidden="true">02</span>
                     </div>
                 </div>
+            </article>
 
-                <div class="form-group">
-                    <label for="message">Tell us about your project</label>
-                    <textarea id="message" name="message" placeholder="Scope, location, timeline..."></textarea>
+            <!-- 03 — HEADSHOTS -->
+            <article class="service-slide" data-title="Headshots">
+                <div class="slide-inner">
+                    <div class="slide-media"><img src="img/IMG_3535.jpg" alt="Professional headshot" loading="lazy">
+                    </div>
+                    <div class="slide-info">
+                        <span class="about-kicker">
+                            <span class="kicker-num">03</span>
+                            <span class="kicker-line"></span>
+                            <span class="kicker-label">Service</span>
+                        </span>
+                        <h2 class="slide-title">Headshots</h2>
+                        <p class="slide-desc">Polished individual headshots for LinkedIn, resumes, and personal
+                            branding.</p>
+                        <div class="slide-price-block">
+                            <span class="slide-price-label">Starting at</span>
+                            <span class="slide-price">$75</span>
+                        </div>
+                        <a href="#quote" class="service-cta" data-service="Headshots">Book a Session</a>
+                        <span class="slide-num-bg" aria-hidden="true">03</span>
+                    </div>
                 </div>
+            </article>
 
-                <input type="hidden" name="_subject" value="New Service Quote Request — Millimeter Visuals">
-
-                <div class="submit-area">
-                    <button type="submit" class="submit-button">Send Request</button>
-                    <p class="form-success" id="formSuccess">SENT — THANK YOU. WE'LL BE IN TOUCH SOON.</p>
+            <!-- 04 — WEDDINGS & ENGAGEMENTS -->
+            <article class="service-slide" data-title="Weddings &amp; Engagements">
+                <div class="slide-inner">
+                    <div class="slide-media"><img src="img/4G6A8943.jpg" alt="Wedding and engagement photography"
+                            loading="lazy"></div>
+                    <div class="slide-info">
+                        <span class="about-kicker">
+                            <span class="kicker-num">04</span>
+                            <span class="kicker-line"></span>
+                            <span class="kicker-label">Service</span>
+                        </span>
+                        <h2 class="slide-title">Weddings &amp; Engagements</h2>
+                        <p class="slide-desc">Full-day or half-day coverage that captures the real moments of your day —
+                            candid and posed, with a timeless editing style.</p>
+                        <div class="slide-price-block">
+                            <span class="slide-price-label">Pricing</span>
+                            <span class="slide-price">Custom</span>
+                            <span class="slide-price-note">Based on coverage</span>
+                        </div>
+                        <a href="#quote" class="service-cta" data-service="Weddings &amp; Engagements">Request a
+                            Quote</a>
+                        <span class="slide-num-bg" aria-hidden="true">04</span>
+                    </div>
                 </div>
+            </article>
 
-            </form>
-        </section>
+            <!-- 05 — EVENTS -->
+            <article class="service-slide" data-title="Events">
+                <div class="slide-inner">
+                    <div class="slide-media"><img src="img/IMG_2068.jpg" alt="Documentary event coverage"
+                            loading="lazy"></div>
+                    <div class="slide-info">
+                        <span class="about-kicker">
+                            <span class="kicker-num">05</span>
+                            <span class="kicker-line"></span>
+                            <span class="kicker-label">Service</span>
+                        </span>
+                        <h2 class="slide-title">Events</h2>
+                        <p class="slide-desc">Documentary-style coverage for baby showers, birthdays, and any
+                            celebration worth remembering — candid moments, captured as they happen.</p>
+                        <div class="slide-price-block">
+                            <span class="slide-price-label">Pricing</span>
+                            <span class="slide-price">Custom</span>
+                            <span class="slide-price-note">Based on coverage</span>
+                        </div>
+                        <a href="#quote" class="service-cta" data-service="Events">Request a Quote</a>
+                        <span class="slide-num-bg" aria-hidden="true">05</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- 06 — VIDEO PRODUCTION (sin foto: agrega un <div class="slide-media"> con imagen o video si quieres) -->
+            <article class="service-slide service-slide--noimg" data-title="Video Production">
+                <div class="slide-inner">
+                    <div class="slide-info">
+                        <span class="about-kicker">
+                            <span class="kicker-num">06</span>
+                            <span class="kicker-line"></span>
+                            <span class="kicker-label">Service</span>
+                        </span>
+                        <h2 class="slide-title">Video Production</h2>
+                        <p class="slide-desc">Custom video production for interviews, brand campaigns, social content
+                            and cinematic short-form stories.</p>
+                        <div class="slide-price-block">
+                            <span class="slide-price-label">Pricing</span>
+                            <span class="slide-price">By Inquiry</span>
+                        </div>
+                        <a href="#quote" class="service-cta" data-service="Video Production">Submit an Inquiry</a>
+                        <span class="slide-num-bg" aria-hidden="true">06</span>
+                    </div>
+                </div>
+            </article>
+
+            <!-- QUOTE FORM (sube encima del último servicio) -->
+            <section class="quote-section" id="quote">
+                <div class="quote-inner">
+
+                    <div class="quote-header">
+                        <span>Ready When You Are</span>
+                        <h2>Request a Quote</h2>
+                    </div>
+
+                    <form class="quote-form" action="https://formspree.io/f/xjkpgbny" method="POST">
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="name">Full name *</label>
+                                <input type="text" id="name" name="name" placeholder="Your name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email *</label>
+                                <input type="email" id="email" name="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="service">Service *</label>
+                                <select id="service" name="service" required>
+                                    <option value="">Select a service</option>
+                                    <option value="Studio Portraits">Studio Portraits</option>
+                                    <option value="Outdoor Portraits">Outdoor Portraits</option>
+                                    <option value="Headshots">Headshots</option>
+                                    <option value="Weddings & Engagements">Weddings &amp; Engagements</option>
+                                    <option value="Events">Events</option>
+                                    <option value="Video Production">Video Production</option>
+                                    <option value="Other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="date">Event / session date</label>
+                                <input type="date" id="date" name="date">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="message">Tell us about your project</label>
+                            <textarea id="message" name="message" placeholder="Scope, location, timeline..."></textarea>
+                        </div>
+
+                        <input type="hidden" name="_subject" value="New Service Quote Request — Millimeter Visuals">
+
+                        <div class="submit-area">
+                            <button type="submit" class="submit-button">Send Request</button>
+                            <p class="form-success" id="formSuccess">SENT — THANK YOU. WE'LL BE IN TOUCH SOON.</p>
+                        </div>
+
+                    </form>
+                </div>
+            </section>
+
+        </div>
 
     </main>
 
-    <!-- FOOTER CINEMATOGRÁFICO CON REGLA MILIMÉTRICA -->
-    <footer class="film-credits-footer">
+    <!-- FOOTER PRINCIPAL DE MARCA -->
+    <footer class="site-footer" id="siteFooter">
 
-        <!-- SECCIÓN DE CRÉDITOS Y DATOS DEL ESTUDIO -->
-        <div class="credits-grid">
+        <!-- LLAMADA A LA ACCIÓN -->
+        <div class="footer-cta">
+            <p class="footer-eyebrow"><span class="dot"></span>Let's work together</p>
+            <a href="contact.html" class="footer-cta-link">
+                <span>Get in touch</span>
+                <span class="footer-arrow" aria-hidden="true">↗</span>
+            </a>
+            <p class="footer-note">Photography + video production for entrepreneurs, events &amp; brands — based in
+                Boston.</p>
+        </div>
 
-            <div class="credits-col">
-                <span class="credits-role">EMAIL</span>
-                <a href="mailto:millimetervisuals.studio@gmail.com" class="credits-link">
-                    millimetervisuals<br>.studio@gmail.com
-                </a>
+        <!-- COLUMNAS -->
+        <div class="footer-grid">
+
+            <div class="footer-col">
+                <span class="footer-col-title">Studio</span>
+                <span class="footer-text">Boston, MA</span>
+                <span class="footer-text">Photo &amp; Video Production</span>
             </div>
 
-            <div class="credits-col">
-                <span class="credits-role">SOCIAL</span>
+            <div class="footer-col">
+                <span class="footer-col-title">Collections</span>
+                <a href="index.html#portraitsGallery" class="footer-link">Portraits</a>
+                <a href="index.html#weddingGallery" class="footer-link">Weddings &amp; Engagements</a>
+                <a href="index.html#studioGallery" class="footer-link">Studio</a>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-col-title">Navigate</span>
+                <a href="Aboutme.html" class="footer-link">About</a>
+                <a href="Services.html" class="footer-link">Services</a>
+                <a href="contact.html" class="footer-link">Contact</a>
+            </div>
+
+            <div class="footer-col">
+                <span class="footer-col-title">Connect</span>
+                <a href="mailto:millimetervisuals.studio@gmail.com"
+                    class="footer-link">millimetervisuals.studio@gmail.com</a>
                 <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
-                    class="credits-link">
-                    @millimetervisuals
-                </a>
-            </div>
-
-            <div class="credits-col">
-                <span class="credits-role">INQUIRIES</span>
-                <a href="contact.html" class="credits-link">
-                    GET IN TOUCH
-                </a>
+                    class="footer-link">@millimetervisuals</a>
             </div>
 
         </div>
 
-        <!-- TEXTO GIGANTE EDITORIAL -->
-        <div class="credits-brand-giant">
-            PHOTO &amp; VIDEO<br>PRODUCTION
+        <!-- FILA LEGAL -->
+        <div class="footer-bottom">
+            <span>© 2026 — All rights reserved</span>
+            <a href="#" class="footer-top-link">Back to top <span aria-hidden="true">↑</span></a>
         </div>
 
-        <!-- REGLA MILIMÉTRICA (MM RULER) -->
-        <div class="mm-ruler-container">
-            <div class="mm-ruler">
-                <span class="mm-mark" data-mm="-30"></span>
-                <span class="mm-mark" data-mm="-25"></span>
-                <span class="mm-mark" data-mm="-20"></span>
-                <span class="mm-mark" data-mm="-15"></span>
-                <span class="mm-mark" data-mm="-10"></span>
-                <span class="mm-mark" data-mm="-5"></span>
-                <span class="mm-mark main-zero" data-mm="0"></span>
-                <span class="mm-mark" data-mm="5"></span>
-                <span class="mm-mark" data-mm="10"></span>
-                <span class="mm-mark" data-mm="15"></span>
-                <span class="mm-mark" data-mm="20"></span>
-                <span class="mm-mark" data-mm="25"></span>
-                <span class="mm-mark" data-mm="30"></span>
-            </div>
-        </div>
+        <!-- Regla 0–135 mm (la misma del home) -->
+        <div class="mm-scale" data-mm-scale aria-hidden="true"></div>
 
     </footer>
 
@@ -239,10 +360,10 @@
     <script>
         window.addEventListener("load", () => document.body.classList.add("loaded"));
 
+        // Transición de enlaces
         document.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", function (e) {
                 const href = this.getAttribute("href");
-                if (href && href.startsWith("/Services/#")) return; // anclas internas, sin transición
                 if (href && !href.startsWith("#") && !href.startsWith("http") && !href.startsWith("mailto:") && !href.startsWith("tel:")) {
                     e.preventDefault();
                     document.body.classList.remove("loaded");
@@ -251,22 +372,139 @@
             });
         });
 
+        // REGLA 0–135 mm (menú + footer)
+        document.querySelectorAll("[data-mm-scale]").forEach((el) => {
+            const MAX = 135;
+            const track = document.createElement("div");
+            track.className = "mm-scale-track";
+            for (let i = 0; i <= MAX; i++) {
+                const tick = document.createElement("span");
+                tick.className = "mm-tick";
+                tick.style.left = (i / MAX * 100) + "%";
+                if (i === 0) tick.classList.add("is-zero");
+                else if (i % 15 === 0) tick.classList.add("is-major");
+                else if (i % 5 === 0) tick.classList.add("is-mid");
+                if (i % 15 === 0) {
+                    const num = document.createElement("span");
+                    num.className = "mm-num";
+                    num.textContent = i === MAX ? i + "mm" : i;
+                    tick.appendChild(num);
+                }
+                track.appendChild(tick);
+            }
+            el.appendChild(track);
+        });
+
+        // NAV: transparente arriba; se oscurece al hacer scroll
         const siteNav = document.getElementById("siteNav");
         if (siteNav) {
-            const toggleNavShadow = () => siteNav.classList.toggle("is-scrolled", window.scrollY > 8);
-            toggleNavShadow();
-            window.addEventListener("scroll", toggleNavShadow, { passive: true });
+            const updateNavState = () => siteNav.classList.toggle("is-scrolled", window.scrollY > 40);
+            updateNavState();
+            window.addEventListener("scroll", updateNavState, { passive: true });
         }
 
+        // MENÚ pantalla completa
         const menuBtn = document.getElementById("menuBtn");
         const fullscreenMenu = document.getElementById("fullscreenMenu");
-        if (menuBtn && fullscreenMenu) {
-            menuBtn.addEventListener("click", () => {
-                fullscreenMenu.classList.toggle("active");
-                menuBtn.querySelector(".menu-plus").textContent = fullscreenMenu.classList.contains("active") ? "×" : "+";
-            });
+
+        function isMenuOpen() {
+            return !!fullscreenMenu && fullscreenMenu.classList.contains("active");
         }
 
+        // Abre/cierra el menú y bloquea el scroll de la página mientras está abierto
+        function setMenu(open) {
+            if (!menuBtn || !fullscreenMenu) return;
+            fullscreenMenu.classList.toggle("active", open);
+            menuBtn.querySelector(".menu-plus").textContent = open ? "×" : "+";
+            menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+            document.body.style.overflow = open ? "hidden" : "";
+        }
+
+        if (menuBtn && fullscreenMenu) {
+            menuBtn.addEventListener("click", () => setMenu(!isMenuOpen()));
+        }
+
+        document.addEventListener("keydown", (e) => {
+            if (e.key === "Escape" && isMenuOpen()) setMenu(false);
+        });
+
+        // =====================================================
+        // SERVICIOS APILADOS
+        // - La pantalla anterior se aleja y se oscurece mientras
+        //   la siguiente sube encima (variable --p).
+        // - Índice lateral con puntos para saltar entre servicios.
+        // - Cada botón "Book / Request" preselecciona el servicio
+        //   en el formulario.
+        // =====================================================
+        const stack = document.getElementById("servicesStack");
+        const slides = Array.from(document.querySelectorAll(".service-slide"));
+        const quote = document.getElementById("quote");
+        const indexNav = document.getElementById("slideIndex");
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+        if (stack && slides.length && quote) {
+            const nexts = slides.slice(1).concat(quote);
+
+            // Índice lateral
+            const dots = slides.map((slide, i) => {
+                const b = document.createElement("button");
+                b.type = "button";
+                b.setAttribute("aria-label", slide.dataset.title || ("Service " + (i + 1)));
+                b.addEventListener("click", () => {
+                    const top = stack.getBoundingClientRect().top + window.scrollY + i * slides[0].offsetHeight;
+                    window.scrollTo({ top, behavior: "smooth" });
+                });
+                indexNav.appendChild(b);
+                return b;
+            });
+
+            let ticking = false;
+
+            function update() {
+                ticking = false;
+                const vh = window.innerHeight;
+
+                if (!reduceMotion) {
+                    slides.forEach((slide, i) => {
+                        const nextTop = nexts[i].getBoundingClientRect().top;
+                        const p = Math.min(1, Math.max(0, 1 - nextTop / vh));
+                        slide.style.setProperty("--p", p.toFixed(3));
+                    });
+                }
+
+                // Servicio activo (el último que ya cubre más de la mitad de la pantalla)
+                let active = 0;
+                slides.forEach((slide, i) => {
+                    if (slide.getBoundingClientRect().top <= vh * 0.5) active = i;
+                });
+                dots.forEach((d, i) => d.classList.toggle("is-active", i === active));
+
+                // El índice se oculta cuando entra el formulario
+                const quoteInView = quote.getBoundingClientRect().top < vh * 0.5;
+                indexNav.classList.toggle("is-visible", !quoteInView);
+            }
+
+            function requestUpdate() {
+                if (!ticking) {
+                    ticking = true;
+                    requestAnimationFrame(update);
+                }
+            }
+
+            window.addEventListener("scroll", requestUpdate, { passive: true });
+            window.addEventListener("resize", requestUpdate);
+            update();
+        }
+
+        // Preselecciona el servicio en el formulario
+        document.querySelectorAll(".service-cta[data-service]").forEach((cta) => {
+            cta.addEventListener("click", () => {
+                const select = document.getElementById("service");
+                if (select) select.value = cta.dataset.service;
+            });
+        });
+
+        // FORMULARIO (Formspree)
         const quoteForm = document.querySelector(".quote-form");
         const formSuccess = document.getElementById("formSuccess");
         if (quoteForm) {
