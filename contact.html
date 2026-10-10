@@ -102,6 +102,8 @@
 
   <!-- =====================================================
         MAIN CONTENT
+        Pantalla 1: presentación (queda fija)
+        Pantalla 2: formulario paso a paso (sube por encima)
   ====================================================== -->
 
   <main class="contact-page">
@@ -110,40 +112,49 @@
             CONTACT INTRO
       ================================================== -->
 
-    <section class="contact-intro">
+    <section class="contact-intro" id="contactIntro">
 
-      <!-- TOP — MAIN MESSAGE -->
-      <div class="contact-intro-header">
-        <span class="contact-eyebrow">FOR INQUIRIES & BOOKINGS</span>
-        <h1>GET IN TOUCH</h1>
-      </div>
+      <div class="intro-inner">
 
-      <!-- BOTTOM — CONTACT INFORMATION -->
-      <div class="contact-details">
+        <div class="intro-left">
+          <p class="contact-kicker"><span class="dot"></span>For inquiries &amp; bookings</p>
 
-        <!-- EMAIL -->
-        <div class="contact-detail">
-          <span class="contact-detail-label">SEND AN EMAIL</span>
-          <a href="mailto:millimetervisuals.studio@gmail.com" class="contact-detail-value">
-            millimetervisuals.studio@gmail.com
-          </a>
+          <h1 class="contact-headline">
+            <span class="line"><span>Get in</span></span>
+            <span class="line"><span>touch<span class="dot">.</span></span></span>
+          </h1>
         </div>
 
-        <!-- INSTAGRAM -->
-        <div class="contact-detail">
-          <span class="contact-detail-label">INSTAGRAM</span>
-          <a href="https://instagram.com/millimetervisuals" target="_blank" rel="noopener" class="contact-detail-value">
-            @millimetervisuals
-          </a>
+        <div class="contact-rows">
+
+          <!-- EMAIL -->
+          <div class="contact-row">
+            <span class="row-label">Send an email</span>
+            <a href="mailto:millimetervisuals.studio@gmail.com" class="row-value">
+              millimetervisuals.studio@gmail.com <span class="row-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <!-- INSTAGRAM -->
+          <div class="contact-row">
+            <span class="row-label">Instagram</span>
+            <a href="https://instagram.com/millimetervisuals" target="_blank" rel="noopener" class="row-value">
+              @millimetervisuals <span class="row-arrow" aria-hidden="true">↗</span>
+            </a>
+          </div>
+
+          <!-- LOCATION -->
+          <div class="contact-row">
+            <span class="row-label">Based in</span>
+            <span class="row-value">Boston, MA</span>
+          </div>
+
         </div>
 
-        <!-- LOCATION -->
-        <div class="contact-detail">
-          <span class="contact-detail-label">BASED IN</span>
-          <span class="contact-detail-value">
-            BOSTON, MA
-          </span>
-        </div>
+        <a href="#start" class="intro-scroll">
+          <span>Start a conversation</span>
+          <span class="intro-scroll-line"></span>
+        </a>
 
       </div>
 
@@ -151,208 +162,156 @@
 
 
     <!-- =================================================
-            BOOKING / FORM
+            BOOKING / FORM — paso a paso
       ================================================== -->
 
-    <section class="booking-section">
+    <section class="booking-section" id="start">
+
+      <div class="stepper" id="stepper">
+
+        <div class="stepper-head">
+          <span class="kicker-num" id="stepNow">01</span>
+          <span class="kicker-line"></span>
+          <span class="kicker-label">of <span id="stepTotal">04</span> — Start a conversation</span>
+        </div>
+
+        <!-- FORM -->
+
+        <form class="contact-form" action="https://formspree.io/f/xjkpgbny" method="POST" novalidate>
+
+          <!-- STEP 1 — SERVICE -->
+          <div class="step is-active" data-step>
+
+            <h2 class="step-title">What are you looking for<span class="dot">?</span></h2>
+            <p class="step-hint">Pick the closest match.</p>
+
+            <div class="chip-grid" role="radiogroup" aria-label="Service">
+              <label class="chip"><input type="radio" name="service" value="Portraits" required><span class="chip-text">Portraits</span></label>
+              <label class="chip"><input type="radio" name="service" value="Weddings" required><span class="chip-text">Weddings</span></label>
+              <label class="chip"><input type="radio" name="service" value="Studio" required><span class="chip-text">Studio</span></label>
+              <label class="chip"><input type="radio" name="service" value="Events" required><span class="chip-text">Events</span></label>
+              <label class="chip"><input type="radio" name="service" value="Video" required><span class="chip-text">Video</span></label>
+              <label class="chip"><input type="radio" name="service" value="Other" required><span class="chip-text">Other</span></label>
+            </div>
+
+            <p class="step-error" role="alert"></p>
+
+          </div>
 
 
-      <div class="booking-header">
+          <!-- STEP 2 — DATE -->
+          <div class="step" data-step>
 
-        <span class="booking-small">
-          READY WHEN YOU ARE
-        </span>
+            <h2 class="step-title">When is it happening<span class="dot">?</span></h2>
+            <p class="step-hint">Choose the preferred date.</p>
 
-        <h2>
-          START A CONVERSATION
-        </h2>
+            <div class="form-group">
+              <label for="date">Preferred date *</label>
+              <input type="date" id="date" name="date" required>
+            </div>
 
-        <p>
-          Tell me what you're planning and I'll get back to you soon.
-        </p>
+            <p class="step-error" role="alert"></p>
+
+            <div class="step-actions">
+              <button type="button" class="step-next" data-next>Continue <span aria-hidden="true">→</span></button>
+              <button type="button" class="step-back" data-back>← Back</button>
+            </div>
+
+          </div>
+
+
+          <!-- STEP 3 — CONTACT DETAILS -->
+          <div class="step" data-step>
+
+            <h2 class="step-title">Where should the reply go<span class="dot">?</span></h2>
+
+            <div class="form-row">
+
+              <div class="form-group">
+                <label for="name">Full name *</label>
+                <input type="text" id="name" name="name" placeholder="Your name" autocomplete="name" required>
+              </div>
+
+              <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" name="email" placeholder="your@email.com" autocomplete="email" required>
+              </div>
+
+            </div>
+
+            <div class="form-group">
+              <label for="phone">Phone number</label>
+              <input type="tel" id="phone" name="phone" placeholder="Your phone number" autocomplete="tel">
+            </div>
+
+            <p class="step-error" role="alert"></p>
+
+            <div class="step-actions">
+              <button type="button" class="step-next" data-next>Continue <span aria-hidden="true">→</span></button>
+              <button type="button" class="step-back" data-back>← Back</button>
+            </div>
+
+          </div>
+
+
+          <!-- STEP 4 — PROJECT + SUBMIT -->
+          <div class="step" data-step>
+
+            <h2 class="step-title">Anything else worth knowing<span class="dot">?</span></h2>
+            <p class="step-hint">A few lines about the project help.</p>
+
+            <div class="form-group message-group">
+              <label for="message">About your project</label>
+              <textarea id="message" name="message" placeholder="What are you planning?"></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="referral">How did you find Millimeter Visuals?</label>
+              <select id="referral" name="referral">
+                <option value="">Select an option</option>
+                <option value="Instagram">Instagram</option>
+                <option value="Friend">Friend</option>
+                <option value="Referral">Referral</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <!-- EMAIL SUBJECT -->
+            <input type="hidden" name="_subject" value="New Inquiry — Millimeter Visuals">
+
+            <p class="step-error" id="formError" role="alert"></p>
+
+            <!-- SUBMIT -->
+            <div class="step-actions">
+              <button type="submit" class="submit-button">SEND INQUIRY</button>
+              <button type="button" class="step-back" data-back>← Back</button>
+            </div>
+
+          </div>
+
+        </form>
+
+        <!-- PANTALLA FINAL -->
+        <div class="step-done" aria-live="polite">
+          <h2 class="step-title">Sent<span class="dot">.</span></h2>
+          <p class="form-success" id="formSuccess">Thank you. You'll hear back soon.</p>
+          <div class="step-actions">
+            <a href="index.html" class="step-next">Back to home <span aria-hidden="true">→</span></a>
+          </div>
+        </div>
 
       </div>
 
-
-      <!-- FORM -->
-
-      <form class="contact-form" action="https://formspree.io/f/xjkpgbny" method="POST">
-
-
-        <!-- ROW 1 -->
-
-        <div class="form-row">
-
-          <div class="form-group">
-
-            <label for="name">
-              Full name *
-            </label>
-
-            <input type="text" id="name" name="name" placeholder="Your name" required>
-
-          </div>
-
-
-          <div class="form-group">
-
-            <label for="email">
-              Email *
-            </label>
-
-            <input type="email" id="email" name="email" placeholder="your@email.com" required>
-
-          </div>
-
+      <!-- REGLA 0–135 mm = progreso del formulario -->
+      <div class="step-ruler" aria-hidden="true">
+        <div class="mm-scale" data-mm-scale></div>
+        <div class="step-progress">
+          <span class="step-progress-fill" id="stepFill"></span>
+          <span class="step-progress-head" id="stepHead">
+            <span class="step-progress-label" id="stepMm">0mm</span>
+          </span>
         </div>
-
-
-        <!-- ROW 2 -->
-
-        <div class="form-row">
-
-          <div class="form-group">
-
-            <label for="phone">
-              Phone number
-            </label>
-
-            <input type="tel" id="phone" name="phone" placeholder="Your phone number">
-
-          </div>
-
-
-          <div class="form-group">
-
-            <label for="date">
-              Preferred date *
-            </label>
-
-            <input type="date" id="date" name="date" required>
-
-          </div>
-
-        </div>
-
-
-        <!-- ROW 3 -->
-
-        <div class="form-row">
-
-          <div class="form-group">
-
-            <label for="service">
-              What are you looking for? *
-            </label>
-
-            <select id="service" name="service" required>
-
-              <option value="">
-                Select a service
-              </option>
-
-              <option value="Portraits">
-                Portraits
-              </option>
-
-              <option value="Weddings">
-                Weddings
-              </option>
-
-              <option value="Studio">
-                Studio
-              </option>
-
-              <option value="Events">
-                Events
-              </option>
-
-              <option value="Video">
-                Video
-              </option>
-
-              <option value="Other">
-                Other
-              </option>
-
-            </select>
-
-          </div>
-
-
-          <div class="form-group">
-
-            <label for="referral">
-              How did you hear about me?
-            </label>
-
-            <select id="referral" name="referral">
-
-              <option value="">
-                Select an option
-              </option>
-
-              <option value="Instagram">
-                Instagram
-              </option>
-
-              <option value="Friend">
-                Friend
-              </option>
-
-              <option value="Referral">
-                Referral
-              </option>
-
-              <option value="Other">
-                Other
-              </option>
-
-            </select>
-
-          </div>
-
-        </div>
-
-
-        <!-- MESSAGE -->
-
-        <div class="form-group message-group">
-
-          <label for="message">
-            Tell me about your project
-          </label>
-
-          <textarea id="message" name="message" placeholder="Tell me what you're planning..."></textarea>
-
-        </div>
-
-
-        <!-- EMAIL SUBJECT -->
-
-        <input type="hidden" name="_subject" value="New Inquiry — Millimeter Visuals">
-
-
-        <!-- SUBMIT -->
-
-        <div class="submit-area">
-
-          <button type="submit" class="submit-button">
-
-            SEND INQUIRY
-
-          </button>
-
-          <p class="form-success" id="formSuccess">
-
-            SENT — THANK YOU. I'LL BE IN TOUCH SOON.
-
-          </p>
-
-        </div>
-
-
-      </form>
+      </div>
 
     </section>
 
@@ -453,7 +412,7 @@
     });
 
 
-    /* REGLA 0–135 mm (menú + footer) */
+    /* REGLA 0–135 mm (menú + formulario + footer) */
 
     document.querySelectorAll("[data-mm-scale]").forEach((el) => {
       const MAX = 135;
@@ -593,24 +552,158 @@
     });
 
 
-    /* FORMSPREE */
+    /* INTRO — se aleja y se oscurece mientras el formulario sube encima */
 
+    (function initIntroDepth() {
+      const intro = document.getElementById("contactIntro");
+      const booking = document.getElementById("start");
+      const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      if (!intro || !booking || reduceMotion) return;
+
+      let ticking = false;
+
+      const update = () => {
+        ticking = false;
+        const vh = window.innerHeight;
+        const p = Math.min(1, Math.max(0, 1 - booking.getBoundingClientRect().top / vh));
+        intro.style.setProperty("--p", p.toFixed(3));
+      };
+
+      const request = () => {
+        if (!ticking) {
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+      };
+
+      window.addEventListener("scroll", request, { passive: true });
+      window.addEventListener("resize", request);
+      update();
+    })();
+
+
+    /* FORMULARIO PASO A PASO + FORMSPREE */
+
+    const stepper = document.getElementById("stepper");
     const contactForm = document.querySelector(".contact-form");
 
-    const formSuccess = document.getElementById("formSuccess");
+    if (stepper && contactForm) {
 
+      const steps = Array.from(contactForm.querySelectorAll("[data-step]"));
+      const stepNow = document.getElementById("stepNow");
+      const stepTotal = document.getElementById("stepTotal");
+      const stepFill = document.getElementById("stepFill");
+      const stepHead = document.getElementById("stepHead");
+      const stepMm = document.getElementById("stepMm");
+      const formError = document.getElementById("formError");
+      const isTouch = window.matchMedia("(pointer: coarse)").matches;
 
-    if (contactForm) {
+      let current = 0;
+
+      stepTotal.textContent = String(steps.length).padStart(2, "0");
+
+      // La fecha no puede ser anterior a hoy
+      const dateInput = contactForm.querySelector('input[type="date"]');
+      if (dateInput) {
+        const local = new Date(Date.now() - new Date().getTimezoneOffset() * 60000);
+        dateInput.min = local.toISOString().slice(0, 10);
+      }
+
+      // La regla marca el avance: 0 mm al inicio, 135 mm al terminar
+      function setProgress(index) {
+        const pct = steps.length > 1 ? index / (steps.length - 1) : 0;
+        stepFill.style.transform = "scaleX(" + pct + ")";
+        stepHead.style.left = (pct * 100) + "%";
+        stepMm.textContent = Math.round(pct * 135) + "mm";
+      }
+
+      function showError(step, message) {
+        const box = step.querySelector(".step-error");
+        if (box) box.textContent = message || "";
+      }
+
+      function validateStep(step) {
+        showError(step, "");
+
+        const radios = step.querySelectorAll('input[type="radio"][required]');
+        if (radios.length && !step.querySelector('input[type="radio"]:checked')) {
+          showError(step, "Please choose one option.");
+          return false;
+        }
+
+        const fields = step.querySelectorAll('input:not([type="radio"]), select, textarea');
+        for (const field of fields) {
+          if (!field.checkValidity()) {
+            field.reportValidity();
+            return false;
+          }
+        }
+        return true;
+      }
+
+      function go(index, direction) {
+        steps[current].classList.remove("is-active", "from-next", "from-prev");
+        current = index;
+        const step = steps[current];
+        step.classList.add("is-active", direction > 0 ? "from-next" : "from-prev");
+
+        stepNow.textContent = String(current + 1).padStart(2, "0");
+        setProgress(current);
+
+        if (!isTouch) {
+          const first = step.querySelector('input:not([type="radio"]):not([type="hidden"]), select, textarea');
+          if (first) setTimeout(() => first.focus({ preventScroll: true }), 350);
+        }
+      }
+
+      function next() {
+        if (!validateStep(steps[current])) return;
+        if (current < steps.length - 1) go(current + 1, 1);
+      }
+
+      function back() {
+        if (current > 0) go(current - 1, -1);
+      }
+
+      contactForm.addEventListener("click", (event) => {
+        if (event.target.closest("[data-next]")) next();
+        if (event.target.closest("[data-back]")) back();
+      });
+
+      // Al elegir un servicio, pasa solo al siguiente paso
+      contactForm.querySelectorAll('input[name="service"]').forEach((radio) => {
+        radio.addEventListener("change", () => {
+          showError(steps[0], "");
+          setTimeout(next, 280);
+        });
+      });
+
+      // Enter avanza al siguiente paso en vez de enviar el formulario
+      contactForm.addEventListener("keydown", (event) => {
+        if (event.key === "Enter" && event.target.tagName === "INPUT") {
+          event.preventDefault();
+          if (current < steps.length - 1) next();
+        }
+      });
 
       contactForm.addEventListener("submit", async function (e) {
 
         e.preventDefault();
+
+        if (current < steps.length - 1) {
+          next();
+          return;
+        }
+
+        if (!validateStep(steps[current])) return;
 
         const submitButton = contactForm.querySelector("button[type='submit']");
 
         submitButton.disabled = true;
 
         submitButton.textContent = "SENDING...";
+
+        formError.textContent = "";
 
 
         const formData = new FormData(contactForm);
@@ -633,9 +726,9 @@
 
             submitButton.textContent = "SENT";
 
-            if (formSuccess) {
-              formSuccess.classList.add("show");
-            }
+            setProgress(steps.length - 1);
+
+            stepper.classList.add("is-done");
 
           } else {
 
@@ -643,9 +736,7 @@
 
             submitButton.textContent = "SEND INQUIRY";
 
-            if (formSuccess) {
-              formSuccess.classList.remove("show");
-            }
+            formError.textContent = "Something went wrong. Please try again or email millimetervisuals.studio@gmail.com.";
 
           }
 
@@ -656,15 +747,15 @@
 
           submitButton.textContent = "SEND INQUIRY";
 
-          if (formSuccess) {
-            formSuccess.classList.remove("show");
-          }
+          formError.textContent = "Something went wrong. Please try again or email millimetervisuals.studio@gmail.com.";
 
           console.error("Formspree error:", error);
 
         }
 
       });
+
+      setProgress(0);
 
     }
 
