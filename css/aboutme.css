@@ -387,10 +387,10 @@ button {
 }
 
 /* =========================================================
-   01 — HERO / MISSION (Centrado)
+   01 — PRESENTACIÓN DE LA MARCA
 ========================================================= */
 
-.about-hero {
+.brand-intro {
   position: relative;
   width: 100%;
   min-height: 100vh;
@@ -401,18 +401,200 @@ button {
   justify-content: center;
   text-align: center;
   gap: 28px;
-  padding: calc(var(--nav-height) + 40px) 5% 60px;
+  padding: calc(var(--nav-height) + 60px) 5% 70px;
   background: var(--black);
 }
 
-.about-headline {
-  width: min(950px, 100%);
+.brand-headline {
+  width: min(1000px, 100%);
   font-weight: 900;
-  font-size: clamp(2.4rem, 6.2vw, 5.6rem);
-  line-height: 0.94;
-  letter-spacing: -0.03em;
+  font-size: clamp(2.6rem, 7vw, 6.4rem);
+  line-height: 0.92;
+  letter-spacing: -0.035em;
   text-transform: uppercase;
   color: var(--white);
+}
+
+.brand-headline .dot {
+  color: var(--accent);
+}
+
+.brand-lead {
+  max-width: 640px;
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--white);
+}
+
+.brand-body {
+  max-width: 600px;
+  font-size: clamp(0.9rem, 1.2vw, 1rem);
+  line-height: 1.65;
+  color: var(--grey);
+}
+
+.brand-pillars {
+  width: min(980px, 100%);
+  margin-top: 24px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: left;
+}
+
+.brand-pillar {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.pillar-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.pillar-title {
+  font-weight: 800;
+  font-size: 1.05rem;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+}
+
+.pillar-text {
+  font-size: 0.85rem;
+  line-height: 1.55;
+  color: var(--grey);
+}
+
+/* ---- QUÉ HACEMOS (lista de servicios dentro de la presentación) ---- */
+
+.brand-services {
+  width: min(980px, 100%);
+  margin-top: 28px;
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.brand-services-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 16px;
+}
+
+.brand-services-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--white);
+}
+
+.brand-services-for {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--grey);
+  text-align: right;
+}
+
+.brand-service {
+  display: grid;
+  grid-template-columns: 56px minmax(0, 1fr) minmax(0, 1.3fr);
+  align-items: baseline;
+  gap: 20px;
+  padding: 22px 0;
+  border-top: 1px solid var(--line);
+}
+
+.brand-service:last-of-type {
+  border-bottom: 1px solid var(--line);
+}
+
+.service-num {
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--accent);
+}
+
+.service-name {
+  font-weight: 800;
+  font-size: clamp(1.05rem, 1.8vw, 1.4rem);
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  transition: color 0.3s ease;
+}
+
+.service-desc {
+  font-size: 0.88rem;
+  line-height: 1.55;
+  color: var(--grey);
+}
+
+.brand-service:hover .service-name {
+  color: var(--accent);
+}
+
+/* =========================================================
+   LÍNEA VERTICAL CENTRAL — une la marca con la bio
+   Nace en un punto naranja (el "0" de la regla) y se dibuja
+   a medida que se hace scroll.
+========================================================= */
+
+.about-flow {
+  position: relative;
+}
+
+.spine {
+  position: absolute;
+  top: 0;
+  bottom: 60px;
+  left: 50%;
+  width: 1px;
+  transform: translateX(-0.5px);
+  background: var(--line);
+  z-index: 1;
+  pointer-events: none;
+}
+
+.spine-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--white);
+  transform-origin: top;
+  transform: scaleY(var(--spine, 0));
+}
+
+.spine-dot {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background: var(--accent);
+  transform: translate(-50%, -50%);
+}
+
+.spine-end {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: 1px solid var(--white);
+  background: var(--black);
+  transform: translate(-50%, 50%);
 }
 
 /* =========================================================
@@ -421,7 +603,7 @@ button {
 
 .founder-section {
   width: 100%;
-  min-height: 85vh;
+  min-height: 80vh;
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
@@ -429,17 +611,8 @@ button {
   gap: 50px;
   max-width: 1100px;
   margin: 0 auto;
-  padding: calc(var(--nav-height) + 80px) 5% 100px;
-  background: var(--black);
-}
-
-@media (max-width: 900px) {
-  .founder-section {
-    padding-top: calc(var(--nav-height-mobile) + 60px);
-    grid-template-columns: 1fr;
-    justify-items: center;
-    gap: 40px;
-  }
+  padding: 80px 5% 120px;
+  background: transparent;
 }
 
 /* CONTENEDOR CON TEXTO VERTICAL A LA IZQUIERDA */
@@ -447,6 +620,8 @@ button {
   display: flex;
   align-items: center;
   gap: 20px;
+  justify-self: end;
+  margin-right: 44px;
 }
 
 /* TEXTO GRANDE VERTICAL EN EL LADO IZQUIERDO */
@@ -486,6 +661,9 @@ button {
   align-items: flex-start;
   text-align: left;
   gap: 18px;
+  justify-self: start;
+  margin-left: 44px;
+  max-width: 460px;
 }
 
 .founder-name {
@@ -501,17 +679,47 @@ button {
 @media (max-width: 900px) {
   .founder-section {
     grid-template-columns: 1fr;
-    justify-items: center;
+    justify-items: start;
     gap: 40px;
+    padding: 50px 6% 90px 64px;
+  }
+
+  .founder-media-wrapper {
+    justify-self: start;
+    margin-right: 0;
   }
 
   .founder-info {
-    align-items: center;
-    text-align: center;
+    justify-self: start;
+    margin-left: 0;
+    max-width: 100%;
   }
 
-  .founder-tags {
-    justify-content: center;
+  .spine {
+    left: 28px;
+  }
+
+  .brand-pillars {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .brand-service {
+    grid-template-columns: 40px minmax(0, 1fr);
+    gap: 6px 12px;
+  }
+
+  .service-desc {
+    grid-column: 2;
+  }
+
+  .brand-services-head {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .brand-services-for {
+    text-align: left;
   }
 
   .footer-grid {
