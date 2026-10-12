@@ -6,8 +6,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Millimeter Visuals</title>
 
+    <!-- BIENVENIDA: solo cuando la persona LLEGA al sitio desde fuera (Google, Instagram, link directo).
+         No aparece al volver al home desde otra página del sitio, ni al recargar, ni con el botón Atrás.
+         Se decide antes de pintar la página para que no haya parpadeo. -->
+    <script>
+        (function () {
+            try {
+                var nav = performance.getEntriesByType("navigation")[0];
+                var type = nav ? nav.type : "navigate";
+                var fromInside = false;
+                if (document.referrer) {
+                    fromInside = new URL(document.referrer).origin === location.origin;
+                }
+                if (type === "navigate" && !fromInside) {
+                    document.documentElement.classList.add("has-intro");
+                }
+            } catch (e) { }
+        })();
+    </script>
+
     <!-- Datos estructurados para el nombre oficial en Google -->
-    <script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -29,8 +48,7 @@
 </script>
 
     <!-- META DESCRIPCIÓN PARA BUSCADORES -->
-    <meta name="description"
-        content="Millimeter Visuals is a Boston-based photography and video production, specializing in portraits, brand visuals, corporate headshots, and event production.">
+  <meta name="description" content="Millimeter Visuals is a Boston-based photography and video production, specializing in portraits, brand visuals, corporate headshots, and event production.">
 
     <!-- FAVICON -->
     <link rel="icon" type="image/png" href="/img/favicon-32.png" sizes="32x32">
@@ -54,6 +72,34 @@
 
 <body>
 
+    <!-- =========================================================
+   BIENVENIDA — regla de 0 a 135 mm y luego el logo
+   Solo aparece la primera vez que se entra al sitio en cada visita
+========================================================= -->
+    <div class="intro" id="intro" role="presentation">
+
+        <button type="button" class="intro-skip" id="introSkip">Skip</button>
+
+        <!-- Regla que se llena de 0 a 135 mm -->
+        <div class="intro-measure">
+            <div class="intro-counter" aria-hidden="true">
+                <span class="intro-num" id="introNum">000</span>
+                <span class="intro-unit">mm</span>
+            </div>
+            <div class="intro-ruler" id="introRuler" aria-hidden="true">
+                <span class="intro-head" id="introHead"></span>
+            </div>
+        </div>
+
+        <!-- Logo + nombre -->
+        <div class="intro-brand">
+            <img class="intro-logo" src="img/logo-mv.svg" alt="Millimeter Visuals logo">
+            <p class="intro-name"><span class="line"><span>Millimeter Visuals</span></span></p>
+            <p class="intro-sub"><span class="dot"></span>Photo &amp; Video Production</p>
+        </div>
+
+    </div>
+
     <!-- NAVIGATION (visible desde el inicio) -->
     <header class="nav" id="siteNav">
         <a href="/" class="logo">MILLIMETER VISUALS<sup>™</sup></a>
@@ -73,10 +119,8 @@
         <!-- Fila de contacto -->
         <div class="menu-foot">
             <span class="menu-foot-item">Boston, MA</span>
-            <a href="mailto:millimetervisuals.studio@gmail.com"
-                class="menu-foot-item menu-foot-link">millimetervisuals.studio@gmail.com</a>
-            <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
-                class="menu-foot-item menu-foot-link">@millimetervisuals</a>
+            <a href="mailto:millimetervisuals.studio@gmail.com" class="menu-foot-item menu-foot-link">millimetervisuals.studio@gmail.com</a>
+            <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener" class="menu-foot-item menu-foot-link">@millimetervisuals</a>
         </div>
 
         <!-- Regla 0–135 mm -->
@@ -130,8 +174,6 @@
             </div>
         </div>
 
-        <!-- Regla 0–135 mm -->
-        <div class="mm-scale mm-scale--hero" data-mm-scale aria-hidden="true"></div>
     </section>
 
     <!-- =========================================================
@@ -251,8 +293,7 @@
                 <span>Book a session</span>
                 <span class="footer-arrow" aria-hidden="true">↗</span>
             </a>
-            <p class="footer-note">Photography + video production for entrepreneurs, events &amp; brands — based in
-                Boston.</p>
+            <p class="footer-note">Photography + video production for entrepreneurs, events &amp; brands — based in Boston.</p>
         </div>
 
         <!-- COLUMNAS -->
@@ -280,10 +321,8 @@
 
             <div class="footer-col">
                 <span class="footer-col-title">Connect</span>
-                <a href="mailto:millimetervisuals.studio@gmail.com"
-                    class="footer-link">millimetervisuals.studio@gmail.com</a>
-                <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
-                    class="footer-link">@millimetervisuals</a>
+                <a href="mailto:millimetervisuals.studio@gmail.com" class="footer-link">millimetervisuals.studio@gmail.com</a>
+                <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener" class="footer-link">@millimetervisuals</a>
             </div>
 
         </div>
@@ -308,8 +347,15 @@
     <!-- JAVASCRIPT -->
     <script>
         window.addEventListener("load", () => {
-            document.body.classList.add("loaded");
+            // Con bienvenida activa, la animación del hero espera a que termine
+            if (!document.documentElement.classList.contains("has-intro")) {
+                document.body.classList.add("loaded");
+            }
         });
+
+        function isIntroActive() {
+            return document.documentElement.classList.contains("has-intro");
+        }
 
         // Transición de enlaces
         document.querySelectorAll("a").forEach(link => {
@@ -323,7 +369,7 @@
             });
         });
 
-        // REGLA 0–135 mm (hero + footer)
+        // REGLA 0–135 mm (menú + footer)
         document.querySelectorAll("[data-mm-scale]").forEach((el) => {
             const MAX = 135;
             const track = document.createElement("div");
@@ -376,6 +422,120 @@
         if (menuBtn && fullscreenMenu) {
             menuBtn.addEventListener("click", () => setMenu(!isMenuOpen()));
         }
+
+        // =====================================================
+        // BIENVENIDA — la regla cuenta de 0 a 135 mm y aparece el logo
+        // =====================================================
+        (function initIntro() {
+            const intro = document.getElementById("intro");
+            const root = document.documentElement;
+            if (!intro) return;
+
+            // La persona no llegó desde fuera (viene de otra página del sitio, recargó o usó Atrás): no se muestra
+            if (!root.classList.contains("has-intro")) {
+                intro.remove();
+                return;
+            }
+
+            const MAX = 135;
+            const COUNT_MS = 1500;   // tiempo que tarda la regla en llegar a 135
+            const GAP_MS = 350;      // pausa antes de mostrar el logo
+            const HOLD_MS = 1700;    // tiempo que se queda el logo en pantalla
+            const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+            const ruler = document.getElementById("introRuler");
+            const head = document.getElementById("introHead");
+            const numEl = document.getElementById("introNum");
+            const skipBtn = document.getElementById("introSkip");
+
+            // Marcas de la regla
+            const ticks = [];
+            for (let i = 0; i <= MAX; i++) {
+                const tick = document.createElement("span");
+                tick.className = "intro-tick";
+                tick.style.left = (i / MAX * 100) + "%";
+                if (i === 0) tick.classList.add("is-zero");
+                else if (i % 15 === 0) tick.classList.add("is-major");
+                else if (i % 5 === 0) tick.classList.add("is-mid");
+                if (i % 15 === 0) {
+                    const label = document.createElement("span");
+                    label.className = "intro-num-label";
+                    label.textContent = i === MAX ? i + "mm" : i;
+                    tick.appendChild(label);
+                }
+                ruler.insertBefore(tick, head);
+                ticks.push(tick);
+            }
+
+            let lit = -1;
+            function render(value) {
+                numEl.textContent = String(value).padStart(3, "0");
+                head.style.left = (value / MAX * 100) + "%";
+                while (lit < value) {
+                    lit++;
+                    ticks[lit].classList.add("is-on");
+                }
+            }
+
+            const easeInOut = (t) => t < 0.5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
+
+            let raf = 0;
+            let startTime = 0;
+            let finished = false;
+            const timers = [];
+
+            function cleanup() {
+                intro.remove();
+                root.classList.remove("has-intro");
+                document.body.style.overflow = "";
+            }
+
+            // La pantalla sube y deja ver el hero, que anima al mismo tiempo
+            function leave() {
+                if (finished) return;
+                finished = true;
+                cancelAnimationFrame(raf);
+                timers.forEach(clearTimeout);
+                document.body.classList.add("loaded");
+                intro.classList.add("is-leaving");
+                setTimeout(cleanup, 950);
+            }
+
+            function showBrand() {
+                intro.classList.add("is-full");
+                timers.push(setTimeout(() => {
+                    intro.classList.add("is-brand");
+                    timers.push(setTimeout(leave, HOLD_MS));
+                }, GAP_MS));
+            }
+
+            function frame(now) {
+                if (finished) return;
+                if (!startTime) startTime = now;
+                const t = Math.min(1, (now - startTime) / COUNT_MS);
+                render(Math.round(MAX * easeInOut(t)));
+                if (t < 1) {
+                    raf = requestAnimationFrame(frame);
+                } else {
+                    showBrand();
+                }
+            }
+
+            document.body.style.overflow = "hidden";
+            render(0);
+
+            if (reduceMotion) {
+                render(MAX);
+                showBrand();
+            } else {
+                raf = requestAnimationFrame(frame);
+            }
+
+            skipBtn.addEventListener("click", leave);
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") leave();
+            });
+        })();
 
         // =====================================================
         // HERO — fotos que se funden cada pocos segundos
@@ -603,7 +763,7 @@
         const galleryControllers = galleryData.map(buildController).filter(Boolean);
 
         function getCenteredController() {
-            if (isMenuOpen()) return undefined; // menú abierto: las galerías no reaccionan
+            if (isMenuOpen() || isIntroActive()) return undefined; // menú o bienvenida: las galerías no reaccionan
             return galleryControllers.find((controller) => {
                 const rect = controller.section.getBoundingClientRect();
                 return rect.top >= -50 && rect.bottom <= window.innerHeight + 50;
