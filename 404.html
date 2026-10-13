@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page not found | Millimeter Visuals</title>
+
+  <!-- Esta página no debe aparecer en Google -->
+  <meta name="robots" content="noindex">
+
+  <!-- FAVICON (rutas absolutas: esta página se muestra en cualquier dirección que no exista) -->
+  <link rel="icon" type="image/png" href="/img/favicon-32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="/img/favicon-48.png" sizes="48x48">
+  <link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+
+  <!-- STYLES -->
+  <link rel="stylesheet" href="/css/notfound.css">
+
+  <!-- GOOGLE FONTS -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;900&display=swap" rel="stylesheet">
+
+  <!-- PROTECCIÓN DE FOTOS -->
+  <script src="/js/protect.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <header class="nav" id="siteNav">
+    <a href="/" class="logo">MILLIMETER VISUALS<sup>™</sup></a>
+    <button class="menu-btn" id="menuBtn" aria-expanded="false">MENU <span class="menu-plus">+</span></button>
+  </header>
+
+  <!-- MENÚ PANTALLA COMPLETA -->
+  <div class="fullscreen-menu" id="fullscreenMenu">
+    <div class="menu-inner">
+      <nav class="fullscreen-nav">
+        <a href="/Aboutme.html"><span class="menu-num">01</span>ABOUT</a>
+        <a href="/Services.html"><span class="menu-num">02</span>SERVICES</a>
+        <a href="/contact.html"><span class="menu-num">03</span>CONTACT</a>
+      </nav>
+    </div>
+
+    <div class="menu-foot">
+      <span class="menu-foot-item">Boston, MA</span>
+      <a href="mailto:millimetervisuals.studio@gmail.com"
+        class="menu-foot-item menu-foot-link">millimetervisuals.studio@gmail.com</a>
+      <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener"
+        class="menu-foot-item menu-foot-link">@millimetervisuals</a>
+    </div>
+
+    <div class="mm-scale mm-scale--menu" data-mm-scale aria-hidden="true"></div>
+  </div>
+
+  <!-- CONTENIDO -->
+  <main class="notfound">
+
+    <span class="nf-num" aria-hidden="true">404</span>
+
+    <p class="nf-kicker"><span class="dot"></span>Error 404</p>
+
+    <h1 class="nf-title">
+      <span class="line"><span>Out of</span></span>
+      <span class="line"><span>frame<span class="dot">.</span></span></span>
+    </h1>
+
+    <p class="nf-text">This page doesn't exist or has moved. Head back to the home page to keep exploring.</p>
+
+    <div class="nf-actions">
+      <a href="/" class="nf-home">Back to home <span aria-hidden="true">→</span></a>
+      <a href="/contact.html" class="nf-link">Contact</a>
+    </div>
+
+    <div class="mm-scale notfound-ruler" data-mm-scale aria-hidden="true"></div>
+
+    <span class="notfound-legal">© 2026 — All rights reserved.</span>
+
+  </main>
+
+  <script>
+    window.addEventListener("load", () => document.body.classList.add("loaded"));
+
+    // REGLA 0–135 mm (menú + parte de abajo)
+    document.querySelectorAll("[data-mm-scale]").forEach((el) => {
+      const MAX = 135;
+      const track = document.createElement("div");
+      track.className = "mm-scale-track";
+      for (let i = 0; i <= MAX; i++) {
+        const tick = document.createElement("span");
+        tick.className = "mm-tick";
+        tick.style.left = (i / MAX * 100) + "%";
+        if (i === 0) tick.classList.add("is-zero");
+        else if (i % 15 === 0) tick.classList.add("is-major");
+        else if (i % 5 === 0) tick.classList.add("is-mid");
+        if (i % 15 === 0) {
+          const num = document.createElement("span");
+          num.className = "mm-num";
+          num.textContent = i === MAX ? i + "mm" : i;
+          tick.appendChild(num);
+        }
+        track.appendChild(tick);
+      }
+      el.appendChild(track);
+    });
+
+    // MENÚ pantalla completa
+    const menuBtn = document.getElementById("menuBtn");
+    const fullscreenMenu = document.getElementById("fullscreenMenu");
+
+    function setMenu(open) {
+      if (!menuBtn || !fullscreenMenu) return;
+      fullscreenMenu.classList.toggle("active", open);
+      menuBtn.querySelector(".menu-plus").textContent = open ? "×" : "+";
+      menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.style.overflow = open ? "hidden" : "";
+    }
+
+    if (menuBtn && fullscreenMenu) {
+      menuBtn.addEventListener("click", () => setMenu(!fullscreenMenu.classList.contains("active")));
+    }
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape") setMenu(false);
+    });
+  </script>
+</body>
+
+</html>
