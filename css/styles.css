@@ -706,6 +706,40 @@ body.loaded .hero-foot {
   visibility: visible;
 }
 
+/* ---- FONDO DIFUMINADO: la foto actual, muy desenfocada, detrás del slider ---- */
+.slider-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.slider-bg img {
+  position: absolute;
+  top: -12%;
+  left: -12%;
+  width: 124%;
+  height: 124%;
+  object-fit: cover;
+  opacity: 0;
+  filter: blur(50px) saturate(1.4) brightness(0.62);
+  transition: opacity 0.9s var(--ease);
+  will-change: opacity;
+}
+
+.slider-bg img.is-on {
+  opacity: 1;
+}
+
+/* Oscurece los bordes y mantiene legible el texto */
+.slider-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, rgba(10, 10, 10, 0.2) 0%, rgba(10, 10, 10, 0.7) 100%);
+}
+
 .slider-label {
   font-size: 0.7rem;
   font-weight: 700;
