@@ -7,25 +7,62 @@
 
   <title>Contact | Millimeter Visuals</title>
 
-  <!-- Datos estructurados para el nombre oficial en Google -->
-  <script type="application/ld+json">
+<link rel="canonical" href="https://millimetervisuals.com/">
+
+    <script>
+        (function () {
+            try {
+                var nav = performance.getEntriesByType("navigation")[0];
+                var type = nav ? nav.type : "navigate";
+                var fromInside = false;
+                if (document.referrer) {
+                    fromInside = new URL(document.referrer).origin === location.origin;
+                }
+                if (type === "navigate" && !fromInside) {
+                    document.documentElement.classList.add("has-intro");
+                }
+            } catch (e) { }
+        })();
+    </script>
+
+    <script type="application/ld+json">
 {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "Millimeter Visuals",
-  "alternateName": ["MillimeterVisuals"],
-  "url": "https://millimetervisuals.com/",
-  "logo": "https://millimetervisuals.com/img/IMG_11.png",
-  "email": "millimetervisuals.studio@gmail.com",
-  "sameAs": [
-    "https://www.instagram.com/millimetervisuals"
-  ],
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Boston",
-    "addressRegion": "MA",
-    "addressCountry": "US"
-  }
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://millimetervisuals.com/#website",
+      "url": "https://millimetervisuals.com/",
+      "name": "Millimeter Visuals",
+      "alternateName": [
+        "MillimeterVisuals"
+      ],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "ProfessionalService",
+      "@id": "https://millimetervisuals.com/#business",
+      "name": "Millimeter Visuals",
+      "alternateName": [
+        "MillimeterVisuals"
+      ],
+      "url": "https://millimetervisuals.com/",
+      "logo": "https://millimetervisuals.com/img/logo-512.png",
+      "image": "https://millimetervisuals.com/img/logo-512.png",
+      "description": "Boston photography and video production: portraits, weddings, events, brand visuals and corporate headshots.",
+      "email": "millimetervisuals.studio@gmail.com",
+      "areaServed": "Boston, MA",
+      "sameAs": [
+        "https://www.instagram.com/millimetervisuals"
+      ],
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Boston",
+        "addressRegion": "MA",
+        "addressCountry": "US"
+      }
+    }
+  ]
 }
 </script>
 
