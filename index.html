@@ -5,10 +5,17 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Millimeter Visuals | Photo & Video Production</title>
-    <meta name="description" content="Portraits, weddings, events and brand visuals."> 
-    
-    <link rel="canonical" href="https://millimetervisuals.com/">
 
+    <!-- Dirección principal de esta página -->
+    <link rel="canonical" href="https://millimetervisuals.com/">
+    <meta property="og:site_name" content="Millimeter Visuals">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Millimeter Visuals | Photo &amp; Video Production">
+    <meta property="og:url" content="https://millimetervisuals.com/">
+
+    <!-- BIENVENIDA: solo cuando la persona LLEGA al sitio desde fuera (Google, Instagram, link directo).
+         No aparece al volver al home desde otra página del sitio, ni al recargar, ni con el botón Atrás.
+         Se decide antes de pintar la página para que no haya parpadeo. -->
     <script>
         (function () {
             try {
@@ -25,7 +32,8 @@
         })();
     </script>
 
-    <script type="application/ld+json">
+    <!-- Datos estructurados para el nombre oficial en Google -->
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
@@ -50,7 +58,6 @@
       "logo": "https://millimetervisuals.com/img/logo-512.png",
       "image": "https://millimetervisuals.com/img/logo-512.png",
       "description": "Photography and video production: portraits, weddings, events, brand visuals and corporate headshots.",
-      "email": "millimetervisuals.studio@gmail.com",
       "areaServed": "Boston, MA",
       "sameAs": [
         "https://www.instagram.com/millimetervisuals"
@@ -66,26 +73,43 @@
 }
 </script>
 
+    <!-- META DESCRIPCIÓN PARA BUSCADORES -->
+  <meta name="description" content="Portraits, weddings, events and brand visuals.">
+
+    <!-- FAVICON -->
     <link rel="icon" type="image/png" href="/img/favicon-32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="/img/favicon-48.png" sizes="48x48">
     <link rel="icon" type="image/png" href="/img/favicon-192.png" sizes="192x192">
     <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
 
+    <!-- STYLES CSS -->
     <link rel="stylesheet" href="css/styles.css">
 
+     <!-- JS -->
     <script src="js/protect.js" defer></script>
 
+    <!-- FONT AWESOME -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- GOOGLE FONTS -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&family=Playfair+Display:ital,wght@1,400;1,600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,600;0,700;0,900;1,400&family=Playfair+Display:ital,wght@1,400;1,600&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
 
-    <!-- BIENVENIDA INTRO -->
+    <!-- =========================================================
+   BIENVENIDA — regla de 0 a 135 mm y luego el logo
+   Solo aparece la primera vez que se entra al sitio en cada visita
+========================================================= -->
     <div class="intro" id="intro" role="presentation">
+
         <button type="button" class="intro-skip" id="introSkip">Skip</button>
+
+        <!-- Regla que se llena de 0 a 135 mm -->
         <div class="intro-measure">
             <div class="intro-counter" aria-hidden="true">
                 <span class="intro-num" id="introNum">000</span>
@@ -95,14 +119,17 @@
                 <span class="intro-head" id="introHead"></span>
             </div>
         </div>
+
+        <!-- Logo + nombre -->
         <div class="intro-brand">
             <img class="intro-logo" src="img/logo-mv.svg" alt="Millimeter Visuals logo">
             <p class="intro-name"><span class="line"><span>Millimeter Visuals</span></span></p>
             <p class="intro-sub"><span class="dot"></span>Photo &amp; Video Production</p>
         </div>
+
     </div>
 
-    <!-- NAVIGATION -->
+    <!-- NAVIGATION (visible desde el inicio) -->
     <header class="nav" id="siteNav">
         <a href="/" class="logo">MILLIMETER VISUALS<sup>™</sup></a>
         <button class="menu-btn" id="menuBtn">MENU <span class="menu-plus">+</span></button>
@@ -117,16 +144,24 @@
                 <a href="contact.html"><span class="menu-num">03</span>CONTACT</a>
             </nav>
         </div>
-        <div class="menu-foot">
+
+        <!-- Fila de contacto -->
+        <div class="menu-foot" data-nosnippet>
             <span class="menu-foot-item">Boston, MA</span>
             <a href="mailto:millimetervisuals.studio@gmail.com" class="menu-foot-item menu-foot-link">millimetervisuals.studio@gmail.com</a>
             <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener" class="menu-foot-item menu-foot-link">@millimetervisuals</a>
         </div>
+
+        <!-- Regla 0–135 mm -->
         <div class="mm-scale mm-scale--menu" data-mm-scale aria-hidden="true"></div>
     </div>
 
-    <!-- HERO SECTION -->
+    <!-- =========================================================
+   HERO — fotos a pantalla completa + nombre + regla de milímetros
+========================================================= -->
     <section class="hero" id="heroSection">
+
+        <!-- Fotos que se funden entre sí -->
         <div class="hero-slides" id="heroSlides">
             <div class="hero-slide is-active" data-label="Portraits">
                 <img src="img/IMG_9192.jpg" alt="Portrait photography by Millimeter Visuals">
@@ -140,11 +175,13 @@
         </div>
 
         <div class="hero-content">
-            <p class="hero-kicker"><span class="dot"></span>Boston — Portrait, Event + Visual Media</p>
+            <p class="hero-kicker"><span data-nosnippet style="display:contents"><span class="dot"></span>Boston — Portrait, Event + Visual Media</span></p>
+
             <h1 class="hero-headline">
                 <span class="line"><span>Photo &amp; Video</span></span>
                 <span class="line"><span>Production</span></span>
             </h1>
+
         </div>
 
         <div class="hero-foot">
@@ -159,10 +196,15 @@
                 <span class="hero-scroll-line"></span>
             </div>
         </div>
+
     </section>
 
-    <!-- GALERÍA 01 — PORTRAITS -->
+    <!-- =========================================================
+   GALERÍA 01 — PORTRAITS
+========================================================= -->
     <section class="hgallery" id="portraitsGallery" data-gallery>
+
+        <!-- PORTADA -->
         <div class="gallery-cover" data-cover>
             <div class="cover-media">
                 <img src="img/IMG_9192.jpg" alt="Portraits">
@@ -177,6 +219,8 @@
                 <span class="cover-scroll-hint">Scroll to explore</span>
             </div>
         </div>
+
+        <!-- SLIDER HORIZONTAL -->
         <div class="gallery-slider" data-slider>
             <span class="slider-label" data-slider-label>Portraits</span>
             <div class="slider-viewport">
@@ -184,6 +228,7 @@
             </div>
             <div class="slider-thumbs" data-thumbs></div>
         </div>
+
         <div class="gallery-count" data-count>
             <span data-current>01</span>
             <span class="count-divider"></span>
@@ -191,8 +236,11 @@
         </div>
     </section>
 
-    <!-- GALERÍA 02 — WEDDINGS & ENGAGEMENTS -->
+    <!-- =========================================================
+   GALERÍA 02 — WEDDINGS & ENGAGEMENTS
+========================================================= -->
     <section class="hgallery" id="weddingGallery" data-gallery>
+
         <div class="gallery-cover" data-cover>
             <div class="cover-media">
                 <img src="img/4G6A8943.jpg" alt="Weddings & Engagements">
@@ -207,6 +255,7 @@
                 <span class="cover-scroll-hint">Scroll to explore</span>
             </div>
         </div>
+
         <div class="gallery-slider" data-slider>
             <span class="slider-label" data-slider-label>Weddings &amp; Engagements</span>
             <div class="slider-viewport">
@@ -214,6 +263,7 @@
             </div>
             <div class="slider-thumbs" data-thumbs></div>
         </div>
+
         <div class="gallery-count" data-count>
             <span data-current>01</span>
             <span class="count-divider"></span>
@@ -221,8 +271,11 @@
         </div>
     </section>
 
-    <!-- GALERÍA 03 — STUDIO -->
+    <!-- =========================================================
+   GALERÍA 03 — STUDIO
+========================================================= -->
     <section class="hgallery" id="studioGallery" data-gallery>
+
         <div class="gallery-cover" data-cover>
             <div class="cover-media">
                 <img src="img/445.jpg" alt="Studio">
@@ -237,6 +290,7 @@
                 <span class="cover-scroll-hint">Scroll to explore</span>
             </div>
         </div>
+
         <div class="gallery-slider" data-slider>
             <span class="slider-label" data-slider-label>Studio</span>
             <div class="slider-viewport">
@@ -244,6 +298,7 @@
             </div>
             <div class="slider-thumbs" data-thumbs></div>
         </div>
+
         <div class="gallery-count" data-count>
             <span data-current>01</span>
             <span class="count-divider"></span>
@@ -251,8 +306,10 @@
         </div>
     </section>
 
-    <!-- FOOTER PRINCIPAL -->
+    <!-- FOOTER PRINCIPAL DE MARCA -->
     <footer class="site-footer" id="siteFooter">
+
+        <!-- LLAMADA A LA ACCIÓN -->
         <div class="footer-cta">
             <p class="footer-eyebrow"><span class="dot"></span>Ready when you are</p>
             <a href="contact.html" class="footer-cta-link">
@@ -261,40 +318,49 @@
             </a>
         </div>
 
-        <div class="footer-grid">
+        <!-- COLUMNAS -->
+        <div class="footer-grid" data-nosnippet>
+
             <div class="footer-col">
                 <span class="footer-col-title">Studio</span>
                 <span class="footer-text">Boston, MA</span>
                 <span class="footer-text">Photo &amp; Video Production</span>
             </div>
+
             <div class="footer-col">
                 <span class="footer-col-title">Collections</span>
                 <a href="#portraitsGallery" class="footer-link">Portraits</a>
                 <a href="#weddingGallery" class="footer-link">Weddings &amp; Engagements</a>
                 <a href="#studioGallery" class="footer-link">Studio</a>
             </div>
+
             <div class="footer-col">
                 <span class="footer-col-title">Navigate</span>
                 <a href="Aboutme.html" class="footer-link">About</a>
                 <a href="Services.html" class="footer-link">Services</a>
                 <a href="contact.html" class="footer-link">Contact</a>
             </div>
+
             <div class="footer-col">
                 <span class="footer-col-title">Connect</span>
                 <a href="mailto:millimetervisuals.studio@gmail.com" class="footer-link">millimetervisuals.studio@gmail.com</a>
                 <a href="https://www.instagram.com/millimetervisuals" target="_blank" rel="noopener" class="footer-link">@millimetervisuals</a>
             </div>
+
         </div>
 
-        <div class="footer-bottom">
+        <!-- FILA LEGAL -->
+        <div class="footer-bottom" data-nosnippet>
             <span>© 2026 — All rights reserved</span>
             <a href="#" class="footer-top-link">Back to top <span aria-hidden="true">↑</span></a>
         </div>
 
+        <!-- Regla 0–135 mm (la misma del hero) -->
         <div class="mm-scale" data-mm-scale aria-hidden="true"></div>
+
     </footer>
 
-    <!-- LIGHTBOX -->
+    <!-- LIGHTBOX (FUERA DEL FOOTER) -->
     <div class="lightbox" id="lightbox">
         <button class="lightbox-close" id="lightboxClose" aria-label="Close">×</button>
         <img src="" alt="Enlarged photo view" id="lightbox-img">
@@ -303,6 +369,7 @@
     <!-- JAVASCRIPT -->
     <script>
         window.addEventListener("load", () => {
+            // Con bienvenida activa, la animación del hero espera a que termine
             if (!document.documentElement.classList.contains("has-intro")) {
                 document.body.classList.add("loaded");
             }
@@ -312,6 +379,7 @@
             return document.documentElement.classList.contains("has-intro");
         }
 
+        // Transición de enlaces
         document.querySelectorAll("a").forEach(link => {
             link.addEventListener("click", function (e) {
                 const href = this.getAttribute("href");
@@ -323,6 +391,7 @@
             });
         });
 
+        // REGLA 0–135 mm (menú + footer)
         document.querySelectorAll("[data-mm-scale]").forEach((el) => {
             const MAX = 135;
             const track = document.createElement("div");
@@ -345,6 +414,7 @@
             el.appendChild(track);
         });
 
+        // NAV: visible desde el inicio; se oscurece suavemente al hacer scroll
         const siteNav = document.getElementById("siteNav");
 
         const updateNavState = () => {
@@ -355,12 +425,14 @@
         window.addEventListener("scroll", updateNavState, { passive: true });
         updateNavState();
 
+        // Menu Pantalla Completa
         const menuBtn = document.getElementById("menuBtn");
         const fullscreenMenu = document.getElementById("fullscreenMenu");
         function isMenuOpen() {
             return !!fullscreenMenu && fullscreenMenu.classList.contains("active");
         }
 
+        // Abre/cierra el menú y bloquea el scroll de la página mientras está abierto
         function setMenu(open) {
             if (!menuBtn || !fullscreenMenu) return;
             fullscreenMenu.classList.toggle("active", open);
@@ -373,20 +445,24 @@
             menuBtn.addEventListener("click", () => setMenu(!isMenuOpen()));
         }
 
+        // =====================================================
+        // BIENVENIDA — la regla cuenta de 0 a 135 mm y aparece el logo
+        // =====================================================
         (function initIntro() {
             const intro = document.getElementById("intro");
             const root = document.documentElement;
             if (!intro) return;
 
+            // La persona no llegó desde fuera (viene de otra página del sitio, recargó o usó Atrás): no se muestra
             if (!root.classList.contains("has-intro")) {
                 intro.remove();
                 return;
             }
 
             const MAX = 135;
-            const COUNT_MS = 1500;
-            const GAP_MS = 350;
-            const HOLD_MS = 1700;
+            const COUNT_MS = 1500;   // tiempo que tarda la regla en llegar a 135
+            const GAP_MS = 350;      // pausa antes de mostrar el logo
+            const HOLD_MS = 1700;    // tiempo que se queda el logo en pantalla
             const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
             const ruler = document.getElementById("introRuler");
@@ -394,6 +470,7 @@
             const numEl = document.getElementById("introNum");
             const skipBtn = document.getElementById("introSkip");
 
+            // Marcas de la regla
             const ticks = [];
             for (let i = 0; i <= MAX; i++) {
                 const tick = document.createElement("span");
@@ -435,6 +512,7 @@
                 document.body.style.overflow = "";
             }
 
+            // La pantalla sube y deja ver el hero, que anima al mismo tiempo
             function leave() {
                 if (finished) return;
                 finished = true;
@@ -481,6 +559,9 @@
             });
         })();
 
+        // =====================================================
+        // HERO — fotos que se funden cada pocos segundos
+        // =====================================================
         (function initHeroSlides() {
             const slides = document.querySelectorAll("#heroSlides .hero-slide");
             const currentEl = document.getElementById("heroCurrent");
@@ -505,6 +586,10 @@
             setInterval(() => show((active + 1) % slides.length), 5500);
         })();
 
+        // =====================================================
+        // GALLERY SYSTEM — PORTADA + SLIDER HORIZONTAL
+        // =====================================================
+
         const galleryData = [
             {
                 sectionId: "portraitsGallery",
@@ -512,14 +597,18 @@
                     { src: "img/IMG_9191.jpg", alt: "Portrait photography" },
                     { src: "img/IMG_9190.jpg", alt: "Portrait photography" },
                     { src: "img/IMG_9192.jpg", alt: "Portrait photography" },
+
                     { src: "img/4G6A0077.jpg", alt: "Portrait photography" },
                     { src: "img/4G6A0088.jpg", alt: "Portrait photography" },
                     { src: "img/4G6A0123.jpg", alt: "Portrait photography" },
+
                     { src: "img/IMG_0331.jpg", alt: "Portrait photography" },
                     { src: "img/IMG_0340.jpg", alt: "Portrait photography" },
                     { src: "img/IMG_0315.jpg", alt: "Portrait photography" },
+
                     { src: "img/IMG_1057.jpg", alt: "Portrait photography" },
                     { src: "img/IMG_1016.jpg", alt: "Portrait photography" },
+
                     { src: "img/IMG_1663.jpg", alt: "Portrait photography" },
                     { src: "img/IMG_1671.jpg", alt: "Portrait photography" },
                     { src: "img/4G6A004.jpg", alt: "Portrait photography" }
@@ -534,6 +623,7 @@
                     { src: "img/4G6A8942.jpg", alt: "Wedding and engagement photography" },
                     { src: "img/IMG_3655.jpg", alt: "Wedding and engagement photography" },
                     { src: "img/IMG_3681.jpg", alt: "Wedding and engagement photography" },
+
                     { src: "img/IMG_1216.jpg", alt: "Wedding and engagement photography" },
                     { src: "img/IMG_1255.jpg", alt: "Wedding and engagement photography" },
                     { src: "img/IMG_1207.jpg", alt: "Wedding and engagement photography" },
@@ -547,7 +637,9 @@
                     { src: "img/IMG_4464.jpg", alt: "Studio photography" },
                     { src: "img/IMG_4454.jpg", alt: "Studio photography" },
                     { src: "img/IMG_4466.jpg", alt: "Studio photography" },
+
                     { src: "img/IMG_3535.jpg", alt: "Studio photography" },
+
                     { src: "img/IMG_8333.jpg", alt: "Studio photography" },
                     { src: "img/IMG_8343.jpg", alt: "Studio photography" },
                     { src: "img/IMG_8356.jpg", alt: "Studio photography" },
@@ -577,6 +669,7 @@
                 index: 0
             };
 
+            // Fondo difuminado: dos capas que se funden cuando cambia la foto
             const backdrop = document.createElement("div");
             backdrop.className = "slider-bg";
             backdrop.setAttribute("aria-hidden", "true");
@@ -598,6 +691,7 @@
                 const card = document.createElement("div");
                 card.className = "slider-card";
                 card.innerHTML = `<img src="${item.src}" alt="${item.alt}" decoding="async">`;
+                // Foto central -> abre el lightbox. Foto lateral -> pasa al centro.
                 card.addEventListener("click", () => {
                     if (controller.phase === "slider" && controller.index !== index) {
                         goTo(controller, index);
@@ -605,6 +699,7 @@
                         openLightbox(item.src);
                     }
                 });
+                // Al cargar cada foto cambia su ancho: se vuelve a centrar
                 card.querySelector("img").addEventListener("load", () => {
                     if (controller.phase === "slider") updateTrackPosition(controller);
                 });
@@ -624,6 +719,7 @@
             return controller;
         }
 
+        // Centra la foto activa en el medio de la pantalla
         function getOffsetForIndex(controller) {
             const card = controller.trackEl.children[controller.index];
             const viewport = controller.trackEl.parentElement;
@@ -651,6 +747,7 @@
             });
         }
 
+        // El fondo difuminado sigue a la foto que se está viendo
         function updateBackdrop(controller) {
             const layers = controller.bgLayers;
             if (!layers) return;
@@ -662,7 +759,7 @@
             const outgoing = layers[controller.bgActive];
 
             const show = () => {
-                if (controller.bgSrc !== src) return;
+                if (controller.bgSrc !== src) return;   // ya cambió a otra foto
                 incoming.onload = null;
                 incoming.classList.add("is-on");
                 outgoing.classList.remove("is-on");
@@ -728,7 +825,7 @@
         const galleryControllers = galleryData.map(buildController).filter(Boolean);
 
         function getCenteredController() {
-            if (isMenuOpen() || isIntroActive()) return undefined;
+            if (isMenuOpen() || isIntroActive()) return undefined; // menú o bienvenida: las galerías no reaccionan
             return galleryControllers.find((controller) => {
                 const rect = controller.section.getBoundingClientRect();
                 return rect.top >= -50 && rect.bottom <= window.innerHeight + 50;
@@ -741,6 +838,7 @@
             setTimeout(() => { isCoolingDown = false; }, ms);
         }
 
+        // Traduce una "intención" de scroll en portada -> slider -> siguiente foto -> siguiente sección
         function handleIntent(controller, deltaY, event) {
             const goingDown = deltaY > 0;
 
@@ -756,6 +854,7 @@
                 return;
             }
 
+            // phase === "slider"
             if (goingDown) {
                 if (controller.index < controller.items.length - 1) {
                     event.preventDefault();
@@ -784,12 +883,14 @@
             }
         }
 
+        // RUEDA (desktop / trackpad)
         window.addEventListener("wheel", (e) => {
             const controller = getCenteredController();
             if (!controller) return;
             handleIntent(controller, e.deltaY, e);
         }, { passive: false });
 
+        // TOUCH (móvil)
         let touchStartY = null;
         window.addEventListener("touchstart", (e) => {
             touchStartY = e.touches[0].clientY;
@@ -810,6 +911,7 @@
             touchStartY = null;
         });
 
+        // TECLADO
         window.addEventListener("keydown", (e) => {
             const controller = getCenteredController();
             if (!controller) return;
@@ -820,12 +922,14 @@
             }
         });
 
+        // Recalcula la posición del slider activo si cambia el tamaño de ventana
         window.addEventListener("resize", () => {
             galleryControllers.forEach((controller) => {
                 if (controller.phase === "slider") updateTrackPosition(controller);
             });
         });
 
+        // Lightbox
         const lightbox = document.getElementById("lightbox");
         const lbImg = document.getElementById("lightbox-img");
         const lbClose = document.getElementById("lightboxClose");
